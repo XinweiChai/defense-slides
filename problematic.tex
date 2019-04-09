@@ -1,0 +1,24 @@
+    \begin{tikzpicture}[line,>=stealth]
+    \small
+        \onslide<1->{\node [color=gray] (1) {Real world};}
+        \onslide<2->{\node [below = 4cm of 1] (3) {Partial observation};}
+        \onslide<2->{\draw [dashed,->] (1) -- (3);}
+        \onslide<3->{\node [right = of 3] (4) {\textit{Learning}};}
+        \onslide<3->{\draw [->] (3) -- (4);}
+        \onslide<7->{\node [color=blue,right = of 1] (2) {Temporal properties};}
+        \onslide<8->{\node [color=blue,right = of 2] (5) {Reachability};}
+        \onslide<4->{\node [below = 3.95cm of 5] (8) {Model};}
+        \onslide<4->{\draw [->] (4) -- (8);}
+        \draw<5>[->,thick,dashed,color=red] (8) to node[color=black] {\LARGE X} (1);
+        \node<5>[above left = 2cm and -1cm of 8, text width = 3cm, color=blue]{Inconsistent with real world behaviors};
+        \onslide<6->{\node [color=blue,above = of 2] (6) {Biological \textit{a priori} knowledge};}
+        \onslide<6->{\draw [dashed,->] (1) -- (6);}
+        \onslide<8->{\draw [color=blue,->] (2) -- (5);}
+        \onslide<7->{\draw [color=blue, ->] (6) -- (2);}
+        \onslide<9->{\node [color=red, above = 2cm of 4] (7) {\textit{Model Checking}};}
+        \onslide<10->{\node [draw, circle, color = red, above = 2cm of 8] (9) {$+$};}
+        \onslide<10->{\draw [thick, color=red] (4) --(9);}
+        \onslide<9->{\draw [->] (5) --(7);}
+        \onslide<10->{\draw [thick, color=red] (7) --(9);}
+        \onslide<11->{\draw [thick, color=red] (9)--(8);}
+    \end{tikzpicture}

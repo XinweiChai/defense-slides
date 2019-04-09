@@ -1,0 +1,16 @@
+\begin{tikzpicture}
+\footnotesize
+    \node[ellipse, fill=blue!20] (reach) at (0, 0) {Reachability problem};
+    \node[ellipse, fill=purple!20, below left = 0.6cm of reach] (full) {Exhaustive analysis};
+    \node[ellipse, fill=purple!20, below right = 0.6cm of reach] (part) {Partial analysis};
+    \node[ellipse, fill=purple!20, below = 0.6cm of full, text width = 3cm] (propfull) {Explore the whole state space $\to$ exponential \frownie{}};
+    \node[ellipse, fill=purple!20, below = 0.6cm of part, text width = 3cm] (proppart) {Explore a part of the state space $\to$ computable \smiley{}};
+    \node[ellipse, fill=purple!20, below = 0.6cm of proppart, text width = 3cm] (incomp) {Incomplete search \frownie{}};
+    \draw[->,thick] (reach) -- (full);
+    \draw[->,thick] (full) -- (propfull);
+    \draw[->,thick] (reach) -- (part);
+    \draw[->,thick] (part) -- (proppart);
+    \draw[->,thick] (proppart) -- (incomp);
+    \node[draw, dashed, color = blue!50, below = 0.6cm of propfull, text width = 3cm] (heu) {Some heuristics in the non searched area?};
+    %\draw[thick,blue,rounded corners=1mm,dashed,fill=gray!40,opacity=0.2] (heu) \irregularcircle{3cm}{3mm};
+\end{tikzpicture}

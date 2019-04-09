@@ -1,10 +1,5 @@
-
-
 %themes:    * default * Boadilla * Madrid * Pittsburgh * Rochester         [ works best as \usetheme[height=7mm]{Rochester} ] * Copenhagen * Warsaw * Singapore * Malmoe 
-
-% sample.tex
-
-\documentclass[10pt]{beamer}
+\documentclass[9pt]{beamer}
 
 %setup the theme
 \usetheme{Warsaw}
@@ -13,7 +8,7 @@
 \setbeamertemplate{items}[ball]
 \setbeamertemplate{blocks}[rounded][shadow=true] 
 \setbeamertemplate{navigation symbols}{} 
-
+\usepackage{wasysym}
 %algorithm
 \usepackage{algorithm}
 %for box
@@ -27,6 +22,7 @@
 %this package will be used for outline
 \usepackage{tikz}
 \usepackage{pgf}
+\usepackage{adjustbox}
 \usetikzlibrary{mindmap,scopes,arrows,shapes,chains,positioning,fit,backgrounds,decorations}
 %\tikzstyle{block}=[draw opacity=0.7,line width=1.4cm]
 
@@ -63,7 +59,7 @@
 
 
 %title page
-\title[Reachability Analysis and Revision of Dynamics]{Reachability Analysis and Revision of Dynamics of Biological Regulatory Networks}
+\title[Reachability Analysis and Revision of Dynamics]{Reachability Analysis and Revision of Dynamics of\\ Biological Regulatory Networks}
 \author[X.Chai]{Xinwei Chai}
 \institute[LS2N]{
 Le Laboratoire des Sciences du Num\'erique de Nantes\\
@@ -103,15 +99,29 @@ Le Laboratoire des Sciences du Num\'erique de Nantes\\
 
 
 \begin{frame}{Positioning of Our Work}
-\begin{figure}
+\begin{adjustbox}{max totalsize={.9\textwidth}{.9\textheight},center}
     \centering
     \input{overview.tex}
-\end{figure}
+\end{adjustbox}
 \end{frame}
 
 
 %--- the methods part	 -------------------------%
 \section{Motivation}
+\begin{frame}{Problematic of Reachability Problem}
+    \centering
+    \input{compare.tex}
+\end{frame}
+\begin{frame}{Problematic of Reachability Problem}
+    \centering
+    \input{vennDiagram.tex}
+\end{frame}
+
+\begin{frame}{Problematic of Model Inference}
+    \centering
+    \input{problematic.tex}
+\end{frame}
+
 \begin{frame}
 \begin{itemize}
     \item Hybrid analyzer is more performing in reachability analysis
