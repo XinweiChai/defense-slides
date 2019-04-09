@@ -1,0 +1,127 @@
+
+
+%themes:    * default * Boadilla * Madrid * Pittsburgh * Rochester         [ works best as \usetheme[height=7mm]{Rochester} ] * Copenhagen * Warsaw * Singapore * Malmoe 
+
+% sample.tex
+
+\documentclass[10pt]{beamer}
+
+%setup the theme
+\usetheme{Warsaw}
+\useoutertheme{infolines} 
+%\usetheme[height=7mm]{Rochester} 
+\setbeamertemplate{items}[ball]
+\setbeamertemplate{blocks}[rounded][shadow=true] 
+\setbeamertemplate{navigation symbols}{} 
+
+%algorithm
+\usepackage{algorithm}
+%for box
+\usepackage{fancybox}
+%use movie pack
+\usepackage{multimedia}
+%comment a lot of lines
+\usepackage{verbatim} 
+\usepackage{hyperref}
+\usepackage[all]{xy}
+%this package will be used for outline
+\usepackage{tikz}
+\usepackage{pgf}
+\usetikzlibrary{mindmap,scopes,arrows,shapes,chains,positioning,fit,backgrounds,decorations}
+%\tikzstyle{block}=[draw opacity=0.7,line width=1.4cm]
+
+\tikzstyle{every picture}+=[remember picture]
+
+\renewcommand{\thefootnote}{}
+\newcommand{\specialcell}[2][c]{%
+\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\newcommand{\ttrd}{\textcolor{red}}
+
+  \tikzset{%
+  highlight/.style={rectangle,rounded corners,fill=red!15,draw,fill opacity=0.5,thick,inner sep=0pt}
+  }
+  \newcommand{\tikzmark}[2]{\tikz[overlay,remember picture,baseline=(#1.base)] \node (#1) {#2};}
+  %
+  \newcommand{\Highlight}[1][submatrix]{%
+  \tikz[overlay,remember picture]{
+  \node[highlight,fit=(left.north west) (right.south east)] (#1) {};}
+  }
+
+  %for flowchart
+\tikzstyle{decision} = [diamond, draw, fill=blue!20,
+    text width=2.5em, text badly centered, node distance=2.5cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20,
+    text width=2em, text centered, node distance=2.5cm, rounded corners, minimum height=2em]
+\tikzstyle{line} = [draw, very thick, color=black!50, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=2cm,
+    minimum height=2em]
+\tikzstyle{round} = [draw, circle, node distance=2cm,
+    minimum height=2em]
+
+\usepackage{calc}
+\usepackage{fp}
+
+
+%title page
+\title[Reachability Analysis and Revision of Dynamics]{Reachability Analysis and Revision of Dynamics of Biological Regulatory Networks}
+\author[X.Chai]{Xinwei Chai}
+\institute[LS2N]{
+Le Laboratoire des Sciences du Num\'erique de Nantes\\
+\'Ecole Centrale de Nantes\\
+\texttt{xinwei.chai@ls2n.fr}
+
+\vspace{1cm}
+\begin{tabular}{r@{\ \ }l}
+\textbf{Rapporteurs :}
+& Gilles BERNOT, Professeur des universit\'es,
+    Universit\'e C\^ote d'Azur \\
+& Pascale LE GALL, Professeur des universit\'es,
+    Centrale Sup\'elec \vspace*{1em} \\
+\textbf{Examinateurs :}
+& B\'eatrice DUVAL, Professeur des universit\'es, Universit\'e d'Angers  \\
+& Lo\"ic PAULEV\'E, Charg\'e de recherche,
+    LaBRI, UMR CNRS \vspace*{1em} \\
+\textbf{Directeur de th\`ese :}
+& Olivier ROUX, Professeur des universit\'es,
+    \'Ecole centrale de Nantes \\
+\textbf{Co-encadrant de th\`ese :}
+& Morgan MAGNIN, Professeur des universit\'es,
+    \'Ecole centrale de Nantes
+\end{tabular}
+
+}
+\date[May 24, 2019]{May 24, 2019}
+\begin{document}
+
+%--- the titlepage frame -------------------------%
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+
+%this will make outline is showed for every subsection
+
+
+\begin{frame}{Positioning of Our Work}
+\begin{figure}
+    \centering
+    \input{overview.tex}
+\end{figure}
+\end{frame}
+
+
+%--- the methods part	 -------------------------%
+\section{Motivation}
+\begin{frame}
+\begin{itemize}
+    \item Hybrid analyzer is more performing in reachability analysis
+\end{itemize}
+
+In computer science, the more common defense is based on empirical results from running an experiment. A good defense here means more than one example, and answers to questions such as the following. What are the capabilities and limits of your experiment? How often do the things that your experiment does come up in the real world? What's involved in extending it? If it's easy to extend, why haven't you? If your example is a piece of a larger system, how realistic are your assumptions about input and output?
+
+\end{frame}
+
+
+
+
+\end{document}

@@ -1,0 +1,47 @@
+\begin{tikzpicture}[mindmap,
+    level 1 concept/.append style={level distance=60,sibling angle=30},
+    extra concept/.append style={color=blue!50,text=black}, every node/.style={scale=0.4}]
+
+    \onslide<1->{\begin{scope}[mindmap, concept color=blue,text=white]
+            \node [concept] (bioapp) at (2,3.4) {Biological Applications} [counterclockwise from=30] 
+            child{node [concept] (bioen) {Bioengineered livers}}
+            child{node [concept] (int) {Inter-cellular signaling}}
+            child{node [concept] (env) {Enviromental toxicology}}
+            child{node [concept] (inf) {Infectious diseases}}
+            child{node [concept] (cell) {Cell cycle}};
+    \end{scope}}
+
+    \onslide<2->{\begin{scope}[mindmap, concept color=orange, text=white]
+        \node [concept] (exp) {Experimental Approaches}[counterclockwise from=90] 
+            child{node [concept] (dna) {DNA microarrays}}
+            child{node [concept] (prot) {Proteomics}}
+            child{node [concept] (rtms) {Real-time mass spectroscopy}}
+            child{node [concept] (mic) {Microfluidics}};
+    \end{scope}}
+
+    \onslide<4->{\begin{scope}[mindmap, concept color=red,text=white]
+        \node [concept] (mod) at (4,0) {Modeling and Computation}[counterclockwise from=0] 
+            child{node [concept] (net) {Network biology}}
+            child{node [concept] (csm) {Predictive models}}
+            child{node [concept] (gra) {Graph theory}}
+            child{node [concept] (sim) {Simulation}};
+    \end{scope}}
+
+    % Connections of researchers to applied subfields
+
+    \begin{pgfonlayer}{background}
+        \onslide<3->{\draw [circle connection bar]
+            (exp) edge (bioapp);}
+        \onslide<5->{\draw [circle connection bar]
+            (bioapp) edge (mod);}
+        \onslide<6->{\draw [circle connection bar]
+            (mod) edge (exp);}
+    \end{pgfonlayer}
+        
+    
+    \onslide<7>{\node[text width=4cm, align=center] (ellip) at (4.8,0.8) {};
+        \draw[thick, draw=black] (ellip) ellipse (2.5 and 2);
+      \node (mark) at (6,5.5) [text width=7cm, align=center,ellipse]  {\Huge{Our work is here}};
+      \draw[->,very thick, bend left=15] (mark) edge[->] (5.3,3);}
+    
+\end{tikzpicture}
