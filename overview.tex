@@ -3,33 +3,33 @@
     extra concept/.append style={color=blue!50,text=black}, every node/.style={scale=0.4}]
 
     \begin{scope}[mindmap, concept color=blue,text=white]
-            \node<1-> [concept] (bioapp) at (2,3.4) {Biological Applications} [counterclockwise from=30] 
+            \onslide<1->{\node [concept] (bioapp) at (2,3.4) {Biological Applications} [counterclockwise from=30] 
             child{node [concept] (bioen) {Bioengineered livers}}
             child{node [concept] (int) {Inter-cellular signaling}}
             child{node [concept] (env) {Enviromental toxicology}}
             child{node [concept] (inf) {Infectious diseases}}
-            child{node [concept] (cell) {Cell cycle}};
+            child{node [concept] (cell) {Cell cycle}};}
     \end{scope}
 
     \begin{scope}[mindmap, concept color=orange, text=white]
-        \node<2-> [concept] (exp) {Experimental Approaches}[counterclockwise from=90] 
+        \onslide<2->{\node [concept] (exp) {Experimental Approaches}[counterclockwise from=90] 
             child{node [concept] (dna) {DNA microarrays}}
             child{node [concept] (prot) {Proteomics}}
             child{node [concept] (rtms) {Real-time mass spectroscopy}}
-            child{node [concept] (mic) {Microfluidics}};
+            child{node [concept] (mic) {Microfluidics}};}
     \end{scope}
 
     \begin{scope}[mindmap, concept color=red,text=white]
-        \node<4-> [concept] (mod) at (4,0) {Modeling and Computation}[counterclockwise from=0] 
+        \onslide<4->{\node [concept] (mod) at (4,0) {Modeling and Computation}[counterclockwise from=0] 
             child{node [concept] (net) {Network biology}}
             child{node [concept] (csm) {Predictive models}}
             child{node [concept] (gra) {Graph theory}}
-            child{node [concept] (sim) {Simulation}};
+            child{node [concept] (sim) {Simulation}};}
     \end{scope}
 
     % Connections of researchers to applied subfields
 
-    \begin{pgfonlayer}{background}
+    \begin{pgfonlayer}{bg}
         \draw<3-> [circle connection bar]
             (exp) edge (bioapp);
         \draw<5-> [circle connection bar]

@@ -21,9 +21,19 @@
 \usepackage[all]{xy}
 %this package will be used for outline
 \usepackage{tikz}
+\usetikzlibrary{automata,calc,er}
+\usetikzlibrary{mindmap,scopes,arrows,shapes,chains,positioning,fit,backgrounds,decorations,intersections}
 \usepackage{pgf}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{pgfplots.fillbetween}
+\pgfdeclarelayer{ft}
+\pgfdeclarelayer{bg}
+\pgfsetlayers{bg,main,ft}
+\usepackage{graphics}
+\usepackage{amssymb}
 \usepackage{adjustbox}
-\usetikzlibrary{mindmap,scopes,arrows,shapes,chains,positioning,fit,backgrounds,decorations}
+
 %\tikzstyle{block}=[draw opacity=0.7,line width=1.4cm]
 
 \tikzstyle{every picture}+=[remember picture]
@@ -79,10 +89,10 @@ Le Laboratoire des Sciences du Num\'erique de Nantes\\
     LaBRI, UMR CNRS \vspace*{1em} \\
 \textbf{Directeur de th\`ese :}
 & Olivier ROUX, Professeur des universit\'es,
-    \'Ecole centrale de Nantes \\
+    \'Ecole Centrale de Nantes \\
 \textbf{Co-encadrant de th\`ese :}
 & Morgan MAGNIN, Professeur des universit\'es,
-    \'Ecole centrale de Nantes
+    \'Ecole Centrale de Nantes
 \end{tabular}
 
 }
@@ -105,6 +115,9 @@ Le Laboratoire des Sciences du Num\'erique de Nantes\\
 \end{adjustbox}
 \end{frame}
 
+\begin{frame}{Discrete Modeling}
+    \input{sigmoidAndPiecewise.tex}
+\end{frame}
 
 %--- the methods part	 -------------------------%
 \section{Motivation}
@@ -112,9 +125,12 @@ Le Laboratoire des Sciences du Num\'erique de Nantes\\
     \centering
     \input{compare.tex}
 \end{frame}
-\begin{frame}{Problematic of Reachability Problem}
+\begin{frame}{Challenge and Solution}
     \centering
     \input{vennDiagram.tex}
+    
+    \vspace{0.5cm}
+    \onslide<5>{$\to$ Apply heuristics on inconclusive area}
 \end{frame}
 
 \begin{frame}{Problematic of Model Inference}
@@ -122,12 +138,16 @@ Le Laboratoire des Sciences du Num\'erique de Nantes\\
     \input{problematic.tex}
 \end{frame}
 
+\begin{frame}{Reachability Problem}
+    \centering
+    \input{reachability.tex}
+    $\alpha \to\cdots \to\omega?$
+\end{frame}
 \begin{frame}
 \begin{itemize}
     \item Hybrid analyzer is more performing in reachability analysis
 \end{itemize}
-
-In computer science, the more common defense is based on empirical results from running an experiment. A good defense here means more than one example, and answers to questions such as the following. What are the capabilities and limits of your experiment? How often do the things that your experiment does come up in the real world? What's involved in extending it? If it's easy to extend, why haven't you? If your example is a piece of a larger system, how realistic are your assumptions about input and output?
+What are the capabilities and limits of your experiment? How often do the things that your experiment does come up in the real world? What's involved in extending it? If it's easy to extend, why haven't you? If your example is a piece of a larger system, how realistic are your assumptions about input and output?
 
 \end{frame}
 

@@ -1,20 +1,57 @@
 \newcommand\irregularcircle[2]{% radius, irregularity
-  \pgfextra {\pgfmathsetmacro\len{(#1)+rand*(#2)}}
+  \pgfextra {\pgfmathsetmacro\len{(#1) - 0.6431795905004605*(#2)}}
   +(0:\len pt)
-  \foreach \a in {10,20,...,350}{
-    \pgfextra {\pgfmathsetmacro\len{(#1)+rand*(#2)}}
+  \foreach \a / \b in {10 / -0.05472288618682586,
+20 / 0.8450075432043147,
+30 / -0.27472087164920134,
+40 / 0.46170068673919884,
+50 / -0.2723285608995809,
+60 / -0.4556287892417712,
+70 / 0.29673989520725863,
+80 / -0.37119286455820033,
+90 / -0.15192938503079412,
+100 / 0.49896661010967835,
+110 / -0.3398657017968927,
+120 / 0.5966632011999364,
+130 / -0.36408890412829553,
+140 / 0.07152555046450693,
+150 / 0.18360785381458844,
+160 / 0.6988961369997699,
+170 / 0.07277114122898687,
+180 / -0.2946202695,
+190 / 0.12114187507333307,
+200 / 0.7101010327107955,
+210 / -0.6195271671767566,
+220 / 0.9892295209020814,
+230 / -0.47131882061101593,
+240 / -0.5056522718446919,
+250 / -0.3851643364766226,
+260 / 0.9105042125287848,
+270 / 0.8666611821684194,
+280 / 0.08511851734790343,
+290 / 0.187469288526535,
+300 / 0.09433763143730722,
+310 / -0.8498584485355265,
+320 / -0.9989976841965511,
+330 / -0.9708632213653312,
+340 / 0.6032242990652343,
+350 / 0.629277315289333
+} {
+    \pgfextra {\pgfmathsetmacro\len{(#1)+\b*(#2)}}
     -- +(\a:\len pt)
   } -- cycle
 }
 \begin{tikzpicture}[scale=0.8]
   \coordinate (c) at (-0.2,0);
-  %\draw<1->[thick,blue,rounded corners=1mm,dashed,fill=gray!40,opacity=0.2] (c) \irregularcircle{3cm}{3mm};
-  \draw<1->[thick,blue,rounded corners=1mm,dashed,fill=gray!40,opacity=0.2] (c) ellipse (3.5 and 2.5);
+  \uncover<1->{\draw[name path = A,thick,purple,rounded corners=1mm,dashed,fill=blue!10] (c) \irregularcircle{3cm}{3mm};}
+  %\draw<1->[thick,blue,rounded corners=1mm,dashed,fill=gray!40,opacity=0.2] (c) ellipse (3.5 and 2.5);
   %\draw[blue] (-1.2,-1.2) -- (1.2,-1.2) -- (1.2,1.2) -- (-1.2,1.2) -- (-1.2,-1.2);
-  \draw<3->[thick,purple,fill=yellow!40,opacity=0.2] (-2.5,-1.2) -- (2.5,-1.2) -- (2.5,1.2) -- (-2.5,1.2) -- (-2.5,-1.2);
-  \draw<2->[thick,purple] (-7,-3.5) -- (3.5,-3.5) -- (3.5,3.5) -- (-7,3.5) -- (-7,-3.5);
-  \node<3-> (under) at (0,0) {Under-approximation};
-  \node<2-> [text width=3cm] (over) at (-4.8,0) {Over-\\approximation};
-  \node<1> (real) at (0,2) {Exact solution};
-  \node<4> (real) at (0,2) {Inconclusive area};
+  \onslide<3->{\draw[name path = C,thick,purple,fill=yellow!10] (-2.5,-1.2) rectangle (2.3,1.2);}
+  \onslide<2->{\draw[name path = B,thick,purple] (-7,-3.5) rectangle (3.5,3.5);}
+  \only<2->{\tikzfillbetween[of=A and B, on layer=bg]{yellow!10};}
+  %\onslide<3->{\tikzfillbetween[of=A and C]{yellow!40,opacity=0.2};}
+  \onslide<3->{\node (under) at (0,0) {Under-approximation};}
+  \onslide<2->{\node [text width=3cm] (over) at (-4.8,0) {Over-\\approximation};}
+  \onslide<1>{\node (real) at (0,2) {Exact solution};}
+  \onslide<4>{\node (real) at (0,2) {Inconclusive area};}
 \end{tikzpicture}
