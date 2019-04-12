@@ -1,5 +1,5 @@
 %themes:    * default * Boadilla * Madrid * Pittsburgh * Rochester         [ works best as \usetheme[height=7mm]{Rochester} ] * Copenhagen * Warsaw * Singapore * Malmoe 
-\documentclass[9pt]{beamer}
+\documentclass[8pt]{beamer}
 
 %setup the theme
 \usetheme{Warsaw}
@@ -13,8 +13,6 @@
 \usepackage{algorithm}
 %for box
 \usepackage{fancybox}
-%use movie pack
-\usepackage{multimedia}
 %comment a lot of lines
 \usepackage{verbatim} 
 \usepackage{hyperref}
@@ -22,7 +20,7 @@
 %this package will be used for outline
 \usepackage{tikz}
 \usetikzlibrary{automata,calc,er}
-\usetikzlibrary{mindmap,scopes,arrows,shapes,chains,positioning,fit,backgrounds,decorations,intersections}
+\usetikzlibrary{mindmap,scopes,arrows,arrows.meta,shapes,chains,positioning,fit,backgrounds,decorations,intersections}
 \usepackage{pgf}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.15}
@@ -104,39 +102,39 @@ Le Laboratoire des Sciences du Num\'erique de Nantes\\
   \titlepage
 \end{frame}
 
-
-%this will make outline is showed for every subsection
-
-
-\begin{frame}{Positioning of Our Work}
-\begin{adjustbox}{max totalsize={.9\textwidth}{.9\textheight},center}
-    \centering
-    \input{overview.tex}
-\end{adjustbox}
-\end{frame}
-
-\begin{frame}{Discrete Modeling}
-    \input{sigmoidAndPiecewise.tex}
-\end{frame}
-
-%--- the methods part	 -------------------------%
-\section{Motivation}
-\begin{frame}{Problematic of Reachability Problem}
-    \centering
-    \input{compare.tex}
-\end{frame}
-\begin{frame}{Challenge and Solution}
-    \centering
-    \input{vennDiagram.tex}
-    
-    \vspace{0.5cm}
-    \onslide<5>{$\to$ Apply heuristics on inconclusive area}
-\end{frame}
-
-\begin{frame}{Problematic of Model Inference}
-    \centering
-    \input{problematic.tex}
-\end{frame}
+%\begin{frame}{Positioning of Our Work}
+%\begin{adjustbox}{max totalsize={.9\textwidth}{.9\textheight},center}
+%    \centering
+%    \input{overview.tex}
+%\end{adjustbox}
+%\end{frame}
+%
+%\begin{frame}{Biological Regulatory Networks}
+%    \input{geneSchema.tex}
+%\end{frame}
+%
+%\begin{frame}{Discrete Modeling}
+%    \input{sigmoidAndPiecewise.tex}
+%\end{frame}
+%
+%%--- the methods part	 -------------------------%
+%\section{Motivation}
+%\begin{frame}{Problematic of Reachability Problem}
+%    \centering
+%    \input{compare.tex}
+%\end{frame}
+%\begin{frame}{Challenge and Solution}
+%    \centering
+%    \input{vennDiagram.tex}
+%    
+%    \vspace{0.5cm}
+%    \onslide<5>{$\to$ Apply heuristics on inconclusive area}
+%\end{frame}
+%
+%\begin{frame}{Problematic of Model Inference}
+%    \centering
+%    \input{problematic.tex}
+%\end{frame}
 
 \begin{frame}{Reachability Problem}
     \centering
