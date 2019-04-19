@@ -1,0 +1,246 @@
+\documentclass[8pt]{beamer}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usetheme{Warsaw}
+\useoutertheme{infolines} 
+\setbeamertemplate{items}[ball]
+\setbeamertemplate{blocks}[rounded][shadow=true] 
+\setbeamertemplate{navigation symbols}{} 
+
+\usepackage{algorithm}
+\usepackage{fancybox}
+\usepackage{verbatim} 
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{automata,calc,er}
+\usetikzlibrary{mindmap,scopes,arrows,arrows.meta,shapes,chains,positioning,fit,backgrounds,decorations,intersections,petri,decorations.pathmorphing}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{pgfplots.fillbetween}
+\pgfdeclarelayer{ft}
+\pgfdeclarelayer{bg}
+\pgfsetlayers{bg,main,ft}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{adjustbox}
+\usepackage{wasysym}
+
+%\tikzstyle{block}=[draw opacity=0.7,line width=1.4cm]
+
+\tikzstyle{every picture}+=[remember picture]
+
+\renewcommand{\thefootnote}{}
+\newcommand{\specialcell}[2][c]{%
+\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+\newcommand{\ttrd}{\textcolor{red}}
+
+  \tikzset{%
+  highlight/.style={rectangle,rounded corners,fill=red!15,draw,fill opacity=0.5,thick,inner sep=0pt}
+  }
+  \newcommand{\tikzmark}[2]{\tikz[overlay,remember picture,baseline=(#1.base)] \node (#1) {#2};}
+  \newcommand{\Highlight}[1][submatrix]{%
+  \tikz[overlay,remember picture]{
+  \node[highlight,fit=(left.north west) (right.south east)] (#1) {};}
+  }
+  %for flowchart
+\tikzstyle{decision} = [diamond, draw, fill=blue!20,
+    text width=2.5em, text badly centered, node distance=2.5cm, inner sep=0pt]
+\tikzstyle{block} = [rectangle, draw, fill=blue!20,
+    text width=2em, text centered, node distance=2.5cm, rounded corners, minimum height=2em]
+\tikzstyle{line} = [draw, very thick, color=black!50, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=2cm,
+    minimum height=2em]
+\tikzstyle{round} = [draw, circle, node distance=2cm,
+    minimum height=2em]
+
+
+\usepackage{calc}
+\usepackage{fp}
+\input{macros}
+\input{macros-ph}
+\input{macros-abstr}
+\input{tikzstyles2}
+
+\title[Reachability Analysis and Revision of Dynamics]{Reachability Analysis and Revision of Dynamics of\\ Biological Regulatory Networks}
+\author[X.Chai]{Xinwei Chai}
+\institute[LS2N]{
+Le Laboratoire des Sciences du Numérique de Nantes\\
+École Centrale de Nantes\\
+\texttt{xinwei.chai@ls2n.fr}
+
+\vspace{1cm}
+\begin{tabular}{r@{\ \ }l}
+\textbf{Rapporteurs :}
+& Gilles BERNOT, Professeur des universités,
+    Université Côte d'Azur \\
+& Pascale LE GALL, Professeur des universités,
+    Centrale Supélec \vspace*{1em} \\
+\textbf{Examinateurs :}
+& Béatrice DUVAL, Professeur des universités, Université d'Angers  \\
+& Loïc PAULEVÉ, Chargé de recherche,
+    LaBRI, UMR CNRS \vspace*{1em} \\
+\textbf{Directeur de thèse :}
+& Olivier ROUX, Professeur des universités,
+    École Centrale de Nantes \\
+\textbf{Co-encadrant de thèse :}
+& Morgan MAGNIN, Professeur des universités,
+    École Centrale de Nantes
+\end{tabular}
+
+}
+\date[May 24, 2019]{May 24, 2019}
+\begin{document}
+
+%--- the titlepage frame -------------------------%
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+%\begin{frame}{Positioning of Our Work}
+%\begin{adjustbox}{max totalsize={.9\textwidth}{.9\textheight},center}
+%    \centering
+%    \input{figures/overview.tex}
+%\end{adjustbox}
+%\end{frame}
+%
+%\begin{frame}{Biological Regulatory Networks}
+%    \input{figures/geneSchema.tex}
+%\end{frame}
+%
+%\begin{frame}{Discrete Modeling}
+%    \input{figures/sigmoidAndPiecewise.tex}
+%\end{frame}
+%
+%\section{Motivation}
+%\begin{frame}{Problematic of Reachability Problem}
+%    \centering
+%    \input{figures/compare.tex}
+%\end{frame}
+%
+%\begin{frame}{Challenge and Solution}
+%    \centering
+%    \input{figures/vennDiagram.tex}
+%    
+%    \vspace{0.5cm}
+%    \onslide<5>{$\to$ Apply heuristics on inconclusive area}
+%\end{frame}
+%
+%\begin{frame}{Problematic of Model Inference}
+%    \centering
+%    \input{figures/problematic.tex}
+%\end{frame}
+%
+%\begin{frame}{Reachability Problem of Petri Nets}
+%    \centering
+%    \input{figures/automata.tex}
+%\end{frame}
+%
+%\begin{frame}{Reachability Problem of State Space}
+%    \centering
+%    \input{figures/reachability.tex}
+%\end{frame}
+%
+%
+%\begin{frame}{Modeling System Dynamics}
+%    \begin{columns}
+%    \begin{column}{0.45\textwidth}
+%    Boolean Network (BN)
+%    
+%    \vspace{0.5cm}
+%    \includegraphics[width=\textwidth]{figures/BooleanNetwork.png}
+%    \end{column}
+%    \pause
+%    \begin{column}{0.45\textwidth}
+%    A modeling framework representing state transitions and using $O(n)$ memory $\to$ Automata Network (AN)
+%    
+%    \pause
+%    \vspace{0.5cm}
+%    \input{figures/BNtoAN.tex}
+%    
+%    \onslide<5->{The reachability of $(x,y,z)$ is of $O(2^n)$ $\Longrightarrow$\\The reachability of $x$ can be of $O(n)$}
+%    \end{column}
+%    \end{columns}
+%\end{frame}
+%
+%
+%\begin{frame}{Local Causality Graph}
+%\begin{figure}
+%\input{figures/ANexample.tex}
+%\end{figure}
+%
+%\begin{figure}
+%\input{figures/LCGexampleAN.tex}
+%\end{figure}
+%
+%\only<1-5>{Small circles stand for transition nodes, squares for state nodes}
+%\begin{columns}
+%\begin{column}{0.5\textwidth}
+%\begin{align*}
+%    \onslide<6->{r'(a_1)&=r'(e_1)\lor (r'(b_1)\land r'(c_1)\\}
+%    \onslide<7->{&=r'(d_0)\land r'(c_1)\\}
+%    \onslide<8->{&=r'(d_0)\land r'(d_1)\\}
+%    \onslide<9->{&=r'(d_1)\\}
+%    \onslide<10->{&=r'(b_1)=r'(d_0)=1}\\
+%\end{align*}
+%\end{column}
+%\begin{column}{0.5\textwidth}
+%    \onslide<11->{However, $r'(a_i)$ is \textcolor{blue!50}{not equivalent} to the reachability of $a_1$}
+%\end{column}
+%\end{columns}
+%\end{frame}
+
+\begin{frame}{Counterexample of LCG}
+LCG is \textbf{exact} for unreachability 
+
+LCG is \textbf{exact} when it does not contain self-dependent structure:
+\begin{itemize}
+\item different state nodes of the same automaton in different branches:
+\end{itemize}
+Given initial state: $a_0,b_0,c_0$, consider the reachability of $c_1$:
+\begin{figure}
+    \input{figures/LCG_limitation.tex}
+\end{figure}
+
+\only<1>{Reaching $a_1$ disables the reachability of $b_1$, and vice versa, $c_1$ is unreachable}
+\only<2->{$c_1$ is reachable \textit{via} $a_1::b_1::c_1$}
+
+\only<3->{
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\centering
+How to deal with this structure?
+\end{column}
+\begin{column}{0.5\textwidth}
+\begin{tikzpicture}[aS,scale=0.9, every node/.style={scale=0.9}]  
+  	\node[Aproc] (a_1) {$X$};
+  	\node[Asol,right of=a_1] (a_1s) {};
+  	\path (a_1) edge (a_1s);
+    \node[Aproc, above right of=a_1s] (y){$Y$};
+    \path (a_1s) edge (y);
+    \node[Aproc,below right of=a_1s] (z){$Z$};
+    \path (a_1s) edge (z);
+\end{tikzpicture}
+\end{column}
+\end{columns}
+}
+\end{frame}
+
+\begin{frame}{Two possible solutions}
+    
+    PermReach ASPReach
+\end{frame}
+
+\begin{frame}{Conclusion}
+\begin{itemize}
+    \item Hybrid analyzer is more performing in reachability analysis
+\end{itemize}
+
+\end{frame}
+
+
+
+
+\end{document}

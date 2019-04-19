@@ -1,0 +1,17 @@
+\begin{tikzpicture}[aS,scale=0.9, every node/.style={scale=0.9}]  
+  	\onslide<1->{\node[color=red,Aproc] (a_1) {$a_1$};}
+  	\onslide<3->{\node[Asol,right of=a_1] (a_1s) {};}
+  	\onslide<3->{\path (a_1) edge (a_1s);}
+  	%\onslide<10->{\node[right = 0.1cm of a_1s] {\textcolor<10>{red}{AND}};}
+  	%\onslide<11->{\node[above = 0.1cm of a_1] {\textcolor<11>{red}{OR}};}
+    \onslide<2->{\node[Asol,left of=a_1] (a_1s1){};}
+    \onslide<4->{\node[Aproc,left of=a_1s1] (e_1){$e_1$};}
+    \onslide<4->{\path (a_1s1) edge (e_1);}
+    \onslide<2->{\path(a_1) edge (a_1s1);}
+  	\onslide<5->{\specl{above}{a_1}{b_1};}
+  	\onslide<7->{\link{b_1}{d_0};}
+  	\onslide<9->{\edl{d_0};}
+  	\onslide<6->{\specl{below}{a_1}{c_1};}
+	\onslide<8->{\link{c_1}{d_1};}
+    \onslide<10->{\path (d_1s) edge (b_1);}
+\end{tikzpicture}
