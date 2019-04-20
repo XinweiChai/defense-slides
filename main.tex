@@ -28,34 +28,6 @@
 \usepackage{adjustbox}
 \usepackage{wasysym}
 
-%\tikzstyle{block}=[draw opacity=0.7,line width=1.4cm]
-
-\tikzstyle{every picture}+=[remember picture]
-
-\renewcommand{\thefootnote}{}
-\newcommand{\specialcell}[2][c]{%
-\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
-\newcommand{\ttrd}{\textcolor{red}}
-
-  \tikzset{%
-  highlight/.style={rectangle,rounded corners,fill=red!15,draw,fill opacity=0.5,thick,inner sep=0pt}
-  }
-  \newcommand{\tikzmark}[2]{\tikz[overlay,remember picture,baseline=(#1.base)] \node (#1) {#2};}
-  \newcommand{\Highlight}[1][submatrix]{%
-  \tikz[overlay,remember picture]{
-  \node[highlight,fit=(left.north west) (right.south east)] (#1) {};}
-  }
-  %for flowchart
-\tikzstyle{decision} = [diamond, draw, fill=blue!20,
-    text width=2.5em, text badly centered, node distance=2.5cm, inner sep=0pt]
-\tikzstyle{block} = [rectangle, draw, fill=blue!20,
-    text width=2em, text centered, node distance=2.5cm, rounded corners, minimum height=2em]
-\tikzstyle{line} = [draw, very thick, color=black!50, -latex']
-\tikzstyle{cloud} = [draw, ellipse,fill=red!20, node distance=2cm,
-    minimum height=2em]
-\tikzstyle{round} = [draw, circle, node distance=2cm,
-    minimum height=2em]
-
 
 \usepackage{calc}
 \usepackage{fp}
@@ -64,6 +36,9 @@
 \input{macros-abstr}
 \input{tikzstyles2}
 
+%\let\oldtextbf\textbf
+%\renewcommand{\textbf}[1]{\textcolor{blue!50}{\oldtextbf{#1}}}
+\newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
 \title[Reachability Analysis and Revision of Dynamics]{Reachability Analysis and Revision of Dynamics of\\ Biological Regulatory Networks}
 \author[X.Chai]{Xinwei Chai}
 \institute[LS2N]{
@@ -94,7 +69,6 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
 \date[May 24, 2019]{May 24, 2019}
 \begin{document}
 
-%--- the titlepage frame -------------------------%
 \begin{frame}[plain]
   \titlepage
 \end{frame}
@@ -179,58 +153,166 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
 %\begin{columns}
 %\begin{column}{0.5\textwidth}
 %\begin{align*}
-%    \onslide<6->{r'(a_1)&=r'(e_1)\lor (r'(b_1)\land r'(c_1)\\}
-%    \onslide<7->{&=r'(d_0)\land r'(c_1)\\}
-%    \onslide<8->{&=r'(d_0)\land r'(d_1)\\}
-%    \onslide<9->{&=r'(d_1)\\}
-%    \onslide<10->{&=r'(b_1)=r'(d_0)=1}\\
+%    \only<6->{r'(a_1)&=r'(e_1)\lor (r'(b_1)\land r'(c_1)\\}
+%    \only<7->{&=r'(d_0)\land r'(c_1)\\}
+%    \only<8->{&=r'(d_0)\land r'(d_1)\\}
+%    \only<9->{&=r'(d_1)\\}
+%    \only<10->{&=r'(b_1)=r'(d_0)=1}
 %\end{align*}
 %\end{column}
 %\begin{column}{0.5\textwidth}
-%    \onslide<11->{However, $r'(a_i)$ is \textcolor{blue!50}{not equivalent} to the reachability of $a_1$}
+%    \only<15>{However, $r'(a_i)$ is \highlight{not equivalent} to the reachability of $a_1$}
 %\end{column}
 %\end{columns}
 %\end{frame}
+%
+%\begin{frame}{Counterexample of LCG}
+%LCG is \highlight{exact} for unreachability 
+%
+%LCG is \highlight{exact} when it does not contain self-dependent structure:
+%\begin{itemize}
+%\item different state nodes of the same automaton in different branches:
+%\end{itemize}
+%Given initial state: $a_0,b_0,c_0$, consider the reachability of $c_1$:
+%
+%\begin{columns}
+%\begin{column}{0.45\textwidth}
+%    \input{figures/AN_limitation.tex}
+%\end{column}
+%\begin{column}{0.55\textwidth}
+%\begin{figure}
+%    \input{figures/LCG_limitation.tex}
+%\end{figure}
+%\end{column}
+%\end{columns}
+%
+%\only<1>{Reaching $a_1$ disables the reachability of $b_1$, and vice versa, $c_1$ is unreachable}
+%\only<2->{$c_1$ is reachable \textit{via} $a_1::b_1::c_1$}
+%
+%\only<3->{
+%\begin{columns}
+%\begin{column}{0.5\textwidth}
+%LCG does not show \highlight{orders} of local states
+%
+%\centering
+%$\Longrightarrow$ How to deal with this structure?
+%\end{column}
+%\begin{column}{0.5\textwidth}
+%\input{figures/inconcStructure.tex}
+%\end{column}
+%\end{columns}
+%}
+%\end{frame}
+%
+%\begin{frame}{Two Possible Heuristics}
+%    Complete search \pause $\to$ State space explosion problem $\times$ \pause $\to$ Partial search
+%    \vspace{0.5cm}
+%
+%\pause     
+%\begin{columns}
+%\begin{column}{0.5\textwidth}
+%$\to$ Heuristics used to find a sequence of local states in the form $Z::Y::X$
+%\end{column}
+%\begin{column}{0.5\textwidth}
+%\centering
+%\input{figures/inconcStructure.tex}
+%\end{column}
+%\end{columns}
+%
+%\vspace{0.5cm}
+%\pause     
+%\centering
+%    \begin{tabular}{c|c|c}
+%        &PermReach & ASPReach \\
+%        Runtime & $+$ & $-$ \\
+%        Conclusiveness& $-$&$+$
+%    \end{tabular}
+%     
+%\end{frame}
+%
+%\begin{frame}{Example}
+%\begin{columns}
+%\begin{column}{0.45\textwidth}
+%    \input{figures/AN_limitation.tex}
+%\end{column}
+%\begin{column}{0.55\textwidth}
+%\begin{figure}
+%    \input{figures/LCG_limitation.tex}
+%\end{figure}
+%\end{column}
+%\end{columns}
+%
+%\vspace{0.5cm}
+%Notation: $a\rhd b$ means $a$ appears in the sequence before $b$
+%
+%\only<1>{
+%\begin{tabular}{lll}
+%Order constraints in LCG &$\Rightarrow$& $b_0\rhd a_1\rhd c_1$ , $a_0 \rhd b_1\rhd c_1$\\
+%Additional rule &$\Rightarrow$& $a_1 \rhd b_1$ and $b_1 \rhd a_1$
+%\end{tabular}
+%
+%\vspace{0.5cm}
+%
+%Contradiction in order, no solution
+%}
+%
+%
+%\only<2>{
+%\begin{tabular}{lll}
+%Order constraints in LCG &$\Rightarrow$& $b_0\rhd a_1\rhd c_1$ , $c_0 \rhd b_1\rhd c_1$\\
+%Additional rule &$\Rightarrow$& $a_1 \rhd b_1$
+%\end{tabular}
+%
+%\vspace{0.5cm}
+%
+%The only admissible order is $a_1\to b_1\to c_1$}
+%\end{frame}
+%
+%\begin{frame}{Benchmarks}
+%Traditional model checkers: Mole NuSMV $\to$ \highlight{memory-out}
+%
+%Pure static analyzer: Pint \cite{folschette2015}
+%
+%Small example: $\lambda$-phage, 4 components
+%
+%Big examples: TCR (T-Cell Receptor, 95 components) and
+%
+%EGFR (Epidermal Growth Factor Receptor, 106 components)
+%
+%\small
+%\begin{table}[t]
+%    \centering
+%    \begin{tabular}{|c|c|c|c|c|c|c|}
+%    \hline
+%  	Model	&\multicolumn{2}{c|}{$\lambda$-phage}	&	  \multicolumn{2}{c|}{TCR} & \multicolumn{2}{c|}{EGFR}  \\
+%    \hline
+%    Inputs&\multicolumn{2}{c|}{4}	&	  \multicolumn{2}{c|}{3} & \multicolumn{2}{c|}{13}\\
+%    \hline
+%    Outputs&\multicolumn{2}{c|}{4} &	  \multicolumn{2}{c|}{5} & \multicolumn{2}{c|}{12} \\
+%    \hline
+%    Total tests&\multicolumn{2}{c|}{$2^4\times 4=64$} & \multicolumn{2}{c|}{$2^3\times 5=40$} & \multicolumn{2}{c|}{$2^{13}\times 12=98,304$}\\
+%    \hline
+%    Analyzer  &  Pint       &\textbf{ASPReach}    &  Pint       &\textbf{ASPReach}   &  Pint       &\textbf{ASPReach}             \\
+%    \hline
+%    Reachable    & 36(56\%)& 38(59\%)   &  \multicolumn{2}{c|}{16(40\%)}  & 64,282(65.4\%)&74,268(75.5\%)\\
+%    \hline
+%    \textbf{Inconclusive} & \textcolor{red}{\textbf{2(3\%)}}&\textcolor{blue}{\textbf{0(0\%)}}& \multicolumn{2}{c|}{0(0\%)}    &\textcolor{red}{\textbf{9,986(10.1\%)}}&\textcolor{blue}{\textbf{0(0\%)}}  \\
+%    \hline
+%    Unreachable     &  \multicolumn{2}{c|}{26(41\%)} &  \multicolumn{2}{c|}{24(60\%)} &24,036(24.5\%)&24,036(24.5\%)\\
+%    \hline
+%    Total runtime &  $<1$s       &  $<1$s &  \textbf{7s}       &  \textbf{0.85s}        & \textbf{9h50min}              & \textbf{3h46min}      \\
+%    \hline
+%    \end{tabular}
+%\end{table}
+%\end{frame}
+%
+%\begin{frame}{Benchmarks}
+%\input{figures/curveSizeTest.tex}
+%\input{figures/curveInconc.tex}
+%\end{frame}
 
-\begin{frame}{Counterexample of LCG}
-LCG is \textbf{exact} for unreachability 
-
-LCG is \textbf{exact} when it does not contain self-dependent structure:
-\begin{itemize}
-\item different state nodes of the same automaton in different branches:
-\end{itemize}
-Given initial state: $a_0,b_0,c_0$, consider the reachability of $c_1$:
-\begin{figure}
-    \input{figures/LCG_limitation.tex}
-\end{figure}
-
-\only<1>{Reaching $a_1$ disables the reachability of $b_1$, and vice versa, $c_1$ is unreachable}
-\only<2->{$c_1$ is reachable \textit{via} $a_1::b_1::c_1$}
-
-\only<3->{
-\begin{columns}
-\begin{column}{0.5\textwidth}
-\centering
-How to deal with this structure?
-\end{column}
-\begin{column}{0.5\textwidth}
-\begin{tikzpicture}[aS,scale=0.9, every node/.style={scale=0.9}]  
-  	\node[Aproc] (a_1) {$X$};
-  	\node[Asol,right of=a_1] (a_1s) {};
-  	\path (a_1) edge (a_1s);
-    \node[Aproc, above right of=a_1s] (y){$Y$};
-    \path (a_1s) edge (y);
-    \node[Aproc,below right of=a_1s] (z){$Z$};
-    \path (a_1s) edge (z);
-\end{tikzpicture}
-\end{column}
-\end{columns}
-}
-\end{frame}
-
-\begin{frame}{Two possible solutions}
+\begin{frame}{Second Part: Revision}
     
-    PermReach ASPReach
 \end{frame}
 
 \begin{frame}{Conclusion}
@@ -240,7 +322,10 @@ How to deal with this structure?
 
 \end{frame}
 
-
+%\begin{frame}{Bibliography}
+%    \bibliographystyle{plain}
+%    \bibliography{bib}
+%\end{frame}
 
 
 \end{document}

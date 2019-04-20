@@ -1,0 +1,9 @@
+\begin{tikzpicture}[aS,scale=0.9, every node/.style={scale=0.9}]  
+  	\node[Aproc] (a_1) {$X$};
+  	\node[Asol,right of=a_1] (a_1s) {};
+  	\path (a_1) edge (a_1s);
+    \node[Aproc, above right of=a_1s] (y){$Y$};
+    \path (a_1s) edge (y);
+    \node[Aproc,below right of=a_1s] (z){$Z$};
+    \path (a_1s) edge (z);
+\end{tikzpicture}

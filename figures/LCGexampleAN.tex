@@ -14,4 +14,8 @@
   	\onslide<6->{\specl{below}{a_1}{c_1};}
 	\onslide<8->{\link{c_1}{d_1};}
     \onslide<10->{\path (d_1s) edge (b_1);}
+    \onslide<11>{\node[draw,thick,dotted,fit=(b_1)(d_0),color=red!70,ellipse]{};}
+    \onslide<12>{\draw[rotate=140,thick,dotted,color=red!70]($(b_1)!1/2!(d_1)$) ellipse (2cm and 0.45cm);}
+    \onslide<13>{\node[draw,thick,dotted,fit=(c_1)(d_1),color=red!70,ellipse]{};}
+    \onslide<14>{\node[draw,thick,dotted,fit=(b_1)(c_1)(a_1),color=red!70,ellipse]{};}
 \end{tikzpicture}

@@ -1,0 +1,30 @@
+\begin{tikzpicture}[scale=0.725]
+    \begin{axis}[xlabel=ABAN size,ylabel=runtime (s),legend pos=north west]
+       \addplot[mark=triangle,color=red] coordinates{
+        (100,0.029)
+        (200,0.079)
+        (300,0.209)
+        (400,0.330)
+        (500,0.729)
+        (600,0.948)
+        (700,1.379)
+        (800,2.102)
+        (900,3.416)
+        (1000,4.58)
+        };
+        \addlegendentry{PermReach}
+       \addplot[mark=square,color=blue] coordinates{
+        (100,0.03)
+        (200,0.08)
+        (300,0.17)
+        (400,0.40)
+        (500,0.71)
+        (600,1.04)
+        (700,1.38)
+        (800,2.63)
+        (900,3.81)
+        (1000,5.91)       
+        };
+        \addlegendentry{ASPReach}
+    \end{axis}
+\end{tikzpicture}
