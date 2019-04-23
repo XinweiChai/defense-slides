@@ -1,0 +1,19 @@
+\begin{tikzpicture}[line,>=stealth]
+    \onslide<+->{\node[ellipse, fill=blue!20] (tsd) {Time-series data};}
+    \onslide<+->{\node[ellipse, fill=blue!20, right = of tsd] (model1) {Model};
+    \draw[->] (tsd) -- (model1) node[midway, above] (lfit){Learning};
+    }
+    \onslide<+->{\node[ellipse, fill=blue!20, right = of model1] (reach) {Reachability properties};
+    \draw[->] (model1) -- (reach) node[midway,label=inconsistent] (inconsis1){\huge$\times$};
+    }
+    \onslide<+->{\node[ellipse, fill=blue!20, above = of model1] (model2) {Model'};
+    \draw[->] (model1) edge node[sloped, anchor=center, above]{Revise} (model2);
+    }
+    \onslide<+->{\draw[->] (model2) edge node[sloped, anchor=center]{} (reach);}
+    \onslide<+->{\draw[->] (model2) edge node[sloped, anchor=center]{\huge$\times$} (tsd);}
+    \onslide<+->{\node[ellipse, fill=blue!20, below = of model1] (model3) {Model''};
+    \draw[->] (model1) edge[dashed,color=purple!50] node[sloped, anchor=center, above]{\highlight{Revise}} (model3);
+    }
+    \onslide<+->{\draw[->] (model3) edge node[sloped, anchor=center]{} (reach);}
+    \onslide<+->{\draw[->] (model3) edge node[sloped, anchor=center]{} (tsd);}
+\end{tikzpicture}

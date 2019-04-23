@@ -310,9 +310,70 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
 %\input{figures/curveSizeTest.tex}
 %\input{figures/curveInconc.tex}
 %\end{frame}
+%
+%\begin{frame}{Second Part: Revision}
+%    \input{figures/problematicRevision.tex}
+%\end{frame}
+%
+%\begin{frame}{Methodology}
+%    \begin{table}[t]
+%        \centering
+%        \begin{tabular}{c|c|c}
+%            &Reachable &Unreachable\\
+%            \hline
+%            Knowledge& $R_K$ & $U_K$ \pause\\
+%            \hline
+%            Inferred model& $R_I$ & $U_I$\pause\\
+%            \hline
+%            Inconsistency (problem)& $R'_K=R_K\cap U_I$ & $U'_K=R_I\cap U_K$\pause\\
+%            Keep consistent with& $U_K$& $R_K$ \pause\\
+%            \hline
+%            Operation &Generalization  & Specialization %$\bigcirc$
+%            %\\
+%            %&Add transitions$\times$&Delete transitions$\times$
+%            %$\checkmark$  
+%        \end{tabular}
+%    \end{table}    
+%\end{frame}
 
-\begin{frame}{Second Part: Revision}
+\begin{frame}{Two Methods}
+\begin{itemize}
+    \item CRAC: Completion \textit{via} Reachability And Correlations
+    \item M2RIT: Model Revision \textit{via} Reachability and Interpretation Transitions
+\end{itemize}
+
+Two phases: learning phase and revision phase
+
+\centering
+    \begin{tabular}{c|c|c}
+         &CRAC & M2RIT \\
+         \hline
+         Data type &Continuous & Discrete\\
+         \hline
+         Function &Inference & Precise learning\\
+         \hline
+         Tolerance to imprecision&Yes&No
+    \end{tabular}
+\end{frame}
+
+\begin{frame}{Example}
+    Rules: $a_1\gets b_1$, $a_1\gets d_1 \land c_0$, $b_1\gets c_0$, $c_1\gets b_0$
     
+	Initial state: $\alpha=\langle a_0,b_0,c_0,d_0\rangle$
+	
+	$U_K=\{(\alpha,b_1),(\alpha,d_1)\}$, $R_K=\{(\alpha,a_1)\}$
+    \begin{figure}
+        \centering
+        \input{figures/revision.tex}
+    \end{figure}
+    
+     \begin{itemize}
+        \item $L=\{\{(\alpha,a_1),(\alpha,b_1),(\alpha,d_1)\},\{(\alpha,b_1)\},\{(\alpha,d_1)\}\}$
+        \item Start from $\{(\alpha,b_1)\}$ and $\{(\alpha,d_1)\}$
+        \item $b_1\gets c_0$ can be specialized to $b_1\gets c_0\land a_1$ to make $b_1$ unreachable
+        \item $a_1\gets d_1 \land c_0$ can only be generalized to $a_1 \gets c_0$ as $d_1\in U_K$
+        \item Check the reachability of $(\alpha,a_1)$: reachable, finish
+    \end{itemize}
 \end{frame}
 
 \begin{frame}{Conclusion}
