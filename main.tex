@@ -35,7 +35,7 @@
 \input{macros-ph}
 \input{macros-abstr}
 \input{tikzstyles2}
-
+\usepackage{cancel}
 %\let\oldtextbf\textbf
 %\renewcommand{\textbf}[1]{\textcolor{blue!50}{\oldtextbf{#1}}}
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
@@ -343,6 +343,23 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
 \end{itemize}
 
 Two phases: learning phase and revision phase
+\begin{columns}
+\begin{column}{0.6\textwidth}
+     Discrete data $\to$ LFIT $\to$ discrete transitions
+\end{column}
+\begin{column}{0.4\textwidth}
+    
+\end{column}
+\end{columns}
+
+\begin{columns}
+\begin{column}{0.6\textwidth}
+    Continuous data $\to$ Correlation coefficients $\to$ regulations
+\end{column}
+\begin{column}{0.4\textwidth}
+    
+\end{column}
+\end{columns}
 
 \centering
     \begin{tabular}{c|c|c}
@@ -357,15 +374,28 @@ Two phases: learning phase and revision phase
 \end{frame}
 
 \begin{frame}{Example}
-    Rules: $a_1\gets b_1$, $a_1\gets d_1 \land c_0$, $b_1\gets c_0$, $c_1\gets b_0$
+\begin{columns}
+\begin{column}{0.6\textwidth}
+\input{figures/AN_revision.tex}
+\end{column}
+\begin{column}{0.4\textwidth}
+    $\alpha=\langle a_0,b_0,c_0,d_0\rangle$, $\omega=a_1$
     
-	Initial state: $\alpha=\langle a_0,b_0,c_0,d_0\rangle$
+	$U_K=\{(\alpha,b_1),(\alpha,d_1)\}$
 	
-	$U_K=\{(\alpha,b_1),(\alpha,d_1)\}$, $R_K=\{(\alpha,a_1)\}$
-    \begin{figure}
+	$R_K=\{(\alpha,a_1)\}$
+\end{column}
+\end{columns}
+
+
+
+
+	
+        \vspace{0.5cm}
         \centering
         \input{figures/revision.tex}
-    \end{figure}
+        
+        \vspace{0.5cm}
     
      \begin{itemize}
         \item $L=\{\{(\alpha,a_1),(\alpha,b_1),(\alpha,d_1)\},\{(\alpha,b_1)\},\{(\alpha,d_1)\}\}$

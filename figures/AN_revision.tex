@@ -1,0 +1,35 @@
+\begin{tikzpicture}[every node/.style={scale=0.9}]
+\TSort{(0,0)}{a}{2}{l}
+\TSort{(1.7,0)}{b}{2}{l}
+\TSort{(3.4,0)}{c}{2}{l}
+\TSort{(5.2,0)}{d}{2}{l}
+\path[local transitions]
+    (a_0) edge[bend right] node[right] {$\{b_1\}$} (a_1)
+    (c_0) edge[bend right] node[right] {$\{b_0\}$} (c_1)
+;
+
+\onslide<1>{\path[local transitions]
+(b_0) edge[bend right] node[right] {$\{c_0\}$} (b_1)
+;
+}
+\onslide<2,3>{\path[local transitions]
+(b_0) edge[bend right] node[right] {$\{c_0,\textcolor{blue}{a_1}\}$} (b_1)
+;
+}
+\onslide<1,2>{\path[local transitions]
+(a_0) edge node[auto] {$\{c_0,d_1\}$} (a_1)
+;
+}
+\onslide<3>{\path[local transitions]
+(a_0) edge node[auto] {$\{c_0,\textcolor{red}{\xcancel{d_1}}\}$} (a_1)
+;
+}
+\onslide<4>{\path[local transitions]
+(a_0) edge node[auto] {$\{c_0\}$} (a_1)
+(b_0) edge[bend right] node[right] {$\{c_0,a_1\}$} (b_1)
+;
+}
+\TState{a_0, b_0, c_0,d_0}
+
+
+\end{tikzpicture}
