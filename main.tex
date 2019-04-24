@@ -27,7 +27,10 @@
 \usepackage{amssymb}
 \usepackage{adjustbox}
 \usepackage{wasysym}
-
+\usepackage{siunitx}
+\usepackage{makecell}
+\usepackage{kbordermatrix}
+\usepackage{mathtools}
 
 \usepackage{calc}
 \usepackage{fp}
@@ -36,8 +39,6 @@
 \input{macros-abstr}
 \input{tikzstyles2}
 \usepackage{cancel}
-%\let\oldtextbf\textbf
-%\renewcommand{\textbf}[1]{\textcolor{blue!50}{\oldtextbf{#1}}}
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
 \title[Reachability Analysis and Revision of Dynamics]{Reachability Analysis and Revision of Dynamics of\\ Biological Regulatory Networks}
 \author[X.Chai]{Xinwei Chai}
@@ -311,69 +312,201 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
 %\input{figures/curveInconc.tex}
 %\end{frame}
 %
-%\begin{frame}{Second Part: Revision}
-%    \input{figures/problematicRevision.tex}
-%\end{frame}
-%
-%\begin{frame}{Methodology}
-%    \begin{table}[t]
-%        \centering
-%        \begin{tabular}{c|c|c}
-%            &Reachable &Unreachable\\
-%            \hline
-%            Knowledge& $R_K$ & $U_K$ \pause\\
-%            \hline
-%            Inferred model& $R_I$ & $U_I$\pause\\
-%            \hline
-%            Inconsistency (problem)& $R'_K=R_K\cap U_I$ & $U'_K=R_I\cap U_K$\pause\\
-%            Keep consistent with& $U_K$& $R_K$ \pause\\
-%            \hline
-%            Operation &Generalization  & Specialization %$\bigcirc$
-%            %\\
-%            %&Add transitions$\times$&Delete transitions$\times$
-%            %$\checkmark$  
-%        \end{tabular}
-%    \end{table}    
-%\end{frame}
+\begin{frame}{Second Part: Learning and Revising Models}
+    \input{figures/problematicRevision.tex}
 
-\begin{frame}{Two Methods}
-\begin{itemize}
-    \item CRAC: Completion \textit{via} Reachability And Correlations
-    \item M2RIT: Model Revision \textit{via} Reachability and Interpretation Transitions
+    \vspace{0.5cm}
+    
+    \begin{itemize}
+    \item<+-> CRAC: Completion \textit{via} Reachability And Correlations
+    \item<+-> M2RIT: Model Revision \textit{via} Reachability and Interpretation Transitions
 \end{itemize}
-
-Two phases: learning phase and revision phase
-\begin{columns}
-\begin{column}{0.6\textwidth}
-     Discrete data $\to$ LFIT $\to$ discrete transitions
-\end{column}
-\begin{column}{0.4\textwidth}
-    
-\end{column}
-\end{columns}
-
-\begin{columns}
-\begin{column}{0.6\textwidth}
-    Continuous data $\to$ Correlation coefficients $\to$ regulations
-\end{column}
-\begin{column}{0.4\textwidth}
-    
-\end{column}
-\end{columns}
-
-\centering
+\onslide<+->{
     \begin{tabular}{c|c|c}
          &CRAC & M2RIT \\
          \hline
+         Learning phase & Correlation Coefficients & LFIT\\
+         \hline
+         Revising phase & \makecell{Reachability+\\candidate transitions} & \makecell{Reachability+\\time-series data}\\
+         \hline
          Data type &Continuous & Discrete\\
          \hline
-         Function &Inference & Precise learning\\
-         \hline
-         Tolerance to imprecision&Yes&No
+         Function &Inference & Precise learning%\\
+         %\hline
+         %\makecell{Tolerance to\\ imprecision}&Yes&No
+    \end{tabular}
+}
+\end{frame}
+
+\begin{frame}{Learning Phase}
+CRAC:
+
+\vspace{0.2cm}
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\onslide<1->{
+{\Large \textcircled{\normalsize 1}}
+\begin{tabular}{l|*{4}{l}}
+$t$&0&1&2&3\\
+\hline
+$a$&2.01&2.51&1.97&1.17\\
+$b$&0.74&0.87&0.78&0.33\\
+\end{tabular} 
+}
+
+\onslide<3->{
+{\Large \textcircled{\normalsize 3}}
+$r'=\kbordermatrix{\mbox{}&\Delta a&\Delta b\\
+a&\text{N/A}&0.09\\
+b&0.65&\text{N/A}\\
+}$
+}
+\end{column}
+\begin{column}{0.5\textwidth}
+\onslide<2->{
+{\Large \textcircled{\normalsize 2}}
+\begin{tabular}{c|c*{3}{S}}
+$t$&1&2&3\\
+\hline
+$\Delta a$&0.5&-0.54&-0.8\\
+$\Delta b$&0.13&-0.09&-0.45\\
+\end{tabular}
+}
+
+\onslide<4->{
+\begin{tikzpicture}[grn]
+      \path[use as bounding box] (-0.3,-0.75) rectangle (4,.75);
+      \node[inner sep=0] (b) at (2,0) {b};
+      \node[inner sep=0] (a) at (0,0) {a};
+      \node[draw=none] (lab) at (-0.6,0) {\Large \textcircled{\normalsize 4}};    
+      \path[->]
+       (b) edge[bend right] node[elabel, above=-5pt] {} (a);
+
+\end{tikzpicture}
+}
+\end{column}
+\end{columns}
+
+\vspace{0.5cm}
+
+\onslide<5->{
+M2RIT:
+
+\vspace{0.2cm}
+
+\begin{columns}
+\begin{column}{0.4\textwidth}
+Full transitions
+
+$(a(t),b(t))\gets (a(t-1),b(t-1))$
+\end{column}
+\begin{column}{0.2\textwidth}
+classed into
+
+     $\Longrightarrow$ 
+\end{column}
+\begin{column}{0.4\textwidth}
+    partial transitions
+    
+    $a_1\gets b_1$
+\end{column}
+\end{columns}
+}
+\end{frame}
+
+\begin{frame}{Revising Phase}
+    \centering
+    \begin{tabular}{c|c|c}
+        &Reachable &Unreachable\\
+        \hline
+        Knowledge& $R_K$ & $U_K$ \pause\\
+        \hline
+        Inferred model& $R_I$ & $U_I$\pause\\
+        \hline
+        Inconsistency (problem)& $R'_K=R_K\cap U_I$ & $U'_K=R_I\cap U_K$\pause\\
+        Keep consistent with& $U_K$& $R_K$ \pause\\
+        %\hline
+        %Operation &Generalization  & Specialization %$\bigcirc$
+        %\\
+        %&Add transitions$\times$&Delete transitions$\times$
+        %$\checkmark$  
     \end{tabular}
 \end{frame}
 
-\begin{frame}{Example}
+\begin{frame}{Cut Set}
+    \input{figures/cutset.tex}
+    
+\begin{tabular}{|c|c|l|}
+ \hline 
+ Node & Rank & $\mathbb{V}$ \\ 
+ \hline 
+ $\varnothing$ (of $b_1$) & 1 & $\varnothing$ \\ 
+ \hline 
+ $b_1$ & 2 & $\{\{b_1\}\}$ \pause\\ 
+ \hline 
+ $\{b_1\}\to d_1$ & 3 & $\{\{b_1\}\}$ \pause\\ 
+ \hline 
+ $d_1$ & 4 & $\{\{b_1\},\{d_1\}\}$ \\ 
+ \hline 
+ $\{d_1\}\to b_0$ & 5 & $\{\{b_1\},\{d_1\}\}$ \pause\\ 
+ \hline 
+ $b_0$ & 6 & $\{\{b_0\},\{b_1\},\{d_1\}\}$ \\ 
+ \hline 
+ $\{b_0\}\to a_1$ & 7 & $\{\{b_0\},\{b_1\},\{d_1\}\}$ \pause\\ 
+ \hline 
+ $\varnothing$ (of $c_1$) & 8 & $\varnothing$ \\ 
+ \hline 
+ $c_1$ & 9 & $\{\{c_1\}\}$ \pause\\ 
+ \hline 
+ $\{b_1,c_1\}\to a_1$ & 9 & $\{\{b_1\},\{c_1\}\}$ \pause\\ 
+ \hline 
+ $a_1$ & 9 & $\{\{a_1\},\{b_1\},\{b_0,c_1\},\{c_1,d_1\}\}$ \pause\\ 
+ \hline 
+ $\{a_1\}\to c_1$ & 9 & $\{\{a_1\},\{b_1\},\{b_0,c_1\},\{c_1,d_1\}\}$ \\ 
+ \hline 
+ \end{tabular}
+\end{frame}
+ 
+\begin{frame}{Completion Set}
+    \input{figures/completionSet.tex}
+    
+\vspace{0.5cm}    
+
+\begin{tabular}{|c|c|l|}
+ \hline 
+ Node & Rank & $\mathbb{V}$ \\ 
+ \hline 
+ $\perp$ (of $b_1$) & 1 & $\varnothing$ \\ 
+ \hline 
+ $b_1$ & 2 & $\{\{b_1\}\}$ \pause\\ 
+ \hline 
+ $\varnothing$ (of $c_0$) & 3 & $\{\varnothing\}$ \\ 
+ \hline 
+ $c_1$ & 4 & $\{\varnothing\}$ \pause\\ 
+ \hline 
+ $\{b_1,c_0\}\to a_1$ & 5 & $\{\{b_1\}\}$ \pause\\ 
+ \hline 
+ $\perp$ (of $d_1$) & 6 & $\varnothing$ \\ 
+ \hline 
+ $d_1$ & 7 & $\{\{d_1\}\}$ \pause\\ 
+ \hline 
+ $\{d_1\}\to c_1$ & 8 & $\{\{d_1\}\}$ \\ 
+ \hline 
+ $c_1$ & 9 & $\{\{c_1, d_1\}\}$ \pause\\ 
+ \hline 
+ $\perp$ (of $e_1$) & 10 & $\varnothing$ \\ 
+ \hline 
+ $e_1$ & 11 & $\{\{e_1\}\}$ \pause\\ 
+ \hline 
+ $\{c_1,e_1\}\to a_1$ & 12 & $\{\{c_1, e_1\}, \{d_1, e_1\}\}$ \pause\\ 
+ \hline 
+ $a_1$ & 13 & $\{\{a_1\}, \{b_1\}, \{c_1, e_1\}, \{d_1, e_1\}\}$ \\ 
+ \hline 
+ \end{tabular}
+\end{frame} 
+ 
+\begin{frame}{Example (M2RIT)}
 \begin{columns}
 \begin{column}{0.6\textwidth}
 \input{figures/AN_revision.tex}
@@ -387,10 +520,6 @@ Two phases: learning phase and revision phase
 \end{column}
 \end{columns}
 
-
-
-
-	
         \vspace{0.5cm}
         \centering
         \input{figures/revision.tex}
@@ -408,7 +537,16 @@ Two phases: learning phase and revision phase
 
 \begin{frame}{Conclusion}
 \begin{itemize}
-    \item Hybrid analyzer is more performing in reachability analysis
+    \item Reachability Analysis
+    \begin{itemize}
+        \item PermReach and ASPReach: faster than traditional model checkers and more conclusive than pure static analysis
+        \item $\xRightarrow{\text{?}}$ Hybrid analyzer is more performing in reachability analysis
+    \end{itemize}
+    \item Model Learning and Revision
+    \begin{itemize}
+        \item A comparatively new domain
+        \item More information needed to obtain a precise model 
+    \end{itemize}
 \end{itemize}
 
 \end{frame}
