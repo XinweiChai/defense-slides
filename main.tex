@@ -60,7 +60,7 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
 \end{adjustbox}
 \end{frame}
 
-\begin{frame}{Biological Regulatory Networks}
+\begin{frame}{Biological Regulatory Networks (BRN)}
     \input{figures/geneSchema.tex}
 \end{frame}
 
@@ -73,7 +73,7 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
 \begin{itemize}
 \item<+-> Behaviors of elements in BRN can be approximated by sigmoid functions
 \item<+-> Simplified by piecewise functions with threshold.
-When the concentration of $x$ is below the threshold, $x$ behaves as inhibition, otherwise promotion
+When the concentration of $x$ is below the threshold, $x$ behaves as inhibition, otherwise activation
 \end{itemize}
 \end{column}
 \end{columns}
@@ -91,11 +91,6 @@ When the concentration of $x$ is below the threshold, $x$ behaves as inhibition,
     
     \vspace{0.5cm}
     \onslide<5>{$\to$ Apply heuristics on inconclusive area}
-\end{frame}
-
-\begin{frame}{Problematic of Model Inference}
-    \centering
-    \input{figures/problematic.tex}
 \end{frame}
 
 \begin{frame}{Reachability Problem Illustrated by Petri Nets}
@@ -281,7 +276,12 @@ EGFR (Epidermal Growth Factor Receptor, 106 components)
 \input{figures/curveInconc.tex}
 \end{frame}
 
-\begin{frame}{Second Part: Learning and Revising Models}
+\begin{frame}{Second Part: Problematic of Model Inference}
+    \centering
+    \input{figures/problematic.tex}
+\end{frame}
+
+\begin{frame}{Learning and Revising Models}
     \input{figures/problematicRevision.tex}
 
     \vspace{0.2cm}

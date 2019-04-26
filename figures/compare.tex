@@ -1,5 +1,10 @@
 \begin{tikzpicture}
-    \onslide<1->{\node[ellipse, fill=blue!20] (dynamics) at (0, 0) {System Dynamics};}
+    \onslide<1->{\node[ellipse, fill=blue!20] (dynamics) at (0, 0) {System Dynamics};
+\node (a) [draw,circle,left = 3cm of dynamics] {$a$};
+\node (b) [draw,circle,right = of a] {$b$};
+\draw[-{Latex[length=1.5mm]}, line width=1pt] (a) to[bend left] (b);
+\path (b) edge[-|,thick,bend left=30,shorten >=1pt] (a);
+}
 \footnotesize
     \onslide<2->{\node[ellipse, fill=blue!20, below = of dynamics] (reach) {Reachability problem};
     \draw[->,thick,dashed] (dynamics) -- (reach);}
