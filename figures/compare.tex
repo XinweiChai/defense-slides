@@ -1,24 +1,30 @@
 \begin{tikzpicture}
-    \onslide<1->{\node[ellipse, fill=blue!20] (dynamics) at (0, 0) {System Dynamics};
-\node (a) [draw,circle,left = 3cm of dynamics] {$a$};
-\node (b) [draw,circle,right = of a] {$b$};
-\draw[-{Latex[length=1.5mm]}, line width=1pt] (a) to[bend left] (b);
-\path (b) edge[-|,thick,bend left=30,shorten >=1pt] (a);
+    \onslide<+->{\node[ellipse, fill=blue!20] (dynamics) at (0, 0) {System Dynamics};
+	\node (a) [draw,circle,left = 3cm of dynamics] {$a$};
+	\node (b) [draw,circle,right = of a] {$b$};
+	\draw[-{Latex[length=1.5mm]}, line width=1pt] (a) to[bend left] (b);
+	\path (b) edge[-|,thick,bend left=30,shorten >=1pt] (a);
 }
+	\only<+->{\node[ellipse, fill=blue!20, above right = 0.2cm and 1cm of dynamics] (oscil) {Oscillation};
+	\draw[->,thick,dashed] (dynamics) -- (oscil);}
+	\only<+->{
+	\node[ellipse, fill=blue!20, below right = 0.2cm and 1cm of dynamics] (perio) {Periodicity};
+	\draw[->,thick,dashed] (dynamics) -- (perio);
+	}
 \footnotesize
-    \onslide<2->{\node[ellipse, fill=blue!20, below = of dynamics] (reach) {Reachability problem};
+    \only<+->{\node[ellipse, fill=blue!20, below = of dynamics] (reach) {Reachability problem};
     \draw[->,thick,dashed] (dynamics) -- (reach);}
-    \onslide<3->{\node[ellipse, fill=purple!20, below left = 0.6cm of reach] (full) {Exhaustive analysis};
+    \only<+->{\node[ellipse, fill=purple!20, below left = 0.6cm of reach] (full) {Exhaustive analysis};
     \draw[->,thick] (reach) -- (full);}
-    \onslide<5->{\node[ellipse, fill=purple!20, below right = 0.6cm of reach] (part) {Partial analysis};
-    \draw[->,thick] (reach) -- (part);}
-    \onslide<4->{\node[ellipse, fill=purple!20, below = 0.6cm of full, text width = 3cm] (propfull) {Explore the whole state space $\to$ exponential \frownie{}};
+    \only<+->{\node[ellipse, fill=purple!20, below = 0.6cm of full, text width = 3cm] (propfull) {Explore the whole state space $\to$ exponential \frownie{}};
     \draw[->,thick] (full) -- (propfull);}
-    \onslide<6->{\node[ellipse, fill=purple!20, below = 0.6cm of part, text width = 3cm] (proppart) {Explore a part of the state space $\to$ computable \smiley{}};
+    \only<+->{\node[ellipse, fill=purple!20, below right = 0.6cm of reach] (part) {Partial analysis};
+    \draw[->,thick] (reach) -- (part);}
+    \only<+->{\node[ellipse, fill=purple!20, below = 0.6cm of part, text width = 3cm] (proppart) {Explore a part of the state space $\to$ computable \smiley{}};
     \draw[->,thick] (part) -- (proppart);}
-    \onslide<7->{\node[ellipse, fill=purple!20, below = 0.6cm of proppart, text width = 3cm] (incomp) {Incomplete search \frownie{}};
+    \only<+->{\node[ellipse, fill=purple!20, below = 0.6cm of proppart, text width = 3cm] (incomp) {Incomplete search \frownie{}};
     \draw[->,thick] (proppart) -- (incomp);}
-    \onslide<8->{\node[draw, dashed, color = blue!50, below = 0.6cm of propfull, text width = 3cm] (heu) {Maybe some heuristics in non searched area?};
+    \only<+->{\node[draw, dashed, color = blue!50, below = 0.6cm of propfull, text width = 3cm] (heu) {Maybe some heuristics in non searched area?};
     \draw[->,dashed, thick, color=purple!30] (incomp) -- (heu);
     \draw[->,dashed, thick, color=purple!30] (propfull) -- (heu);}
     %\draw[thick,blue,rounded corners=1mm,dashed,fill=gray!40,opacity=0.2] (heu) \irregularcircle{3cm}{3mm};

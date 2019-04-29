@@ -1,7 +1,7 @@
 \begin{tikzpicture}[scale=0.7]
 \scriptsize
-    \begin{axis}[samples=100,legend pos=north west,legend style={draw=none}]
-        \only<1>{\addplot[mark=none,color=red] {1/(1+exp(-2*x))};}
+    \begin{axis}[samples=100,legend pos=north west,legend style={draw=none},xmin=-3,xmax=3,ymin=-0.1,ymax=1.1]
+        \only<1>{\addplot[mark=none,color=red,domain= -3:3] {1/(1+exp(-2*x))};}
         \only<2>{\addplot[mark=none,color=red,domain=-3:0] {0};}
         \only<2>{\addplot[mark=none,color=red,domain=0:3] {1};}
         \only<2>{\addplot[fill=white,only marks,mark=*] coordinates{(0,0)(0,1)};}

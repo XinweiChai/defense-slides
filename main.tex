@@ -27,7 +27,6 @@
 \usepackage{makecell}
 \usepackage{kbordermatrix}
 \usepackage{mathtools}
-
 \usepackage{calc}
 \usepackage{fp}
 \input{macros}
@@ -59,6 +58,7 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
 \end{adjustbox}
 \end{frame}
 
+\section{Motivation}
 \begin{frame}{Biological Regulatory Networks (BRN)}
     \input{figures/geneSchema.tex}
 \end{frame}
@@ -69,6 +69,16 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
    \input{figures/sigmoidAndPiecewise.tex}
 \end{column}
 \begin{column}{0.5\textwidth}
+\onslide<+->{
+\begin{tikzpicture}
+\node (a) [draw,circle,below left = 2cm and 1cm of entityA] {$a$};
+\node (b) [draw,circle,right = of a] {$b$};
+\draw[-{Latex[length=1.5mm]}, line width=1pt] (a) to[bend left] (b);
+\path (b) edge[-|,thick,bend left=30,shorten >=1pt] (a);
+\draw[-{Latex[length=1.5mm]}, thick, loop above,dashed] (b) to (b);
+\end{tikzpicture}
+
+What are the possible values for $a$ and $b$?}
 \begin{itemize}
 \item<+-> Behaviors of elements in BRN can be approximated by sigmoid functions
 \item<+-> Simplified by piecewise functions with threshold.
@@ -78,13 +88,16 @@ When the concentration of $x$ is below the threshold, $x$ behaves as inhibition,
 \end{columns}
 \end{frame}
 
-\section{Motivation}
+
 \begin{frame}{Problematic of Reachability Problem}
     \centering
     \input{figures/compare.tex}
 \end{frame}
 
 \begin{frame}{Challenge and Solution}
+Use approximations to approach the exact solution~\cite{pauleve2012}
+
+\vspace{0.2cm}
     \centering
     \input{figures/vennDiagram.tex}
     
@@ -96,7 +109,7 @@ When the concentration of $x$ is below the threshold, $x$ behaves as inhibition,
 %    \centering
 %    \input{figures/automata.tex}
 %\end{frame}
-
+\section{Modeling \& Reachability Problem}
 \begin{frame}{Automata Network}
 
     Hypothesis on ABAN Asynchronous Binary Automata Network
@@ -226,7 +239,7 @@ $\to$ Heuristics used to find a sequence of local states in the form $Z::Y::X$
         Runtime & $+$ & $-$ \\
         Conclusiveness& $-$&$+$
     \end{tabular}
-    \bibentry{chai2018reach}
+    \cite{chai2018reach}
 \end{frame}
 
 \begin{frame}{Example}
@@ -265,7 +278,7 @@ The only admissible order is $a_1\to b_1\to c_1$}
 \begin{frame}{Benchmarks: on Biological Examples}
 Traditional model checkers: Mole NuSMV $\to$ \highlight{memory-out}
 
-Pure static analyzer: Pint% \cite{folschette2015}
+Pure static analyzer: Pint~\cite{folschette2015}
 
 Small example: $\lambda$-phage, 4 components
 
@@ -300,7 +313,7 @@ EGFR (Epidermal Growth Factor Receptor, 106 components)
     \begin{tabular}{c|c|c}
          &CRAC & M2RIT \\
          \hline
-         Learning phase & Correlation Coefficients & LFIT\\
+         Learning phase & Correlation Coefficients & LFIT~\cite{ribeiro2018learning}\\
          \hline
          Revising phase & \makecell{Reachability+\\candidate transitions} & \makecell{Reachability+\\time-series data}\\
          \hline
@@ -312,7 +325,7 @@ EGFR (Epidermal Growth Factor Receptor, 106 components)
     \end{tabular}
 }
 \end{frame}
-
+\section{Learning}
 \begin{frame}{Learning Phase}
 CRAC:
 
@@ -385,7 +398,7 @@ classed into
 \end{columns}
 }
 \end{frame}
-
+\section{Revising}
 \begin{frame}{Revising Phase}
     Methodology:
     
@@ -413,18 +426,15 @@ classed into
     
     \vspace{0.5cm}
 \begin{columns}
-\begin{column}{0.6\textwidth}
+\begin{column}{0.62\textwidth}
     \input{tab_cutset.tex}
 \end{column}
-\begin{column}{0.4\textwidth}
+\begin{column}{0.38\textwidth}
 \begin{itemize}
     \item Rank: topological numbering of the nodes in LCG, nodes with higher rank cannot be successor of nodes with lower rank
     \item By inhibiting the reachability of one of the sets in cut set $\{\{a_1\},\{b_1\},\{b_0,c_1\},\{c_1,d_1\}\}$, $a_1$ shall not be reachable
     \item Modification depends on the consistency with the result of learning phase.
 \end{itemize}
-
-
-
 \end{column}
 \end{columns}    
 \end{frame}
@@ -476,7 +486,7 @@ Modification depends on the consistency with the result of learning phase.
         \item Check the reachability of $(\alpha,a_1)$: reachable, finish
     \end{itemize}
 \end{frame}
-
+\section{Conclusion}
 \begin{frame}{Conclusion}
 \begin{itemize}
     \item Reachability Analysis
