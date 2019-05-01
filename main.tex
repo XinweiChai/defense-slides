@@ -57,81 +57,45 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
   \titlepage
 \end{frame}
 
-\input{sub/positioning.tex}
-
-\input{sub/brn.tex}
+\section{background}
+\input{positioning.tex}
+\input{brn.tex}
 
 \section{Motivation}
 
-\input{sub/discrete.tex}
+\input{discrete.tex}
+\input{problematic_reach.tex}
+\input{challenge_solution.tex}
+%\input{petri_net.tex}
 
-\input{sub/problematic_reach.tex}
-
-\input{sub/challenge_solution.tex}
-
-
-
-%\begin{frame}{Reachability Problem Illustrated by Petri Nets}
-%    \centering
-%    \input{figures/automata.tex}
-%\end{frame}
 \section{Modeling \& Reachability Problem}
 \begin{frame}{Automata Network}
 
     Hypothesis on ABAN Asynchronous Binary Automata Network
 \end{frame}
 
-\input{sub/reachability_state_space.tex}
-
-\input{sub/modeling_system_dynamics.tex}
-
-\input{sub/lcg.tex}
-
-\input{sub/counter_example_lcg.tex}
-
-\input{sub/two_heuristics.tex}
-
-\input{sub/example_limitation.tex}
-
-\input{sub/benchmark.tex}
-
-\input{sub/problematic_model_inference.tex}
-
-\input{sub/learning_and_revising.tex}
+\input{reachability_state_space.tex}
+\input{modeling_system_dynamics.tex}
+\input{lcg.tex}
+\input{counter_example_lcg.tex}
+\input{two_heuristics.tex}
+\input{example_limitation.tex}
+\input{benchmark.tex}
+\input{problematic_model_inference.tex}
+\input{learning_and_revising.tex}
 
 \section{Learning}
-
-\input{sub/learning_phase.tex}
+\input{learning_phase.tex}
 
 \section{Revising}
-
-\input{sub/revising_phase.tex}
-
-\input{sub/cut_set.tex}
-
-\input{sub/completion_set.tex}
- 
-\input{sub/heuristics_revision.tex}
+\input{revising_phase.tex}
+\input{cut_set.tex}
+\input{completion_set.tex}
+\input{heuristics_revision.tex}
  
 
 \section{Conclusion}
-\begin{frame}{Conclusion}
-\begin{itemize}
-    \item Reachability Analysis
-    \begin{itemize}
-        \item PermReach and ASPReach: faster than traditional model checkers and more conclusive than pure static analysis $\to$ balance between complexity and completeness
-        \item Deal with systems with up to $10^3$ automata
-        \item $\xRightarrow{\text{?}}$ Hybrid analyzer is more performing in reachability analysis
-    \end{itemize}
-    \item Model Learning and Revision
-    \begin{itemize}
-        \item A comparatively new domain
-        \item By only heuristics as metrics, only systems bisimilar to original systems
-        \item General solution vs. heuristics $\to$ balance between complexity and completeness
-        \item More information needed to obtain a precise model 
-    \end{itemize}
-\end{itemize}
-\end{frame}
+\input{conclusion.tex}
 
 \begin{frame}{Bibliography}
     \bibliographystyle{plain}

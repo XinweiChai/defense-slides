@@ -30,6 +30,8 @@
 \usepackage{calc}
 \usepackage{fp}
 \usepackage{docmute}
+\usepackage{graphicx}
+\graphicspath{{figures/}}
 \input{macros}
 \input{macros-ph}
 \input{macros-abstr}
@@ -37,28 +39,8 @@
 \usepackage{cancel}
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
 \begin{document}
-\begin{frame}{Learning and Revising Models}
-    \input{figures/problematicRevision.tex}
-
-    \vspace{0.2cm}
-    \begin{itemize}
-    \item<+-> CRAC: Completion \textit{via} Reachability And Correlations
-    \item<+-> M2RIT: Model Revision \textit{via} Reachability and Interpretation Transitions
-\end{itemize}
-\onslide<+->{
-    \begin{tabular}{c|c|c}
-         &CRAC & M2RIT \\
-         \hline
-         Learning phase & Correlation Coefficients & \makecell{Learning from Interpretation\\ Transitions~\cite{ribeiro2018learning}}\\
-         \hline
-         Revising phase & \makecell{Reachability+\\candidate transitions} & \makecell{Reachability+\\time-series data}\\
-         \hline
-         Data type &Continuous & Discrete\\
-         \hline
-         Function &Inference & Precise learning\\
-         \hline
-         \makecell{Tolerance to\\ imprecision}&Yes&No
-    \end{tabular}
-}
+\begin{frame}{Reachability Problem Illustrated by Petri Nets}
+    \centering
+    \input{figures/automata.tex}
 \end{frame}
 \end{document}

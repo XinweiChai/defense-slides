@@ -37,28 +37,21 @@
 \usepackage{cancel}
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
 \begin{document}
-\begin{frame}{Learning and Revising Models}
-    \input{figures/problematicRevision.tex}
-
-    \vspace{0.2cm}
+\begin{frame}{Conclusion}
+\begin{itemize}
+    \item Reachability Analysis
     \begin{itemize}
-    \item<+-> CRAC: Completion \textit{via} Reachability And Correlations
-    \item<+-> M2RIT: Model Revision \textit{via} Reachability and Interpretation Transitions
+        \item PermReach and ASPReach: faster than traditional model checkers and more conclusive than pure static analysis $\to$ balance between complexity and completeness
+        \item Deal with systems with up to $10^3$ automata
+        \item $\xRightarrow{\text{?}}$ Hybrid analyzer is more performing in reachability analysis
+    \end{itemize}
+    \item Model Learning and Revision
+    \begin{itemize}
+        \item A comparatively new domain
+        \item By only heuristics as metrics, only systems bisimilar to original systems
+        \item General solution vs. heuristics $\to$ balance between complexity and completeness
+        \item More information needed to obtain a precise model 
+    \end{itemize}
 \end{itemize}
-\onslide<+->{
-    \begin{tabular}{c|c|c}
-         &CRAC & M2RIT \\
-         \hline
-         Learning phase & Correlation Coefficients & \makecell{Learning from Interpretation\\ Transitions~\cite{ribeiro2018learning}}\\
-         \hline
-         Revising phase & \makecell{Reachability+\\candidate transitions} & \makecell{Reachability+\\time-series data}\\
-         \hline
-         Data type &Continuous & Discrete\\
-         \hline
-         Function &Inference & Precise learning\\
-         \hline
-         \makecell{Tolerance to\\ imprecision}&Yes&No
-    \end{tabular}
-}
 \end{frame}
 \end{document}
