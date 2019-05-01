@@ -1,0 +1,61 @@
+\documentclass[8pt]{beamer}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usetheme{Warsaw}
+\useoutertheme{infolines} 
+\setbeamertemplate{items}[ball]
+\usepackage{algorithm}
+\usepackage{fancybox}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{automata,calc,er}
+\usetikzlibrary{mindmap,scopes,arrows,arrows.meta,shapes,chains,positioning,fit,backgrounds,decorations,intersections,petri,decorations.pathmorphing}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+\usetikzlibrary{pgfplots.fillbetween}
+\pgfdeclarelayer{ft}
+\pgfdeclarelayer{bg}
+\pgfsetlayers{bg,main,ft}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{adjustbox}
+\usepackage{wasysym}
+\usepackage{siunitx}
+\usepackage{makecell}
+\usepackage{kbordermatrix}
+\usepackage{mathtools}
+\usepackage{calc}
+\usepackage{fp}
+\usepackage{docmute}
+\input{macros}
+\input{macros-ph}
+\input{macros-abstr}
+\input{tikzstyles2}
+\usepackage{cancel}
+\newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
+\begin{document}
+\begin{frame}{Revising Phase}
+    Methodology:
+    
+    \begin{center}
+        \begin{tabular}{l|c|c}
+        &Reachable &Unreachable\\
+        \hline
+        Knowledge& $R_K$ & $U_K$ \pause\\
+        \hline
+        Inferred model& $R_I$ & $U_I$\pause\\
+        \hline
+        Inconsistency (problem)& $R'_K=R_K\cap U_I$ & $U'_K=R_I\cap U_K$\pause\\
+        Keep consistent with& $U_K$& $R_K$ \pause
+    \end{tabular} 
+    \end{center}
+2 solutions:
+\begin{itemize}
+    \item General solution: cut set + completion set, complete but costly
+    \item Heuristics, fast but not complete
+\end{itemize}
+\end{frame}
+\end{document}

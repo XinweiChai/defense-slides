@@ -29,6 +29,12 @@
 \usepackage{mathtools}
 \usepackage{calc}
 \usepackage{fp}
+\usepackage{docmute}
+\makeatletter
+\def\input@path{{sub/}}
+\makeatother
+\usepackage{graphicx}
+\graphicspath{{sub/figures/}}
 \input{macros}
 \input{macros-ph}
 \input{macros-abstr}
@@ -51,59 +57,19 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
   \titlepage
 \end{frame}
 
-\begin{frame}{Positioning of Our Work}
-\begin{adjustbox}{max totalsize={.9\textwidth}{.9\textheight},center}
-    \centering
-    \input{figures/overview.tex}
-\end{adjustbox}
-\end{frame}
+\input{sub/positioning.tex}
+
+\input{sub/brn.tex}
 
 \section{Motivation}
-\begin{frame}{Biological Regulatory Networks (BRN)}
-    \input{figures/geneSchema.tex}
-\end{frame}
 
-\begin{frame}{Discrete Modeling}
-\begin{columns}
-\begin{column}{0.5\textwidth}
-   \input{figures/sigmoidAndPiecewise.tex}
-\end{column}
-\begin{column}{0.5\textwidth}
-\onslide<+->{
-\begin{tikzpicture}
-\node (a) [draw,circle,below left = 2cm and 1cm of entityA] {$a$};
-\node (b) [draw,circle,right = of a] {$b$};
-\draw[-{Latex[length=1.5mm]}, line width=1pt] (a) to[bend left] (b);
-\path (b) edge[-|,thick,bend left=30,shorten >=1pt] (a);
-\draw[-{Latex[length=1.5mm]}, thick, loop above,dashed] (b) to (b);
-\end{tikzpicture}
+\input{sub/discrete.tex}
 
-What are the possible values for $a$ and $b$?}
-\begin{itemize}
-\item<+-> Behaviors of elements in BRN can be approximated by sigmoid functions
-\item<+-> Simplified by piecewise functions with threshold.
-When the concentration of $x$ is below the threshold, $x$ behaves as inhibition, otherwise activation
-\end{itemize}
-\end{column}
-\end{columns}
-\end{frame}
+\input{sub/problematic_reach.tex}
+
+\input{sub/challenge_solution.tex}
 
 
-\begin{frame}{Problematic of Reachability Problem}
-    \centering
-    \input{figures/compare.tex}
-\end{frame}
-
-\begin{frame}{Challenge and Solution}
-Use approximations to approach the exact solution~\cite{pauleve2012}
-
-\vspace{0.2cm}
-    \centering
-    \input{figures/vennDiagram.tex}
-    
-    \vspace{0.5cm}
-    \onslide<5>{$\to$ Apply heuristics on inconclusive area}
-\end{frame}
 
 %\begin{frame}{Reachability Problem Illustrated by Petri Nets}
 %    \centering
@@ -115,377 +81,39 @@ Use approximations to approach the exact solution~\cite{pauleve2012}
     Hypothesis on ABAN Asynchronous Binary Automata Network
 \end{frame}
 
-\begin{frame}{Reachability Problem Illustrated by State Space}
-Every system state is represented by a node in the digraph
+\input{sub/reachability_state_space.tex}
 
-    \vspace{0.2cm}
-    {\centering
-    \input{figures/reachability.tex}
-    
-    \vspace{0.2cm}
-    $\alpha=$ initial state, $\omega=$ desired final state}
-    
-\end{frame}
+\input{sub/modeling_system_dynamics.tex}
 
-\begin{frame}{Modeling System Dynamics}
-    \begin{columns}
-    \begin{column}{0.45\textwidth}
-    Boolean Network (BN)
-    
-    \vspace{0.5cm}
-    \includegraphics[width=\textwidth]{figures/BooleanNetwork.png}
-    \end{column}
-    \pause
-    \begin{column}{0.45\textwidth}
-    A modeling framework representing state transitions and using $O(n)$ memory $\to$ Automata Network (AN)
-    
-    \pause
-    \vspace{0.5cm}
-    \input{figures/BNtoAN.tex}
-    
-    \onslide<3->{The reachability of $(x,y,z)$ is of $O(2^n)$ $\Longrightarrow$}
-    
-    \onslide<4->{The reachability of $x$ can be of $O(n)$}
-    
-    \onslide<5->{$\Longrightarrow$ Local Causality Graph}
-    \end{column}
-    \end{columns}
-\end{frame}
+\input{sub/lcg.tex}
 
-\begin{frame}{Local Causality Graph}
-\input{figures/ANexample.tex}
+\input{sub/counter_example_lcg.tex}
 
-\input{figures/LCGexampleAN.tex}
+\input{sub/two_heuristics.tex}
 
-\only<1-5>{Small circles stand for transition nodes, squares for state nodes}
-\begin{columns}
-\begin{column}{0.5\textwidth}
-\begin{align*}
-    \only<6->{r'(a_1)&=r'(e_1)\lor (r'(b_1)\land r'(c_1)\\}
-    \only<7->{&=r'(d_0)\land r'(c_1)\\}
-    \only<8->{&=r'(d_0)\land r'(d_1)\\}
-    \only<9->{&=r'(d_1)\\}
-    \only<10->{&=r'(b_1)=r'(d_0)=1}
-\end{align*}
-\end{column}
-\begin{column}{0.5\textwidth}
-    \only<15>{However, $r'(a_i)$ is \highlight{not equivalent} to the reachability of $a_1$}
-\end{column}
-\end{columns}
-\end{frame}
+\input{sub/example_limitation.tex}
 
-\begin{frame}{Counterexample of LCG}
-LCG is \highlight{exact} for unreachability 
+\input{sub/benchmark.tex}
 
-LCG is \highlight{exact} when it does not contain self-dependent structure:
-\begin{itemize}
-\item different state nodes of the same automaton in different branches:
-\end{itemize}
-Given initial state: $a_0,b_0,c_0$, consider the reachability of $c_1$:
+\input{sub/problematic_model_inference.tex}
 
-\begin{columns}
-\begin{column}{0.45\textwidth}
-    \input{figures/AN_limitation.tex}
-\end{column}
-\begin{column}{0.55\textwidth}
-    \input{figures/LCG_limitation.tex}
-\end{column}
-\end{columns}
+\input{sub/learning_and_revising.tex}
 
-\only<1>{Reaching $a_1$ disables the reachability of $b_1$, and vice versa, $c_1$ is unreachable}
-\only<2->{$c_1$ is reachable \textit{via} $a_1::b_1::c_1$}
-
-\only<3->{
-\begin{columns}
-\begin{column}{0.5\textwidth}
-LCG does not show \highlight{orders} of local states
-
-\centering
-$\Longrightarrow$ How to deal with this structure?
-\end{column}
-\begin{column}{0.5\textwidth}
-\input{figures/inconcStructure.tex}
-\end{column}
-\end{columns}
-}
-\end{frame}
-
-\begin{frame}{Two Possible Heuristics}
-    Complete search \pause $\to$ State space explosion problem $\times$ \pause
-    
-    \vspace{0.2cm}
-    $\to$ Partial search
-    
-    \vspace{0.5cm}
-    \pause     
-\begin{columns}
-\begin{column}{0.5\textwidth}
-$\to$ Heuristics used to find a sequence of local states in the form $Z::Y::X$
-\end{column}
-\begin{column}{0.5\textwidth}
-\centering
-\input{figures/inconcStructure.tex}
-\end{column}
-\end{columns}
-
-\vspace{0.5cm}
-\pause     
-\centering
-    \begin{tabular}{c|c|c}
-        &PermReach & ASPReach \\
-        \hline
-        Method &\makecell{Search all the \\permutations of branches}   &\makecell{Search all the possible\\ order of branches}\\
-        \hline
-        Runtime & $+$ & $-$ \\
-        Conclusiveness& $-$&$+$
-    \end{tabular}
-    \cite{chai2018reach}
-\end{frame}
-
-\begin{frame}{Example}
-\begin{columns}
-\begin{column}{0.45\textwidth}
-    \input{figures/AN_limitation.tex}
-\end{column}
-\begin{column}{0.55\textwidth}
-    \input{figures/LCG_limitation.tex}
-\end{column}
-\end{columns}
-
-\vspace{0.5cm}
-Notation: $a\rhd b$ means $a$ appears in the sequence before $b$
-
-\only<1>{
-\begin{tabular}{lll}
-Order constraints in LCG &$\Rightarrow$& $b_0\rhd a_1\rhd c_1$ , $a_0 \rhd b_1\rhd c_1$\\
-Additional rule &$\Rightarrow$& $a_1 \rhd b_1$ and $b_1 \rhd a_1$
-\end{tabular}
-
-\vspace{0.5cm}
-Contradiction in order, no solution
-}
-
-\only<2>{
-\begin{tabular}{lll}
-Order constraints in LCG &$\Rightarrow$& $b_0\rhd a_1\rhd c_1$ , $c_0 \rhd b_1\rhd c_1$\\
-Additional rule &$\Rightarrow$& $a_1 \rhd b_1$
-\end{tabular}
-
-\vspace{0.5cm}
-The only admissible order is $a_1\to b_1\to c_1$}
-\end{frame}
-
-\begin{frame}{Benchmarks: on Biological Examples}
-Traditional model checkers: Mole NuSMV $\to$ \highlight{memory-out}
-
-Pure static analyzer: Pint~\cite{folschette2015}
-
-Small example: $\lambda$-phage, 4 components
-
-Big examples: TCR (T-Cell Receptor, 95 components) and
-
-EGFR (Epidermal Growth Factor Receptor, 106 components)
-
-\small
-    \centering
-    \input{tab_benchmark.tex}
-\end{frame}
-
-\begin{frame}{Benchmarks: on Random Examples}
-\input{figures/curveSizeTest.tex}
-\input{figures/curveInconc.tex}
-\end{frame}
-
-\begin{frame}{Second Part: Problematic of Model Inference}
-    \centering
-    \input{figures/problematic.tex}
-\end{frame}
-
-\begin{frame}{Learning and Revising Models}
-    \input{figures/problematicRevision.tex}
-
-    \vspace{0.2cm}
-    \begin{itemize}
-    \item<+-> CRAC: Completion \textit{via} Reachability And Correlations
-    \item<+-> M2RIT: Model Revision \textit{via} Reachability and Interpretation Transitions
-\end{itemize}
-\onslide<+->{
-    \begin{tabular}{c|c|c}
-         &CRAC & M2RIT \\
-         \hline
-         Learning phase & Correlation Coefficients & LFIT~\cite{ribeiro2018learning}\\
-         \hline
-         Revising phase & \makecell{Reachability+\\candidate transitions} & \makecell{Reachability+\\time-series data}\\
-         \hline
-         Data type &Continuous & Discrete\\
-         \hline
-         Function &Inference & Precise learning\\
-         \hline
-         \makecell{Tolerance to\\ imprecision}&Yes&No
-    \end{tabular}
-}
-\end{frame}
 \section{Learning}
-\begin{frame}{Learning Phase}
-CRAC:
 
-\vspace{0.2cm}
-\begin{columns}
-\begin{column}{0.5\textwidth}
-\onslide<1->{
-1.
-\begin{tabular}{l|*{4}{l}}
-$t$&0&1&2&3\\
-\hline
-$a$&2.01&2.51&1.97&1.17\\
-$b$&0.74&0.87&0.78&0.33\\
-\end{tabular} 
-}
+\input{sub/learning_phase.tex}
 
-\onslide<3->{
-3.
-$r'=\kbordermatrix{\mbox{}&\Delta a&\Delta b\\
-a&\text{N/A}&0.09\\
-b&0.65&\text{N/A}\\
-}$
-}
-\end{column}
-\begin{column}{0.5\textwidth}
-\onslide<2->{
-2.
-\begin{tabular}{c|c*{3}{S}}
-$t$&1&2&3\\
-\hline
-$\Delta a$&0.5&-0.54&-0.8\\
-$\Delta b$&0.13&-0.09&-0.45\\
-\end{tabular}
-}
-
-\onslide<4->{
-\begin{tikzpicture}[grn]
-      \path[use as bounding box] (-0.3,-0.75) rectangle (4,.75);
-      \node[inner sep=0] (b) at (2,0) {b};
-      \node[inner sep=0] (a) at (0,0) {a};
-      \node[draw=none] (lab) at (-0.6,0) {4.};    
-      \path[->]
-       (b) edge[bend right] node[elabel, above=-5pt] {} (a);
-\end{tikzpicture}
-}
-\end{column}
-\end{columns}
-
-\vspace{0.5cm}
-\onslide<5->{
-M2RIT:
-
-\vspace{0.2cm}
-\begin{columns}
-\begin{column}{0.4\textwidth}
-Full transitions
-
-$(a(t),b(t))\gets (a(t-1),b(t-1))$
-\end{column}
-\begin{column}{0.2\textwidth}
-classed into
-
-     $\Longrightarrow$ 
-\end{column}
-\begin{column}{0.4\textwidth}
-    partial transitions
-    
-    $a_1\gets b_1$
-\end{column}
-\end{columns}
-}
-\end{frame}
 \section{Revising}
-\begin{frame}{Revising Phase}
-    Methodology:
-    
-    \begin{center}
-        \begin{tabular}{l|c|c}
-        &Reachable &Unreachable\\
-        \hline
-        Knowledge& $R_K$ & $U_K$ \pause\\
-        \hline
-        Inferred model& $R_I$ & $U_I$\pause\\
-        \hline
-        Inconsistency (problem)& $R'_K=R_K\cap U_I$ & $U'_K=R_I\cap U_K$\pause\\
-        Keep consistent with& $U_K$& $R_K$ \pause
-    \end{tabular} 
-    \end{center}
-2 solutions:
-\begin{itemize}
-    \item General solution: cut set + completion set, complete but costly
-    \item Heuristics, fast but not complete
-\end{itemize}
-\end{frame}
 
-\begin{frame}{Cut Set}
-    \input{figures/cutset.tex}
-    
-    \vspace{0.5cm}
-\begin{columns}
-\begin{column}{0.62\textwidth}
-    \input{tab_cutset.tex}
-\end{column}
-\begin{column}{0.38\textwidth}
-\begin{itemize}
-    \item Rank: topological numbering of the nodes in LCG, nodes with higher rank cannot be successor of nodes with lower rank
-    \item By inhibiting the reachability of one of the sets in cut set $\{\{a_1\},\{b_1\},\{b_0,c_1\},\{c_1,d_1\}\}$, $a_1$ shall not be reachable
-    \item Modification depends on the consistency with the result of learning phase.
-\end{itemize}
-\end{column}
-\end{columns}    
-\end{frame}
+\input{sub/revising_phase.tex}
+
+\input{sub/cut_set.tex}
+
+\input{sub/completion_set.tex}
  
-\begin{frame}{Completion Set}
-    \input{figures/completionSet.tex}
-    
-\vspace{0.5cm}    
-\begin{columns}
-\begin{column}{0.65\textwidth}
-    \input{tab_completion_set.tex}
-\end{column}
-\begin{column}{0.35\textwidth}
-Rank: topological numbering of the nodes in LCG, nodes with higher rank cannot be successor of nodes with lower rank
-
-\vspace{0.2cm}
-By assuring the reachability of one of the sets in completion set $\{\{a_1\},\{b_1\},\{b_0,c_1\},\{c_1,d_1\}\}$, $a_1$ shall not be reachable.
-
-\vspace{0.2cm}
-Modification depends on the consistency with the result of learning phase.
-\end{column}
-\end{columns} 
-\end{frame} 
+\input{sub/heuristics_revision.tex}
  
-\begin{frame}{Heuristics}
-\begin{columns}
-\begin{column}{0.6\textwidth}
-\input{figures/AN_revision.tex}
-\end{column}
-\begin{column}{0.4\textwidth}
-    $\alpha=\langle a_0,b_0,c_0,d_0\rangle$, $\omega=a_1$
-    
-	$U_K=\{(\alpha,b_1),(\alpha,d_1)\}$
-	
-	$R_K=\{(\alpha,a_1)\}$
-\end{column}
-\end{columns}
 
-        \vspace{0.3cm}
-        \centering
-        \input{figures/revision.tex}
-        
-        \vspace{0.3cm}
-     \begin{itemize}
-        \item $L=\{\{(\alpha,a_1),(\alpha,b_1),(\alpha,d_1)\},\{(\alpha,b_1)\},\{(\alpha,d_1)\}\}$
-        \item Start from $\{(\alpha,b_1)\}$ and $\{(\alpha,d_1)\}$
-        \item $b_1\gets c_0$ can be specialized to $b_1\gets c_0\land a_1$ to make $b_1$ unreachable
-        \item $a_1\gets d_1 \land c_0$ can only be generalized to $a_1 \gets c_0$ as $d_1\in U_K$
-        \item Check the reachability of $(\alpha,a_1)$: reachable, finish
-    \end{itemize}
-\end{frame}
 \section{Conclusion}
 \begin{frame}{Conclusion}
 \begin{itemize}

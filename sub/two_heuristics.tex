@@ -1,0 +1,71 @@
+\documentclass[8pt]{beamer}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usetheme{Warsaw}
+\useoutertheme{infolines} 
+\setbeamertemplate{items}[ball]
+\usepackage{algorithm}
+\usepackage{fancybox}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{automata,calc,er}
+\usetikzlibrary{mindmap,scopes,arrows,arrows.meta,shapes,chains,positioning,fit,backgrounds,decorations,intersections,petri,decorations.pathmorphing}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+\usetikzlibrary{pgfplots.fillbetween}
+\pgfdeclarelayer{ft}
+\pgfdeclarelayer{bg}
+\pgfsetlayers{bg,main,ft}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{adjustbox}
+\usepackage{wasysym}
+\usepackage{siunitx}
+\usepackage{makecell}
+\usepackage{kbordermatrix}
+\usepackage{mathtools}
+\usepackage{calc}
+\usepackage{fp}
+\usepackage{docmute}
+\input{macros}
+\input{macros-ph}
+\input{macros-abstr}
+\input{tikzstyles2}
+\usepackage{cancel}
+\newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
+\begin{document}
+\begin{frame}{Two Possible Heuristics}
+    Complete search \pause $\to$ State space explosion problem $\times$ \pause
+    
+    \vspace{0.2cm}
+    $\to$ Partial search
+    
+    \vspace{0.5cm}
+    \pause     
+\begin{columns}
+\begin{column}{0.5\textwidth}
+$\to$ Heuristics used to find a sequence of local states in the form $Z::Y::X$
+\end{column}
+\begin{column}{0.5\textwidth}
+\centering
+\input{figures/inconcStructure.tex}
+\end{column}
+\end{columns}
+
+\vspace{0.5cm}
+\pause     
+\centering
+    \begin{tabular}{c|c|c}
+        &PermReach & ASPReach \\
+        \hline
+        Method &\makecell{Search all the \\permutations of branches}   &\makecell{Search all the possible\\ order of branches}\\
+        \hline
+        Runtime & $+$ & $-$ \\
+        Conclusiveness& $-$&$+$
+    \end{tabular}
+    \cite{chai2018reach}
+\end{frame}
+\end{document}

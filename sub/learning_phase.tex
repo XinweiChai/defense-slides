@@ -1,0 +1,112 @@
+\documentclass[8pt]{beamer}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usetheme{Warsaw}
+\useoutertheme{infolines} 
+\setbeamertemplate{items}[ball]
+\usepackage{algorithm}
+\usepackage{fancybox}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{automata,calc,er}
+\usetikzlibrary{mindmap,scopes,arrows,arrows.meta,shapes,chains,positioning,fit,backgrounds,decorations,intersections,petri,decorations.pathmorphing}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+\usetikzlibrary{pgfplots.fillbetween}
+\pgfdeclarelayer{ft}
+\pgfdeclarelayer{bg}
+\pgfsetlayers{bg,main,ft}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{adjustbox}
+\usepackage{wasysym}
+\usepackage{siunitx}
+\usepackage{makecell}
+\usepackage{kbordermatrix}
+\usepackage{mathtools}
+\usepackage{calc}
+\usepackage{fp}
+\usepackage{docmute}
+\input{macros}
+\input{macros-ph}
+\input{macros-abstr}
+\input{tikzstyles2}
+\usepackage{cancel}
+\newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
+\begin{document}
+\begin{frame}{Learning Phase}
+CRAC:
+
+\vspace{0.2cm}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\onslide<1->{
+1.
+\begin{tabular}{l|*{4}{l}}
+$t$&0&1&2&3\\
+\hline
+$a$&2.01&2.51&1.97&1.17\\
+$b$&0.74&0.87&0.78&0.33\\
+\end{tabular} 
+}
+
+\onslide<3->{
+3.
+$r'=\kbordermatrix{\mbox{}&\Delta a&\Delta b\\
+a&\text{N/A}&0.09\\
+b&0.65&\text{N/A}\\
+}$
+}
+\end{column}
+\begin{column}{0.5\textwidth}
+\onslide<2->{
+2.
+\begin{tabular}{c|c*{3}{S}}
+$t$&1&2&3\\
+\hline
+$\Delta a$&0.5&-0.54&-0.8\\
+$\Delta b$&0.13&-0.09&-0.45\\
+\end{tabular}
+}
+
+\onslide<4->{
+\begin{tikzpicture}[grn]
+      \path[use as bounding box] (-0.3,-0.75) rectangle (4,.75);
+      \node[inner sep=0] (b) at (2,0) {b};
+      \node[inner sep=0] (a) at (0,0) {a};
+      \node[draw=none] (lab) at (-0.6,0) {4.};    
+      \path[->]
+       (b) edge[bend right] node[elabel, above=-5pt] {} (a);
+\end{tikzpicture}
+}
+\end{column}
+\end{columns}
+
+\vspace{0.5cm}
+\onslide<5->{
+M2RIT:
+
+\vspace{0.2cm}
+\begin{columns}
+\begin{column}{0.4\textwidth}
+Full transitions
+
+$(a(t),b(t))\gets (a(t-1),b(t-1))$
+\end{column}
+\begin{column}{0.2\textwidth}
+classed into
+
+     $\Longrightarrow$ 
+\end{column}
+\begin{column}{0.4\textwidth}
+    partial transitions
+    
+    $a_1\gets b_1$
+\end{column}
+\end{columns}
+}
+\end{frame}
+\end{document}

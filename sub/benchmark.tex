@@ -1,0 +1,60 @@
+\documentclass[8pt]{beamer}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usetheme{Warsaw}
+\useoutertheme{infolines} 
+\setbeamertemplate{items}[ball]
+\usepackage{algorithm}
+\usepackage{fancybox}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{automata,calc,er}
+\usetikzlibrary{mindmap,scopes,arrows,arrows.meta,shapes,chains,positioning,fit,backgrounds,decorations,intersections,petri,decorations.pathmorphing}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+\usetikzlibrary{pgfplots.fillbetween}
+\pgfdeclarelayer{ft}
+\pgfdeclarelayer{bg}
+\pgfsetlayers{bg,main,ft}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{adjustbox}
+\usepackage{wasysym}
+\usepackage{siunitx}
+\usepackage{makecell}
+\usepackage{kbordermatrix}
+\usepackage{mathtools}
+\usepackage{calc}
+\usepackage{fp}
+\usepackage{docmute}
+\input{macros}
+\input{macros-ph}
+\input{macros-abstr}
+\input{tikzstyles2}
+\usepackage{cancel}
+\newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
+\begin{document}
+\begin{frame}{Benchmarks: on Biological Examples}
+Traditional model checkers: Mole NuSMV $\to$ \highlight{memory-out}
+
+Pure static analyzer: Pint~\cite{folschette2015}
+
+Small example: $\lambda$-phage, 4 components
+
+Big examples: TCR (T-Cell Receptor, 95 components) and
+
+EGFR (Epidermal Growth Factor Receptor, 106 components)
+
+\small
+    \centering
+    \input{tab_benchmark.tex}
+\end{frame}
+
+\begin{frame}{Benchmarks: on Random Examples}
+\input{figures/curveSizeTest.tex}
+\input{figures/curveInconc.tex}
+\end{frame}
+\end{document}

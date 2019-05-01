@@ -1,0 +1,75 @@
+\documentclass[8pt]{beamer}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usetheme{Warsaw}
+\useoutertheme{infolines} 
+\setbeamertemplate{items}[ball]
+\usepackage{algorithm}
+\usepackage{fancybox}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{automata,calc,er}
+\usetikzlibrary{mindmap,scopes,arrows,arrows.meta,shapes,chains,positioning,fit,backgrounds,decorations,intersections,petri,decorations.pathmorphing}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+\usetikzlibrary{pgfplots.fillbetween}
+\pgfdeclarelayer{ft}
+\pgfdeclarelayer{bg}
+\pgfsetlayers{bg,main,ft}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{adjustbox}
+\usepackage{wasysym}
+\usepackage{siunitx}
+\usepackage{makecell}
+\usepackage{kbordermatrix}
+\usepackage{mathtools}
+\usepackage{calc}
+\usepackage{fp}
+\usepackage{docmute}
+\input{macros}
+\input{macros-ph}
+\input{macros-abstr}
+\input{tikzstyles2}
+\usepackage{cancel}
+\newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
+\begin{document}
+\begin{frame}{Counterexample of LCG}
+LCG is \highlight{exact} for unreachability 
+
+LCG is \highlight{exact} when it does not contain self-dependent structure:
+\begin{itemize}
+\item different state nodes of the same automaton in different branches:
+\end{itemize}
+Given initial state: $a_0,b_0,c_0$, consider the reachability of $c_1$:
+
+\begin{columns}
+\begin{column}{0.45\textwidth}
+    \input{figures/AN_limitation.tex}
+\end{column}
+\begin{column}{0.55\textwidth}
+    \input{figures/LCG_limitation.tex}
+\end{column}
+\end{columns}
+
+\only<1>{Reaching $a_1$ disables the reachability of $b_1$, and vice versa, $c_1$ is unreachable}
+\only<2->{$c_1$ is reachable \textit{via} $a_1::b_1::c_1$}
+
+\only<3->{
+\begin{columns}
+\begin{column}{0.5\textwidth}
+LCG does not show \highlight{orders} of local states
+
+\centering
+$\Longrightarrow$ How to deal with this structure?
+\end{column}
+\begin{column}{0.5\textwidth}
+\input{figures/inconcStructure.tex}
+\end{column}
+\end{columns}
+}
+\end{frame}
+\end{document}

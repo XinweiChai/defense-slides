@@ -1,0 +1,67 @@
+\documentclass[8pt]{beamer}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usetheme{Warsaw}
+\useoutertheme{infolines} 
+\setbeamertemplate{items}[ball]
+\usepackage{algorithm}
+\usepackage{fancybox}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{automata,calc,er}
+\usetikzlibrary{mindmap,scopes,arrows,arrows.meta,shapes,chains,positioning,fit,backgrounds,decorations,intersections,petri,decorations.pathmorphing}
+\usepackage{pgf}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.13}
+\usetikzlibrary{pgfplots.fillbetween}
+\pgfdeclarelayer{ft}
+\pgfdeclarelayer{bg}
+\pgfsetlayers{bg,main,ft}
+\usepackage{graphics}
+\usepackage{amssymb}
+\usepackage{adjustbox}
+\usepackage{wasysym}
+\usepackage{siunitx}
+\usepackage{makecell}
+\usepackage{kbordermatrix}
+\usepackage{mathtools}
+\usepackage{calc}
+\usepackage{fp}
+\usepackage{docmute}
+\input{macros}
+\input{macros-ph}
+\input{macros-abstr}
+\input{tikzstyles2}
+\usepackage{cancel}
+\newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
+\begin{document}
+\begin{frame}{Heuristics}
+\begin{columns}
+\begin{column}{0.6\textwidth}
+\input{figures/AN_revision.tex}
+\end{column}
+\begin{column}{0.4\textwidth}
+    $\alpha=\langle a_0,b_0,c_0,d_0\rangle$, $\omega=a_1$
+    
+	$U_K=\{(\alpha,b_1),(\alpha,d_1)\}$
+	
+	$R_K=\{(\alpha,a_1)\}$
+\end{column}
+\end{columns}
+
+        \vspace{0.3cm}
+        \centering
+        \input{figures/revision.tex}
+        
+        \vspace{0.3cm}
+     \begin{itemize}
+        \item $L=\{\{(\alpha,a_1),(\alpha,b_1),(\alpha,d_1)\},\{(\alpha,b_1)\},\{(\alpha,d_1)\}\}$
+        \item Start from $\{(\alpha,b_1)\}$ and $\{(\alpha,d_1)\}$
+        \item $b_1\gets c_0$ can be specialized to $b_1\gets c_0\land a_1$ to make $b_1$ unreachable
+        \item $a_1\gets d_1 \land c_0$ can only be generalized to $a_1 \gets c_0$ as $d_1\in U_K$
+        \item Check the reachability of $(\alpha,a_1)$: reachable, finish
+    \end{itemize}
+\end{frame}
+\end{document}
