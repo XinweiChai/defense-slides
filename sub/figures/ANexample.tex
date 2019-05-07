@@ -5,7 +5,6 @@
 \TSort{(6,0)}{d}{2}{l}
 \TSort{(8,0)}{e}{2}{l}
 
-% with delays
 \path[local transitions]
 
 	(d_0) edge node[auto] {\textcolor<10>{red}{$\{b_1$\}}} (d_1)
@@ -13,9 +12,6 @@
     (a_0) edge[bend right] node[right] {\textcolor<2,4>{red}{$\{e_1$\}}} (a_1)
     (b_0) edge[bend left] node[auto] {\textcolor<7>{red}{$\{d_0\}$}} (b_1)
 	(c_0) edge node[auto] {\textcolor<8>{red}{$\{d_1\}$}} (c_1)
-%	(d_0) edge node[auto] {$b_1$} (d_1)
-	%(c_1) edge node[auto] {$\{b_0\}$, $2$} (c_0)
-	%(c_0) edge node[auto] {$d_1$} (c_1)
 ;
 
 \onslide<1-10>{\TState{a_0, b_0, c_0, d_0,e_0}}
