@@ -4,8 +4,11 @@
 *.blg
 *.nav
 *.out
-*.pdf
 *.snm
 *.toc
 *.toc
 *.synctex.gz
+*.pdf
+!partialObservation.pdf
+!reachability.pdf
+!realSystem.pdf
