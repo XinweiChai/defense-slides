@@ -1,6 +1,6 @@
     \begin{tikzpicture}[line,>=stealth]
     \small
-        \onslide<1->{\node [color=gray] (1) {Real world};}
+        \onslide<1->{\node [draw,ellipse,dashed,color=gray] (1) {Real world};}
         \onslide<2->{\node [below = 4cm of 1] (3) {Partial observation};}
         \onslide<2->{\draw [dashed,->] (1) -- (3);}
         \onslide<3->{\node [right = of 3] (4) {\textit{Learning}};}
