@@ -1,4 +1,4 @@
-\documentclass[8pt]{beamer}
+\documentclass[8pt,handout]{beamer}
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -41,6 +41,7 @@
 \input{tikzstyles2}
 \usepackage{cancel}
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
+\newcommand<>{\transp}[1]{\fill [draw=none, fill=white, fill opacity=0.7] (#1.north west) -- (#1.north east) -- (#1.south east) -- (#1.south west) -- (#1.north west) -- cycle;}
 \title[Reachability Analysis and Revision of Dynamics]{Reachability Analysis and Revision of Dynamics of\\ Biological Regulatory Networks}
 \author[X.Chai]{Xinwei Chai}
 \institute[ECN/LS2N]{
@@ -59,30 +60,30 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
 
 \section{Background}
 \input{positioning.tex}
+\input{overview.tex}
 \input{brn.tex}
+\input{discrete.tex}
 
 \section{Motivation}
-
-\input{discrete.tex}
 \input{problematic_reach.tex}
 \input{challenge_solution.tex}
 %\input{petri_net.tex}
 
 \section{Modeling \& Reachability Problem}
-\begin{frame}{Automata Network}
-
-    Hypothesis on ABAN Asynchronous Binary Automata Network
-\end{frame}
-
 \input{reachability_state_space.tex}
 \input{modeling_system_dynamics.tex}
+\begin{frame}{Asynchronous Automata Network}
+	
+    Hypothesis on ABAN Asynchronous Binary Automata Network
+\end{frame}
 \input{lcg.tex}
 \input{counter_example_lcg.tex}
 \input{two_heuristics.tex}
 \input{example_limitation.tex}
 \input{benchmark.tex}
 \section{Model Inference}
-\input{problematic_model_inference.tex}
+%\input{problematic_model_inference.tex}
+\input{overview_onepic.tex}
 \input{learning_and_revising.tex}
 
 \section{Learning}

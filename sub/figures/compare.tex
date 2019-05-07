@@ -5,15 +5,19 @@
 	\draw[-{Latex[length=1.5mm]}, line width=1pt] (a) to[bend left] (b);
 	\path (b) edge[-|,thick,bend left=30,shorten >=1pt] (a);
 }
-	\onslide<+->{\node[ellipse, fill=blue!20, above right = 0.2cm and 1cm of dynamics] (oscil) {Oscillation};
-	\draw[->,thick,dashed] (dynamics) -- (oscil);}
-	\onslide<+->{
-	\node[ellipse, fill=blue!20, below right = 0.2cm and 1cm of dynamics] (perio) {Periodicity};
-	\draw[->,thick,dashed] (dynamics) -- (perio);
-	}
 \footnotesize
+	\onslide<+>{\node[ellipse, fill=blue!20, above right = 0.2cm and 1cm of dynamics] (oscil) {Oscillation};
+	\draw[->,thick,dashed] (dynamics) -- (oscil);
+	\node[ellipse, fill=blue!20, below right = 0.2cm and 1cm of dynamics] (period) {Periodicity};
+	\draw[->,thick,dashed] (dynamics) -- (period);
+	}
     \onslide<+->{\node[ellipse, fill=blue!20, below = of dynamics] (reach) {Reachability problem};
-    \draw[->,thick,dashed] (dynamics) -- (reach);}
+    \draw[->,thick,dashed] (dynamics) -- (reach);
+    \node[ellipse, fill=blue!20, above right = 0.2cm and 1cm of dynamics,opacity=0.2] (oscil) {Oscillation};
+	\draw[->,thick,dashed,opacity=0.2] (dynamics) -- (oscil);
+	\node[ellipse, fill=blue!20, below right = 0.2cm and 1cm of dynamics,opacity=0.2] (period) {Periodicity};
+	\draw[->,thick,dashed,opacity=0.2] (dynamics) -- (period);
+	}
     \onslide<+->{\node[ellipse, fill=purple!20, below left = 0.6cm of reach] (full) {Exhaustive analysis};
     \draw[->,thick] (reach) -- (full);}
     \onslide<+->{\node[ellipse, fill=purple!20, below = 0.6cm of full, text width = 3cm] (propfull) {Explore the whole state space $\to$ exponential \frownie{}};
