@@ -39,10 +39,10 @@
 \usepackage{cancel}
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
 \begin{document}
-\begin{frame}{Counterexample of LCG}
-LCG is \highlight{exact} for unreachability 
+\begin{frame}{Counterexample of SLCG}
+SLCG is \highlight{exact} for unreachability 
 
-LCG is \highlight{exact} when it does not contain self-dependent structure:
+SLCG is \highlight{exact} when it does not contain self-dependent structure:
 \begin{itemize}
 \item different state nodes of the same automaton in different branches:
 \end{itemize}
@@ -63,7 +63,7 @@ Given initial state: $a_0,b_0,c_0$, consider the reachability of $c_1$:
 \only<3->{
 \begin{columns}
 \begin{column}{0.5\textwidth}
-LCG does not show \highlight{orders} of local states
+SLCG does not show \highlight{orders} of local states
 
 \centering
 $\Longrightarrow$ How to deal with this structure?

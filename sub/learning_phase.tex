@@ -40,7 +40,7 @@
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
 \begin{document}
 \begin{frame}{Learning Phase}
-CRAC:
+CRAC: using correlation coefficient
 
 \vspace{0.2cm}
 \begin{columns}
@@ -89,26 +89,17 @@ $\Delta b$&0.13&-0.09&-0.45\\
 
 \vspace{0.5cm}
 \onslide<5->{
-M2RIT:
+M2RIT: using LFIT algorithm
 
 \vspace{0.2cm}
-\begin{columns}
-\begin{column}{0.4\textwidth}
-Full transitions
-
-$(a(t),b(t))\gets (a(t-1),b(t-1))$
-\end{column}
-\begin{column}{0.2\textwidth}
-classed into
-
-     $\Longrightarrow$ 
-\end{column}
-\begin{column}{0.4\textwidth}
-    partial transitions
-    
-    $a_1\gets b_1$
-\end{column}
-\end{columns}
+\begin{tabular}{ccc}
+    Full transitions obtained from time-series data & classed into & partial transitions\\
+    $\langle a_1,b_0,c_1\rangle(t=T)\to \langle a_1,b_1,c_1\rangle(t=T+1)$&&\\
+    $\langle a_1,b_0,c_0\rangle(t=T)\to \langle a_1,b_1,c_0\rangle(t=T+1)$&$\Longrightarrow$&$a_1\to b_1$\\
+    $\langle a_0,b_0,c_0\rangle(t=T)\to \langle a_0,b_0,c_1\rangle(t=T+1)$&&
+\end{tabular}
 }
+
+\onslide<6->{The classification is sensitive to input $\to$ revise the result}
 \end{frame}
 \end{document}
