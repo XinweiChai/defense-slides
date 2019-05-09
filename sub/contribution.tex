@@ -39,6 +39,8 @@
 \usepackage{cancel}
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
 \begin{document}
+\setbeamertemplate{itemize/enumerate body begin}{\large}
+\setbeamertemplate{itemize/enumerate subbody begin}{\normalsize}
 \begin{frame}{Overview of My Contribution}
 \begin{itemize}
     \item<+-> Model checker
@@ -59,4 +61,6 @@
     \end{itemize}
 \end{itemize}
 \end{frame}
+\setbeamertemplate{itemize/enumerate body begin}{\normalsize}
+\setbeamertemplate{itemize/enumerate subbody begin}{\small}
 \end{document}

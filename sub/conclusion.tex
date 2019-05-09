@@ -39,20 +39,22 @@
 \usepackage{cancel}
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
 \begin{document}
+\setbeamertemplate{itemize/enumerate body begin}{\large}
+\setbeamertemplate{itemize/enumerate subbody begin}{\normalsize}
 \begin{frame}{Conclusion}
 \begin{itemize}
     \item Reachability Analysis
     \begin{itemize}
-        \item PermReach and ASPReach: faster than traditional model checkers and more conclusive than pure static analysis $\to$ balance between complexity and completeness
-        \item Deal with systems with up to $10^3$ automata
-        \item $\xRightarrow{\text{?}}$ Hybrid analyzer is more performing in reachability analysis
+        \item<+-> PermReach and ASPReach: faster than traditional model checkers and more conclusive than pure static analysis $\to$ balance between complexity and completeness
+        \item<+-> Deal with systems with up to $10^3$ automata
+        \item<+-> $\xRightarrow{\text{?}}$ Hybrid analyzer is more performing in reachability analysis
     \end{itemize}
-    \item Model Learning and Revision
+    \item<+-> Model Learning and Revision
     \begin{itemize}
-        \item A comparatively new domain
-        \item By only heuristics as metrics, only systems bisimilar to original systems
-        \item General solution vs. heuristics $\to$ balance between complexity and completeness
-        \item More information needed to obtain a precise model 
+        \item<+-> A comparatively new domain
+        \item<+-> By only heuristics as metrics, only systems bisimilar to original systems
+        \item<+-> General solution vs. heuristics $\to$ balance between complexity and completeness
+        \item<+-> More information needed to obtain a precise model 
     \end{itemize}
 \end{itemize}
 \end{frame}

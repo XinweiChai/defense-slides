@@ -40,25 +40,35 @@
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
 \begin{document}
 \begin{frame}{Benchmarks: on Biological Examples}
-Traditional model checkers: Mole NuSMV $\to$ \highlight{memory-out}
+\begin{columns}
+\begin{column}{0.4\textwidth}
+\begin{itemize}
+\item Traditional model checkers: Mole, NuSMV $\to$ \highlight{memory-out}, not listed in the table
+\item Pure static analyzer: Pint~\cite{folschette2015}
+\end{itemize}
 
-Pure static analyzer: Pint~\cite{folschette2015}
-
-Small example: $\lambda$-phage, 4 components
-
-Big examples: TCR (T-Cell Receptor, 95 components) and
-
-EGFR (Epidermal Growth Factor Receptor, 106 components)
-
+\vspace{0.3cm}
+\begin{itemize}
+\item Small example: $\lambda$-phage, 4 components
+\item Big examples: TCR (T-Cell Receptor, 95 components)
+\item EGFR (Epidermal Growth Factor Receptor, 106 components)
+\end{itemize}
+\end{column}
+\begin{column}{0.6\textwidth}
 \small
     \centering
     \input{tab_benchmark.tex}
+\end{column}
+\end{columns}
+
+
+
 \end{frame}
 
 \begin{frame}{Benchmarks: on Random Examples}
 \input{figures/curveSizeTest.tex}
 \input{figures/curveInconc.tex}
 
-$density=\#transitions/\#automata$
+$\rm{density}=\dfrac{\#\rm{transitions}}{\#\rm{automata}}$
 \end{frame}
 \end{document}

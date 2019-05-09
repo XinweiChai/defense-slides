@@ -42,6 +42,7 @@
 \usepackage{cancel}
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
 \newcommand<>{\transp}[1]{\fill [draw=none, fill=white, fill opacity=0.7] (#1.north west) -- (#1.north east) -- (#1.south east) -- (#1.south west) -- (#1.north west) -- cycle;}
+
 \title[Reachability Analysis and Revision of Dynamics]{Reachability Analysis and Revision of Dynamics of\\ Biological Regulatory Networks}
 \author[X.Chai]{Xinwei Chai}
 \institute[ECN/LS2N]{
@@ -61,21 +62,23 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
 \section{Background}
 \input{positioning.tex}
 \input{overview.tex}
+\section{Motivation}
 \input{contribution.tex}
 \input{brn.tex}
 \input{discrete.tex}
 
-\section{Motivation}
+\section{Reachability Problem}
 \input{problematic_reach.tex}
 \input{challenge_solution.tex}
 %\input{petri_net.tex}
-
-\section{Modeling \& Reachability Problem}
 \input{reachability_state_space.tex}
+\subsection{Modeling}
 \input{modeling_system_dynamics.tex}
 \input{AN.tex}
+\subsection{Static Analysis}
 \input{lcg.tex}
 \input{counter_example_lcg.tex}
+\subsection{Heuristics}
 \input{two_heuristics.tex}
 \input{example_limitation.tex}
 \input{benchmark.tex}
@@ -84,10 +87,10 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
 \input{overview_onepic.tex}
 \input{learning_and_revising.tex}
 
-\section{Learning}
+\subsection{Learning}
 \input{learning_phase.tex}
 
-\section{Revising}
+\subsection{Revising}
 \input{revising_phase.tex}
 \input{cut_set.tex}
 \input{completion_set.tex}
