@@ -39,29 +39,20 @@
 \usepackage{cancel}
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
 \begin{document}
-\begin{frame}{Discrete Modeling~\cite{bernot2009}}
+\begin{frame}{Self Regulation}
 \begin{columns}
-\begin{column}{0.5\textwidth}
-   \input{figures/sigmoidAndPiecewise.tex}
-\end{column}
-\begin{column}{0.5\textwidth}
-\onslide<+->{
-\begin{tikzpicture}
-\node (a) [draw,circle] {$a$};
-\node (b) [draw,circle,right = of a] {$b$};
-\draw[-{Latex[length=1.5mm]}, line width=1pt] (a) to[bend left] (b);
-\path (b) edge[-|,thick,bend left=30,shorten >=1pt] (a);
-\draw[-{Latex[length=1.5mm]}, thick, loop above,dashed] (b) to (b);
-\end{tikzpicture}
-
-What are the possible values for $a$ and $b$?}
-\begin{itemize}
-\item<+-> Behaviors of elements in BRN can be approximated by sigmoid functions
-\item<+-> Simplified by piecewise functions with threshold.
-When the concentration of $x$ is below the threshold, $x$ behaves as inhibition, otherwise activation
-\item<+-> Self-regulations are ignored
-\end{itemize}
-\end{column}
+    \begin{column}{0.4\textwidth}
+        \input{figures/brn_self.tex}
+    \end{column}
+    \begin{column}{0.6\textwidth}
+        \input{figures/brn_ABAN.tex}
+        \begin{itemize}
+            \item The self regulation of $b$ can contain two elements: self activation/inhibition and intrinsic degradation. 
+            \item However they are not necessary in ABAN case.
+        As the transitions are between Boolean states, the state changes necessarily from one to another $\to$ there is no need to add self regulation related conditions in the transitions.
+        \end{itemize}
+    \end{column}
 \end{columns}
-\end{frame}
+    
+\end{frame}	
 \end{document}

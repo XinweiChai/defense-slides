@@ -16,13 +16,14 @@
 
   \onslide<7->{\draw[bend right=15, color=blue!50] (prB) to (dnaA);}
   \onslide<8->{\draw[-|,bend left=15,color=red] (prA) to (dnaB);}
-  \onslide<9->{\draw[bend right=45, color=blue!50,dashed] (prB) to (dnaB);}
+  %\onslide<9->{\draw[bend right=45, color=blue!50,dashed] (prB) to (dnaB);}
 \onslide<13->{
 \node (a) [draw,circle,below left = 2cm and 1cm of entityA] {$a$};
 \node (b) [draw,circle,right = of a] {$b$};
 \draw[-{Latex[length=1.5mm]}, line width=1pt] (a) to[bend left] (b);
 \path (b) edge[-|,thick,bend left=30,shorten >=1pt] (a);
-\draw[-{Latex[length=1.5mm]}, thick, loop above,dashed] (b) to (b);}
+%\draw[-{Latex[length=1.5mm]}, thick, loop above,dashed] (b) to (b);
+}
 \node[fit=(a)(b)](mid){};
 \onslide<12->{\draw[-latex,thick] (prA) -- (mid);}
 \onslide<14->{\node [draw=none, right = of b]{How to compute with BRN?};}

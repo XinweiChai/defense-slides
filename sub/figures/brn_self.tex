@@ -1,0 +1,26 @@
+\begin{tikzpicture}[-{Latex[length=1.5mm]}]
+  \node (rnaA)  {\scriptsize RNA of $a$};
+  \node[above = of rnaA] (dnaA) {\scriptsize DNA of gene $a$};
+  \node[below = of rnaA] (prA) {\scriptsize Protein of $a$};
+  \node[right = of dnaA] (dnaB) {\scriptsize DNA of gene $b$};
+  \node[below = of dnaB] (rnaB) {\scriptsize RNA of $b$};
+  \node[below = of rnaB] (prB) {\scriptsize Protein of $b$};
+  \draw (dnaA) to (rnaA);
+  \draw (rnaA) to (prA);
+  \draw (dnaB) to (rnaB);
+  \draw (rnaB) to (prB);
+  \node[draw,dotted,fit=(dnaA) (rnaA) (prA),label=above:$a$] (entityA){};
+  \node[draw,dotted,fit=(dnaB) (rnaB) (prB),label=above:$b$] (entityB){};
+
+  \draw[bend right=15, color=blue!50] (prB) to (dnaA);
+  \draw[-|,bend left=15,color=red] (prA) to (dnaB);
+  \draw[bend right=45, color=blue!50,dashed] (prB) to (dnaB);
+
+\node (a) [draw,circle,below = of entityA] {$a$};
+\node (b) [draw,circle,right = of a] {$b$};
+\draw[-{Latex[length=1.5mm]}, line width=1pt] (a) to[bend left] (b);
+\path (b) edge[-|,thick,bend left=30,shorten >=1pt] (a);
+\draw[-{Latex[length=1.5mm]}, thick, loop above,dashed] (b) to (b);
+\node[fit=(a)(b)](mid){};
+\draw[-latex,thick] (prA) -- (mid);
+\end{tikzpicture}

@@ -1,0 +1,11 @@
+\begin{tikzpicture}[scale=0.95]
+\TSort{(0,0)}{a}{2}{l}
+\TSort{(2,0)}{b}{2}{l}
+
+\path[local transitions]
+	(a_1) edge node[auto] {$\{b_1,\textcolor{red}{a_1}\}$} (a_0)
+    (b_0) edge[bend right] node[right] {$\{a_1,\textcolor{red}{b_0}\}$} (b_1)
+;
+
+\TState{a_0, b_0}
+\end{tikzpicture}
