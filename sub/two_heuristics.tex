@@ -40,7 +40,7 @@
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
 \begin{document}
 \begin{frame}{Two Possible Heuristics}
-    Complete search \pause $\to$ State space explosion problem $\times$ \pause
+    Complete search on global states \pause $\to$ State space explosion problem \frownie{} \pause
     
     \vspace{0.2cm}
     $\to$ Partial search
@@ -59,6 +59,11 @@ $\to$ Heuristics used to find a sequence of local states in the form $Z::Y::X$
 
 \vspace{0.5cm}
 \pause     
+\begin{itemize}
+    \item PermReach: searching all permutations in branches
+    \item ASPReach: searching all possible sequences using Answer Set Programming~\cite{baral2003knowledge}
+\end{itemize}
+
 \centering
     \begin{tabular}{c|c|c}
         &PermReach & ASPReach~\cite{chai2018reach} \\
