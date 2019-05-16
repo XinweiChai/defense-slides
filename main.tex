@@ -60,29 +60,32 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
 \end{frame}
 
 \section{Background}
+\subsection{Overview}
 \input{positioning.tex}
 \input{overview.tex}
-\section{Motivation}
+\subsection{Motivation}
 \input{contribution.tex}
-\input{brn.tex}
-\input{discrete.tex}
-
-\section{Reachability Problem}
+\subsection{Reachability Problem}
 \input{problematic_reach.tex}
-\input{challenge_solution.tex}
+%\input{challenge_solution.tex}
 %\input{petri_net.tex}
 \input{reachability_state_space.tex}
-\subsection{Modeling}
-\input{modeling_system_dynamics.tex}
+\section{Modeling \& Reachability Analysis}
+\subsection{Abstraction}
+\input{brn.tex}
+\subsection{Discrete Modeling}
+\input{discrete.tex}
+%\input{modeling_system_dynamics.tex}
 \input{AN.tex}
-\subsection{Static Analysis}
+\subsection{ABAN-based Static Analysis}
 \input{lcg.tex}
 \input{counter_example_lcg.tex}
-\subsection{Heuristics}
+\subsection{ABAN-based Heuristics}
 \input{two_heuristics.tex}
 \input{example_limitation.tex}
 \input{benchmark.tex}
 \section{Model Inference}
+\subsection{Overview}
 %\input{problematic_model_inference.tex}
 \input{overview_onepic.tex}
 \input{learning_and_revising.tex}
@@ -94,11 +97,14 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
 \input{revising_phase.tex}
 \input{cut_set.tex}
 \input{completion_set.tex}
+\input{complexity.tex}
 \input{heuristics_revision.tex}
- 
+\input{test_revision.tex}
+
 \section{Conclusion}
 \input{conclusion.tex}
 
+\section{References}
 \begin{frame}[allowframebreaks]{Bibliography}
 \footnotesize
     \bibliographystyle{alpha}

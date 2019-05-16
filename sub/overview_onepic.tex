@@ -56,6 +56,13 @@
         \draw [->,color=red] (brn) edge[bend left] node [below right,near start] (modelCheck) {Model Checking} (reach);
                \draw [->,color=blue] (reach) edge[bend left] node [below right,midway] (revising) {Revising} (brn);
         \node[draw,ellipse,thick,color=yellow,fit=(modelCheck) (revising),label=below right:\textbf{My work}] (entityB){};
+        \draw[->,color=blue] (current bounding box.south east)
+        ++(-6em, 0em) -- ++(2em, 0)
+        node[right] {Inference};
+        \draw[->,color=red] (current bounding box.south east)
+        ++(-6.5em, 2em) -- ++(2em, 0)
+        node[right] {Validation};
+        \draw [->,thick,color=blue!50] (brn) to node [below left,midway] {\textbf{Reproducible?}} (realSys);
     \end{tikzpicture}
 \end{frame}
 \end{document}

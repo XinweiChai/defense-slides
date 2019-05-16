@@ -50,14 +50,18 @@
         \hline
         Inferred model& $R_I$ & $U_I$\pause\\
         \hline
-        Inconsistency (problem)& $R'_K=R_K\cap U_I$ & $U'_K=R_I\cap U_K$\pause\\
+        \highlight{Inconsistency}& $R'_K=R_K\cap U_I$ & $U'_K=R_I\cap U_K$\pause\\
         Keep consistent with& $U_K$& $R_K$ \pause
     \end{tabular} 
     \end{center}
-2 solutions:
+
 \begin{itemize}
-    \item General solution: cut set + completion set, complete but costly
-    \item Heuristics, fast but not complete
+    \item Generic solution: computes all the revisions $\to$ complete but costly
+    \begin{itemize}
+        \item Ensure unreachability by inhibiting elements in corresponding cut set
+        \item Ensure reachability by guaranteeing elements in corresponding completion set
+    \end{itemize}
+    \item Heuristics: explores the saturated SLCG, aiming at revising transitions one by one $\to$ memory-saving, fast but not complete
 \end{itemize}
 \end{frame}
 \end{document}

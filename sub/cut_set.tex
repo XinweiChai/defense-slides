@@ -45,19 +45,25 @@
     \vspace{0.5cm}
 \begin{columns}
 \begin{column}{0.62\textwidth}
+    \pause 
     \input{tab_cutset.tex}
 \end{column}
 \begin{column}{0.38\textwidth}
 
-	\vspace{0.2cm}
-    Rank: topological numbering of the nodes in SLCG, nodes with higher rank cannot be successor of nodes with lower rank
-    
     \vspace{0.2cm}
-    By inhibiting the reachability of one of the sets in cut set $\{\{a_1\},\{b_1\},\{b_0,c_1\},\{c_1,d_1\}\}$, $a_1$ shall not be reachable
+    \onslide<3->{
+    Rank: topological numbering of the nodes in SLCG, nodes with higher rank cannot be successor of nodes with lower rank.}
     
+    \onslide<+->{
+    \vspace{0.2cm}
+    By inhibiting the reachability of one of the sets in cut set $\{\{a_1\},\{b_1\},\{b_0,c_1\},\{c_1,d_1\}\}$, $a_1$ shall not be reachable.
+    Corresponding transition sets can be deduced.
+    }
+    
+    \onslide<+->{
     \vspace{0.2cm}
     Modification depends on the consistency with the result of learning phase.
-
+    }
 \end{column}
 \end{columns}    
 \end{frame}

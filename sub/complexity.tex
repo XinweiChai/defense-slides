@@ -39,29 +39,18 @@
 \usepackage{cancel}
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
 \begin{document}
-\begin{frame}{Completion Set}
-    \input{figures/completionSet.tex}
+\begin{frame}{Complexity of Cut/Completion Set}
+    \begin{itemize}
+        \item The complexity comes mainly from the product of sets
+        \pause
+        \item Consider $n$ sets containing $k$ elements
+        $\underbrace{E_1=\overbrace{(e_{1,1},e_{1,2},\ldots,e_{1,k})}^\text{$k$ elements},E_2=(e_{2,1},e_{2,2},\ldots,e_{2,k}),\ldots,E_n=(e_{n,1},e_{n,2},\ldots,e_{n,k})}_\text{$n$ sets}$
+        \pause
+        \item The cardinality of the product $\prod_{i=1}^{n}{E_i}$ is $k^n$
+    \end{itemize}
+    \pause
+    $\Longrightarrow$ Heuristics aiming at finding \highlight{one} solution instead of \highlight{all} the solutions
     
-\pause
-\vspace{0.5cm}    
-\begin{columns}
-\begin{column}{0.65\textwidth}
-    \input{tab_completion_set.tex}
-\end{column}
-\begin{column}{0.35\textwidth}
-\onslide<3->{Rank: topological numbering of the nodes in SLCG, nodes with higher rank cannot be successor of nodes with lower rank}
-
-\onslide<+->{
-\vspace{0.2cm}
-By assuring the reachability of one of the sets in completion set $\{\{a_1\},\{b_1\},\{b_0,c_1\},\{c_1,d_1\}\}$, $a_1$ shall not be reachable.
-Corresponding transition sets can be deduced.
-}
-
-\onslide<+->{
-\vspace{0.2cm}
-Modification depends on the consistency with the result of learning phase.
-}
-\end{column}
-\end{columns} 
-\end{frame} 
+    
+\end{frame}
 \end{document}

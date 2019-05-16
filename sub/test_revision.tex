@@ -39,42 +39,25 @@
 \usepackage{cancel}
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
 \begin{document}
-\begin{frame}{Two Possible Heuristics}
-    Complete search on global states \pause $\to$ State space explosion problem \frownie{} \pause
-    
-    \vspace{0.2cm}
-    $\Longrightarrow$ Partial search
-    
-    \vspace{0.5cm}
-    \pause     
-\begin{columns}
-\begin{column}{0.5\textwidth}
-$\Longrightarrow$ Apply heuristic search on branches to find a \highlight{sequence} of local states in the form $Z::Y::X$ in order to avoid the inconclusiveness of the reachability of $X$
-\end{column}
-\begin{column}{0.5\textwidth}
-\centering
-\input{figures/inconcStructure.tex}
-\end{column}
-\end{columns}
-
-\vspace{0.5cm}
-\pause     
+\begin{frame}{R\'esum\'e of Model Inference}    
 \begin{itemize}
-    \item PermReach: searching all permutations in branches
-    \pause
-    \item ASPReach: searching all possible sequences using Answer Set Programming~\cite{baral2003knowledge}
+\item<+-> Aim: use time-series data + reachability properties to infer the real system
+\item<+-> Inference = Learning + Revising
+\begin{tabular}{c|c|c}
+     &CRAC & M2RIT \\
+     \hline
+    Learning phase & Correlation Coefficients & \makecell{Learning from Interpretation\\ Transitions (LFIT)}\\
+     \hline
+     Revising phase & \makecell{Cut set +\\ completion set} & \makecell{Heuristic revision+\\time-series data}\\
+     \hline
+     Data type &Continuous & Discrete\\
+     \hline
+     \makecell{Tolerance to\\ noise}&Yes&No
+\end{tabular}
+\item<+-> Result: a model reproducing original time-series data and satisfying given reachability properties, but not identical to real system
+\begin{itemize}
+    \item<+-> By picking only reachability as revision criteria, inferred models are bisimilar to original systems in the sense of reachability
 \end{itemize}
-
-\pause
-\centering
-    \begin{tabular}{c|c|c}
-        &PermReach & ASPReach~\cite{chai2018reach} \\
-        \hline
-        Method &\makecell{Search all the \\permutations of branches}   &\makecell{Search all the possible\\ order of branches}\\
-        \hline
-        Runtime & $+$ & $-$ \\
-        Conclusiveness& $-$&$+$
-    \end{tabular}
-    
+\end{itemize}
 \end{frame}
 \end{document}

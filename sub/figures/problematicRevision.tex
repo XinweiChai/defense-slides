@@ -1,19 +1,26 @@
 \begin{tikzpicture}[line,>=stealth]
     \onslide<+->{\node[ellipse, fill=blue!20] (tsd) {Time-series data};}
     \onslide<+->{\node[ellipse, fill=blue!20, right = of tsd] (model1) {Model};
-    \draw[->] (tsd) -- (model1) node[midway, above] (lfit){\highlight{Learning}};
+    \draw[transform canvas={yshift=0.5ex},->] (tsd) -- (model1) node[midway, above] (lfit){\highlight{Learn}};
     }
+    \onslide<+->{\draw[transform canvas={yshift=-0.5ex},->,color=blue] (model1) -- (tsd);}
     \onslide<+->{\node[ellipse, fill=blue!20, right = of model1] (reach) {Reachability properties};
-    \draw[->] (model1) -- (reach) node[midway,label=inconsistent] (inconsis1){\huge$\times$};
+    \draw[->,color=red] (model1) -- (reach) node[midway,label=inconsistent] (inconsis1){\huge$\times$};
     }
     \onslide<+->{\node[ellipse, fill=blue!20, above = of model1] (model2) {Model'};
     \draw[->] (model1) edge node[sloped, above]{Revise} (model2);
     }
-    \onslide<+->{\draw[->] (model2) edge node[sloped]{} (reach);}
-    \onslide<+->{\draw[->] (model2) edge node[midway,sloped, label={[shift={(0.7,0.2)},rotate=24]:inconsistent}]{\huge$\times$} (tsd);}
+    \onslide<+->{\draw[->,color=red] (model2) edge node[sloped]{} (reach);}
+    \onslide<+->{\draw[->,color=blue] (model2) edge node[midway,sloped, label={[shift={(0.7,0.2)},rotate=24]:inconsistent}]{\huge$\times$} (tsd);}
     \onslide<+->{\node[ellipse, fill=blue!20, below = of model1] (model3) {Model''};
     \draw[->] (model1) edge[dashed,color=purple!50] node[sloped, anchor=center, above]{\highlight{Revise}} (model3);
     }
-    \onslide<+->{\draw[->] (model3) edge node[sloped, anchor=center]{} (reach);}
-    \onslide<+->{\draw[->] (model3) edge node[sloped, anchor=center]{} (tsd);}
+    \onslide<+->{\draw[->,color=red] (model3) edge node[sloped, anchor=center]{} (reach);}
+    \onslide<+->{\draw[->,color=blue] (model3) edge node[sloped, anchor=center]{} (tsd);}
+    \draw[->,color=red] (current bounding box.south east)
+    ++(-6em, 1em) -- ++(2em, 0)
+    node[right] {Validation};
+    \draw[->,color=blue] (current bounding box.south east)
+    ++(-7em, 0em) -- ++(2em, 0)
+    node[right] {Reproduction};
 \end{tikzpicture}

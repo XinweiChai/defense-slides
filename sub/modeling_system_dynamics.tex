@@ -42,10 +42,19 @@
 \begin{frame}{Modeling System Dynamics}
     \begin{columns}
     \begin{column}{0.45\textwidth}
-    Boolean Network (BN)
+    Biological Regulatory Network
+    
+    Static $\to$ dynamic
     
     \vspace{0.5cm}
-    \includegraphics[width=\textwidth]{BooleanNetwork.png}
+    \centering
+    \begin{tikzpicture}
+	\node (a) [draw,circle] {$a$};
+	\node (b) [draw,circle,right = of a] {$b$};
+	\draw[-{Latex[length=1.5mm]}, line width=1pt] (a) to[bend left] (b);
+	\path (b) edge[-|,thick,bend left=30,shorten >=1pt] (a);
+    \end{tikzpicture}
+    %\includegraphics[width=\textwidth]{BooleanNetwork.png}
     \end{column}
     \pause
     \begin{column}{0.45\textwidth}
@@ -57,9 +66,9 @@
     \vspace{0.5cm}
     \input{figures/BNtoAN.tex}
     
-    \onslide<3->{The reachability of $(x,y,z)$ can be exponential $\Longrightarrow$}
+    \onslide<3->{The reachability of $(a,b)$ can be exponential $\Longrightarrow$}
     
-    \onslide<4->{The reachability of $x$ can be of $O(n)$}
+    \onslide<4->{The reachability of $a$ can be of $O(n)$}
     
     \onslide<5->{$\Longrightarrow$ Local Causality Graph}
     \end{column}

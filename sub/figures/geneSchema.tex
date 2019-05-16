@@ -7,10 +7,10 @@
   \onslide<2->{\node[right = of dnaA] (dnaB) {\scriptsize DNA of gene $b$};}
   \onslide<5->{\node[below = of dnaB] (rnaB) {\scriptsize RNA of $b$};}
   \onslide<6->{\node[below = of rnaB] (prB) {\scriptsize Protein of $b$};}
-  \onslide<3->{\draw (dnaA) to (rnaA);}
-  \onslide<4->{\draw (rnaA) to (prA);}
-  \onslide<5->{\draw (dnaB) to (rnaB);}
-  \onslide<6->{\draw (rnaB) to (prB);}
+  \onslide<3->{\draw (dnaA) to node[midway,label=left:{\scriptsize Transcription}]{} (rnaA);}
+  \onslide<4->{\draw (rnaA) to node[midway,label=left:{\scriptsize Translation}]{} (prA);}
+  \onslide<5->{\draw (dnaB) to node[midway,label=right:{\scriptsize Transcription}]{} (rnaB);}
+  \onslide<6->{\draw (rnaB) to node[midway,label=right:{\scriptsize Translation}]{} (prB);}
   \onslide<10->{\node[draw,dotted,fit=(dnaA) (rnaA) (prA),label=above:$a$] (entityA){};}
   \onslide<11->{\node[draw,dotted,fit=(dnaB) (rnaB) (prB),label=above:$b$] (entityB){};}
 

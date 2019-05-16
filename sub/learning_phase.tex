@@ -38,33 +38,24 @@
 \input{tikzstyles2}
 \usepackage{cancel}
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
+
+\usepackage{array}
+\usepackage{booktabs}
 \begin{document}
 \begin{frame}{Learning Phase}
-CRAC: using correlation coefficient
+CRAC: using correlation coefficient $r_{x,y}={\frac {\operatorname {cov} (x,y)}{\sigma _{x}\sigma _{y}}}$\pause$={\frac {\sum _{i=1}^{N}(x_{i}-{\bar {x}})(y_{i}-{\bar {y}})}{{\sqrt {\sum _{i=1}^{N}(x_{i}-{\bar {x}})^{2}}}{\sqrt {\sum _{i=1}^{N}(y_{i}-{\bar {y}})^{2}}}}}$
 
+\pause
 \vspace{0.2cm}
-\begin{columns}
-\begin{column}{0.5\textwidth}
-\onslide<1->{
-1.
-\begin{tabular}{l|*{4}{l}}
+\begin{tabular}{ll}
+1.\begin{tabular}{l|*{4}{l}}
 $t$&0&1&2&3\\
 \hline
 $a$&2.01&2.51&1.97&1.17\\
 $b$&0.74&0.87&0.78&0.33\\
-\end{tabular} 
-}
-
-\onslide<3->{
-3.
-$r'=\kbordermatrix{\mbox{}&\Delta a&\Delta b\\
-a&\text{N/A}&0.09\\
-b&0.65&\text{N/A}\\
-}$
-}
-\end{column}
-\begin{column}{0.5\textwidth}
-\onslide<2->{
+\end{tabular}   
+\pause
+& 
 2.
 \begin{tabular}{c|c*{3}{S}}
 $t$&1&2&3\\
@@ -72,35 +63,40 @@ $t$&1&2&3\\
 $\Delta a$&0.5&-0.54&-0.8\\
 $\Delta b$&0.13&-0.09&-0.45\\
 \end{tabular}
-}
-
-\onslide<4->{
+\pause
+\\
+3.
+$r'=\kbordermatrix{\mbox{}&\Delta a&\Delta b\\
+a&\text{N/A}&0.09\\
+b&0.65&\text{N/A}\\
+}$ 
+\pause
+&
+4.
 \begin{tikzpicture}[grn]
-      \path[use as bounding box] (-0.3,-0.75) rectangle (4,.75);
+    \path[use as bounding box] (-0.3,1) rectangle (4,0);
       \node[inner sep=0] (b) at (2,0) {b};
       \node[inner sep=0] (a) at (0,0) {a};
-      \node[draw=none] (lab) at (-0.6,0) {4.};    
       \path[->]
-       (b) edge[bend right] node[elabel, above=-5pt] {} (a);
+       (b) edge[bend right] (a);
 \end{tikzpicture}
-}
-\end{column}
-\end{columns}
+\end{tabular}
 
 \vspace{0.5cm}
-\onslide<5->{
+\pause
+
 M2RIT: using LFIT algorithm
 
 \vspace{0.2cm}
 \begin{tabular}{ccc}
     Full transitions obtained from time-series data & classed into & partial transitions\\
     $\langle a_1,b_0,c_1\rangle(t=T)\to \langle a_1,b_1,c_1\rangle(t=T+1)$&&\\
-    $\langle a_1,b_0,c_0\rangle(t=T)\to \langle a_1,b_1,c_0\rangle(t=T+1)$&$\Longrightarrow$&$a_1\to b_1$\\
+    $\langle a_1,b_0,c_0\rangle(t=T)\to \langle a_1,b_1,c_0\rangle(t=T+1)$&$\Longrightarrow$&$\{a_1\}\to b_1$\\
     $\langle a_0,b_0,c_0\rangle(t=T)\to \langle a_0,b_0,c_1\rangle(t=T+1)$&&
 \end{tabular}
-}
 
 \vspace{0.2cm}
-\onslide<6->{The classification is sensitive to input $\to$ revise the result}
+\pause
+The classification is sensitive to input $\to$ revise the result
 \end{frame}
 \end{document}

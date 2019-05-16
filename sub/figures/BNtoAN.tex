@@ -1,34 +1,29 @@
 \begin{tikzpicture}
-\onslide<4->{
+\onslide<7->{
 \begin{scope}[opacity=0.2]
-\TSort{(1.7,0)}{y}{2}{l}
-\TSort{(3.7,0)}{z}{2}{l}
+\TSort{(1.7,0)}{b}{2}{l}
 \path[local transitions]    
-    (z_1) edge node[auto] {$\{x_1\}$} (z_0)
-	(y_0) edge[bend right] node[right] {$\{x_1,z_1\}$} (y_1)
+	(b_0) edge[bend right] node[right] {$\{a_1\}$} (b_1)
 ;
 \end{scope}}
-\TSort{(0,0)}{x}{2}{l}
-\onslide<3>{
-\TSort{(1.7,0)}{y}{2}{l}
-\TSort{(3.7,0)}{z}{2}{l}
+\TSort{(0,0)}{a}{2}{l}
+\onslide<5,6>{
+\TSort{(1.7,0)}{b}{2}{l}
 }
-\path<3->[local transitions]
-	(x_0) edge node[auto] {$\{y_1\}$} (x_1)
-	(x_1) edge[dashed] node[auto] {$\{y_0\}$} (x_0)
+\path<5->[local transitions]
+	%(a_0) edge node[auto] {$\{b_1\}$} (a_1)
+	(a_1) edge node[auto] {$\{b_1\}$} (a_0)
 ;
-\path<3>[local transitions]
-	(z_1) edge node[auto] {$\{x_1\}$} (z_0)
-	(y_0) edge[bend right] node[right] {$\{x_1,z_1\}$} (y_1)
+\path<5,6>[local transitions]
+	(b_0) edge[bend right] node[right] {$\{a_1\}$} (b_1)
 ;
-\path<4->[local transitions,opacity=0.2]
-    (z_1) edge node[auto] {$\{x_1\}$} (z_0)
-	(y_0) edge[bend right] node[right] {$\{x_1,z_1\}$} (y_1)
+\path<7->[local transitions,opacity=0.2]
+	(b_0) edge[bend right] node[right] {$\{a_1\}$} (b_1)
 ;
-\onslide<3>{\TState{x_0,y_0,z_0}}
-\onslide<4->{
-\TState{x_0}
+\onslide<5->{\TState{a_0,b_0}}
+\onslide<7->{
+\TState{a_0}
 \begin{scope}[opacity=0.2]
-\TState{y_0, z_0}
+\TState{b_0}
 \end{scope}}
 \end{tikzpicture}

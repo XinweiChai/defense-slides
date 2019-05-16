@@ -42,25 +42,40 @@
 \begin{frame}{Discrete Modeling~\cite{bernot2009}}
 \begin{columns}
 \begin{column}{0.5\textwidth}
-   \input{figures/sigmoidAndPiecewise.tex}
-\end{column}
-\begin{column}{0.5\textwidth}
 \onslide<+->{
+\centering
 \begin{tikzpicture}
 \node (a) [draw,circle] {$a$};
 \node (b) [draw,circle,right = of a] {$b$};
 \draw[-{Latex[length=1.5mm]}, line width=1pt] (a) to[bend left] (b);
 \path (b) edge[-|,thick,bend left=30,shorten >=1pt] (a);
-\draw[-{Latex[length=1.5mm]}, thick, loop above,dashed] (b) to (b);
 \end{tikzpicture}
 
+\vspace{0.5cm}
 What are the possible values for $a$ and $b$?}
 \begin{itemize}
 \item<+-> Behaviors of elements in BRN can be approximated by sigmoid functions
 \item<+-> Simplified by piecewise functions with threshold.
-When the concentration of $x$ is below the threshold, $x$ behaves as inhibition, otherwise activation
-\item<+-> Self-regulations are ignored
+When the concentration of $a$ is below the threshold, $a$ behaves as inhibition, otherwise activation
 \end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+    \only<2-4>{\input{figures/sigmoidAndPiecewise.tex}}
+    \only<5->{
+    
+    Automata Network (AN)
+    
+    A modeling framework representing state transitions and using $O(\#nodes)$ memory 
+    
+    \vspace{0.5cm}
+    \input{figures/BNtoAN.tex}
+    }
+    
+    \vspace{0.2cm}
+    \only<6->{The global reachability is PSPACE-complete~\cite{harel2002complexity} }
+    
+    \only<7->{$\Longrightarrow$The complexity of reachability of $a$ can be smaller?}
+    
 \end{column}
 \end{columns}
 \end{frame}
