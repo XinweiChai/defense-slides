@@ -41,22 +41,29 @@
 \begin{document}
 \begin{frame}{R\'esum\'e of Model Inference}    
 \begin{itemize}
-\item<+-> Aim: use time-series data + reachability properties to infer the real system
-\item<+-> Inference = Learning + Revising
+\item Aim: use time-series data + reachability properties to infer the real system
+\pause
+\item Inference = Learning + Revising
+\pause
 \begin{tabular}{c|c|c}
      &CRAC & M2RIT \\
      \hline
-    Learning phase & Correlation Coefficients & \makecell{Learning from Interpretation\\ Transitions (LFIT)}\\
+    Learning phase & Correlation Coefficients & \makecell{Learning from Interpretation\\ Transitions (LFIT)}
+    \pause\\
      \hline
-     Revising phase & \makecell{Cut set +\\ completion set} & \makecell{Heuristic revision+\\time-series data}\\
+     Revising phase & \makecell{Cut set +\\ completion set} & \makecell{Heuristic revision+\\time-series data}
+     \pause\\
      \hline
-     Data type &Continuous & Discrete\\
+     Data type &Continuous & Discrete
+     \pause\\
      \hline
      \makecell{Tolerance to\\ noise}&Yes&No
 \end{tabular}
-\item<+-> Result: a model reproducing original time-series data and satisfying given reachability properties, but not identical to real system
+\pause
+\item Result: a model reproducing original time-series data and satisfying given reachability properties, but not identical to real system
+\pause
 \begin{itemize}
-    \item<+-> By picking only reachability as revision criteria, inferred models are bisimilar to original systems in the sense of reachability
+    \item By picking only reachability as revision criteria, inferred models are bisimilar to original systems in the sense of reachability
 \end{itemize}
 \end{itemize}
 \end{frame}
