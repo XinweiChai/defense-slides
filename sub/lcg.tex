@@ -41,8 +41,14 @@
 \begin{document}
 \begin{frame}{Simplified Local Causality Graph (SLCG)}
 \input{figures/ANexample.tex}
-
+\begin{columns}
+\begin{column}{0.68\textwidth}
 \input{figures/LCGexampleAN.tex}
+\end{column}
+\begin{column}{0.32\textwidth}
+\only<6->{Pseudo-reachability $r'$ is obtained \textit{via} pure recursive causality reasoning}
+\end{column}
+\end{columns}
 
 \only<1-5>{Small circles stand for transition nodes, squares for state nodes}
 \begin{columns}
@@ -56,7 +62,7 @@
 \end{align*}
 \end{column}
 \begin{column}{0.5\textwidth}
-    \only<15>{However, $r'(a_i)$ is \highlight{not equivalent} to the reachability of $a_1$}
+    \only<15>{$r'(a_i)$ is \highlight{not equivalent} to the reachability of $a_1$ because the state space is not fully explored}
     
 \end{column}
 \end{columns}

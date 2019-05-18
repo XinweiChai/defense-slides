@@ -1,9 +1,7 @@
 \begin{tikzpicture}
-    \onslide<+->{\node[ellipse, fill=blue!20] (dynamics) at (0, 0) {System Dynamics};
-	\node (a) [draw,circle,left = 3cm of dynamics] {$a$};
-	\node (b) [draw,circle,right = of a] {$b$};
-	\draw[-{Latex[length=1.5mm]}, line width=1pt] (a) to[bend left] (b);
-	\path (b) edge[-|,thick,bend left=30,shorten >=1pt] (a);
+    \onslide<+->{\node[ellipse, fill=blue!20] (dynamics) at (0, 0) {System dynamics};
+	\node (bioSys) [ellipse,fill=blue!20,left = of dynamics] {Biological system};
+	\draw[->,thick] (bioSys) -- (dynamics);
 }
 \small
 	\onslide<+>{\node[ellipse, fill=blue!20, above right = 0.2cm and 1cm of dynamics] (oscil) {Oscillation};
@@ -18,11 +16,11 @@
 	\node[ellipse, fill=blue!20, below right = 0.2cm and 1cm of dynamics,opacity=0.2] (period) {Periodicity};
 	\draw[->,thick,dashed,opacity=0.2] (dynamics) -- (period);
 	}
-    \onslide<+->{\node[ellipse, fill=purple!20, below left = 0.6cm of reach] (full) {Exhaustive analysis};
+    \onslide<+->{\node[ellipse, fill=purple!20, below left = 0.6cm of reach] (full) {Exhaustive search};
     \draw[->,thick] (reach) -- (full);}
     \onslide<+->{\node[ellipse, fill=purple!20, below = 0.6cm of full, text width = 3cm] (propfull) {Explore the whole state space $\to$ exponential \frownie{}};
     \draw[->,thick] (full) -- (propfull);}
-    \onslide<+->{\node[ellipse, fill=purple!20, below right = 0.6cm of reach] (part) {Partial analysis};
+    \onslide<+->{\node[ellipse, fill=purple!20, below right = 0.6cm of reach] (part) {Partial search};
     \draw[->,thick] (reach) -- (part);}
     \onslide<+->{\node[ellipse, fill=purple!20, below = 0.6cm of part, text width = 3cm] (proppart) {Explore a part of the state space $\to$ computable \smiley{}};
     \draw[->,thick] (part) -- (proppart);}

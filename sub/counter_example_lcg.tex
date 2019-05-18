@@ -57,8 +57,9 @@ Given initial state: $a_0,b_0,c_0$, consider the reachability of $c_1$:
 \end{column}
 \end{columns}
 
-\only<1>{Reaching $a_1$ disables the reachability of $b_1$, and vice versa, $c_1$ is unreachable}
-\only<2->{$c_1$ is reachable \textit{via} $a_1::b_1::c_1$}
+\only<1>{When $a$ reaches level $1$, $b_1$ is no longer reachable as the condition of $\{a_0\}\to b_1$ is not satisfied.
+$\to$ Reaching $a_1$ disables the reachability of $b_1$, \textit{vice versa}, $a_1$ is not reachable, \textit{i.e.} $c_1$ is unreachable}
+\only<2->{$b_1$ is not blocked by $a$, $c_1$ is reachable \textit{via} $a_1::b_1::c_1$}
 
 \only<3->{
 \begin{columns}

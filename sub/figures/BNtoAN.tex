@@ -1,5 +1,5 @@
 \begin{tikzpicture}
-\onslide<7->{
+\onslide<6->{
 \begin{scope}[opacity=0.2]
 \TSort{(1.7,0)}{b}{2}{l}
 \path[local transitions]    
@@ -7,21 +7,21 @@
 ;
 \end{scope}}
 \TSort{(0,0)}{a}{2}{l}
-\onslide<5,6>{
+\onslide<4,5>{
 \TSort{(1.7,0)}{b}{2}{l}
 }
-\path<5->[local transitions]
+\path<4->[local transitions]
 	%(a_0) edge node[auto] {$\{b_1\}$} (a_1)
 	(a_1) edge node[auto] {$\{b_1\}$} (a_0)
 ;
-\path<5,6>[local transitions]
+\path<4,5>[local transitions]
 	(b_0) edge[bend right] node[right] {$\{a_1\}$} (b_1)
 ;
-\path<7->[local transitions,opacity=0.2]
+\path<6->[local transitions,opacity=0.2]
 	(b_0) edge[bend right] node[right] {$\{a_1\}$} (b_1)
 ;
-\onslide<5->{\TState{a_0,b_0}}
-\onslide<7->{
+\onslide<4->{\TState{a_0,b_0}}
+\onslide<6->{
 \TState{a_0}
 \begin{scope}[opacity=0.2]
 \TState{b_0}

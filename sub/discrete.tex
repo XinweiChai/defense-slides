@@ -50,18 +50,20 @@
 \draw[-{Latex[length=1.5mm]}, line width=1pt] (a) to[bend left] (b);
 \path (b) edge[-|,thick,bend left=30,shorten >=1pt] (a);
 \end{tikzpicture}
+}
 
 \vspace{0.5cm}
-What are the possible values for $a$ and $b$?}
+\textcolor<4->{black!20}{What are the possible values for $a$ and $b$?}
 \begin{itemize}
-\item<+-> Behaviors of elements in BRN can be approximated by sigmoid functions
-\item<+-> Simplified by piecewise functions with threshold.
-When the concentration of $a$ is below the threshold, $a$ behaves as inhibition, otherwise activation
+\item<+-> \textcolor<4->{black!20}{Behaviors of elements in BRN can be approximated by sigmoid functions}
+\item<+-> \textcolor<4->{black!20}{Simplified by piecewise functions with threshold.
+When the concentration of $a$ is below the threshold, $a$ behaves as inhibition, otherwise activation}
+\item<+-> A model containing dynamic information
 \end{itemize}
 \end{column}
 \begin{column}{0.5\textwidth}
-    \only<2-4>{\input{figures/sigmoidAndPiecewise.tex}}
-    \only<5->{
+    \only<2-3>{\input{figures/sigmoidAndPiecewise.tex}}
+    \only<4->{
     
     Automata Network (AN)
     
@@ -72,9 +74,9 @@ When the concentration of $a$ is below the threshold, $a$ behaves as inhibition,
     }
     
     \vspace{0.2cm}
-    \only<6->{The global reachability is PSPACE-complete~\cite{harel2002complexity} }
+    \only<5->{The global reachability is PSPACE-complete~\cite{harel2002complexity}}
     
-    \only<7->{$\Longrightarrow$The complexity of reachability of $a$ can be smaller?}
+    \only<6->{$\Longrightarrow$The complexity of reachability of $a$ can be smaller?}
     
 \end{column}
 \end{columns}
