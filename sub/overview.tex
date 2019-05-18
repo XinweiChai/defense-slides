@@ -39,7 +39,7 @@
 \begin{document}
 \begin{frame}{Problematics}
     \begin{tikzpicture}[line,>=stealth]
-        \onslide<+->{\node [label=above:{Real system}] (realSys) { \includegraphics[scale=0.5]{realSystem.pdf}};
+        \onslide<+->{\node [label=above:{Real system dynamics}] (realSys) { \includegraphics[scale=0.5]{realSystem.pdf}};
         }
         \only<+>{\node [below = of realSys,label=below:{Partial observation}] (partObs) {\includegraphics[scale=0.5]{partialObservation.pdf}};
         \draw [dashed,->] (realSys) -- (partObs);
@@ -55,7 +55,7 @@
         \draw [dashed,->] (realSys) -- (bioNet);
         }
         
-        \onslide<+->{\node [color=blue,right = of bioNet,label=above:{Reachability}] (reach) {\includegraphics[scale=0.7]{reachability.pdf}};
+        \onslide<+->{\node [color=blue,right = of bioNet,label=above:{Reachability properties}] (reach) {\includegraphics[scale=0.7]{reachability.pdf}};
         \draw [dashed, ->] (bioNet) -- (reach);
         }
         \onslide<+->{\draw [->,color=red] (brn) edge[bend left] node [below right,near start] (modelCheck) {Model Checking} (reach);}
