@@ -1,4 +1,4 @@
-\documentclass[8pt,handout]{beamer}
+\documentclass[8pt]{beamer}
 \usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -56,7 +56,7 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
 }
 \date[May 24, 2019]{May 24, 2019}
 \begin{document}
-\begin{frame}[plain]
+\begin{frame}[plain,noframenumbering]
   \titlepage
 \end{frame}
 
@@ -79,6 +79,7 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
 %\input{modeling_system_dynamics.tex}
 \input{AN.tex}
 \subsection{ABAN-based Static Analysis}
+\againframe<12>{prob}
 \input{lcg.tex}
 \input{counter_example_lcg.tex}
 \subsection{ABAN-based Heuristics}
@@ -88,7 +89,7 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
 \section{Model Inference}
 \subsection{Overview}
 %\input{problematic_model_inference.tex}
-\input{overview_onepic.tex}
+\againframe<13>{prob}
 \input{learning_and_revising.tex}
 
 \subsection{Learning}
@@ -105,11 +106,18 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
 \section{Conclusion}
 \input{conclusion.tex}
 
+\begin{frame}[plain,noframenumbering]
+  \titlepage
+\end{frame}
+
+\setbeamertemplate{footline}{}
 \section{References}
-\begin{frame}[allowframebreaks]{Bibliography}
+\begin{frame}[noframenumbering,allowframebreaks]{Bibliography}
 \footnotesize
+\addtocounter{framenumber}{-1}
     \bibliographystyle{alpha}
     \bibliography{bib}
 \end{frame}
 \input{self_regulation.tex}
+\input{current_pint_test.tex}
 \end{document}

@@ -1,0 +1,10 @@
+\begin{tikzpicture}[aS]  
+  	
+  	\startl{cro_0};
+  	\specl{above}{cro_0}{cII_0};
+  	\link{cII_0}{cI_1};
+  	\edl{cI_1};
+  	\specl{below}{cro_0}{cI_0};
+	\path (cI_0s) edge (cII_0);
+    \node [draw,rectangle,dashed ,color=blue!70,fit=(cro_0)(cI_0)(cII_0)]{};
+    \end{tikzpicture}
