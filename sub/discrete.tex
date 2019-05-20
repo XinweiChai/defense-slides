@@ -41,14 +41,14 @@
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
 \begin{document}
 \begin{frame}{Discrete Modeling~\cite{bernot2009}}
-\begin{columns}[t, totalwidth=\textwidth]
+\begin{columns}
 \begin{column}{0.5\textwidth}
 \onslide<+->{
 \centering
 \begin{tikzpicture}
 \node (a) [draw,circle] {$a$};
 \node (b) [draw,circle,right = of a] {$b$};
-\draw[-{Latex[length=1.5mm]}, line width=1pt] (a) to[bend left] (b);
+x/\draw[-{Latex[length=1.5mm]}, line width=1pt] (a) to[bend left] (b);
 \path (b) edge[-|,thick,bend left=30,shorten >=1pt] (a);
 \end{tikzpicture}
 }
@@ -59,12 +59,12 @@
 \item<+-> \textcolor<4->{black!20}{Behaviors of elements in BRN can be approximated by sigmoid functions~\cite{bernot2009}}
 \item<+-> \textcolor<4->{black!20}{Simplified to piecewise functions.
 When the concentration of an entity is below the regulation threshold, the regulation is activated, otherwise inactivated.\\
-The value of $a$ and $b$ is in $\{0,1\}$}
+The value of $a$ and $b$ is in $\{0,1,2,\ldots\}$}
 \item<+-> A model containing dynamic information
 \end{itemize}
 \end{column}
 \begin{column}{0.5\textwidth}
-    \only<2-3>{\input{figures/sigmoidAndPiecewise.tex}}
+    \input{figures/sigmoidAndPiecewise.tex}
     \only<4->{
     
     Automata Network (AN)
