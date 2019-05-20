@@ -11,13 +11,12 @@
   \onslide<4->{\draw (rnaA) to node[midway,label=left:{\scriptsize Translation}]{} (prA);}
   \onslide<5->{\draw (dnaB) to node[midway,label=right:{\scriptsize Transcription}]{} (rnaB);}
   \onslide<6->{\draw (rnaB) to node[midway,label=right:{\scriptsize Translation}]{} (prB);}
-  \onslide<10->{\node[draw,dotted,fit=(dnaA) (rnaA) (prA),label=above:$a$] (entityA){};}
-  \onslide<11->{\node[draw,dotted,fit=(dnaB) (rnaB) (prB),label=above:$b$] (entityB){};}
-
-  \onslide<7->{\draw[bend right=15, color=blue!50] (prB) to (dnaA);}
-  \onslide<8->{\draw[-|,bend left=15,color=red] (prA) to (dnaB);}
+  \onslide<9->{\node[draw,dotted,fit=(dnaA) (rnaA) (prA),label=above:$a$] (entityA){};}
+  \onslide<10->{\node[draw,dotted,fit=(dnaB) (rnaB) (prB),label=above:$b$] (entityB){};}
+  \onslide<7->{\draw[bend left=15,color=red] (prA) to (dnaB);}
+  \onslide<8->{\draw[-|,bend right=15, color=blue!50] (prB) to (dnaA);}
   %\onslide<9->{\draw[bend right=45, color=blue!50,dashed] (prB) to (dnaB);}
-\onslide<13->{
+\onslide<12->{
 \node (a) [draw,circle,below left = 2cm and 1cm of entityA] {$a$};
 \node (b) [draw,circle,right = of a] {$b$};
 \draw[-{Latex[length=1.5mm]}, line width=1pt] (a) to[bend left] (b);
@@ -25,6 +24,6 @@
 %\draw[-{Latex[length=1.5mm]}, thick, loop above,dashed] (b) to (b);
 }
 \node[fit=(a)(b)](mid){};
-\onslide<12->{\draw[-latex,thick] (prA) -- (mid);}
-\onslide<14->{\node [draw=none, right = of b]{How to compute with BRN?};}
+\onslide<11->{\draw[-latex,thick] (prA) -- (mid);}
+\onslide<13->{\node [draw=none, right = of b,text width=3cm]{How to analyze system dynamics using BRN?};}
 \end{tikzpicture}

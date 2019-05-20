@@ -5,12 +5,13 @@
   	\link{a_1}{b_0};
   	\edl{b_0};
   	\specl{below}{c_1}{b_1};
-  	\only<1>{
+  	\only<+(-2)>{
 	\link{b_1}{a_0};
   	\edl{a_0};}
-  	\only<2->{
+  	\only<+(-2)->{
 	\link{b_1}{c_0};
   	\edl{c_0};
+  	\node[draw,dotted,fit=(c_0),label=above:$a_0\to c_0$]{};
   	}
-  	\only<2>{\node[draw,dotted,fit=(c_0),label=above:$a_0\to c_0$]{};}
+  	\only<+(-2)->{\node [draw,rectangle,dashed ,color=blue!70,fit=(c_1)(a_1)(b_1)]{};}
     \end{tikzpicture}

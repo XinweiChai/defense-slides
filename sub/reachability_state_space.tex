@@ -39,7 +39,7 @@
 \usepackage{cancel}
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
 \begin{document}
-\begin{frame}{Reachability Problem Illustrated by Transition Graph}
+\begin{frame}{Reachability Problem Illustrated by Transition Graph (Exhaustive)}
 
 \begin{columns}
 \begin{column}{0.5\textwidth}
@@ -48,23 +48,19 @@
 \end{column}
 \begin{column}{0.5\textwidth}
 \begin{itemize}
-    \item Digraph representing state space
+    \item A digraph representing state space
     \begin{itemize}
         \item Nodes = system states
         \item Edges = state transitions
         \item $\alpha=$ initial state
         \item $\omega=$ desired final state
     \end{itemize}
-    \item<5->Solving reachability of digraphs needs at least polynomial time and space w.r.t $\#nodes$~\cite{harel2002complexity}, but $\#nodes$ is exponential to $\#variables$
+    \item<5->Solving reachability of digraphs needs at least polynomial time and space w.r.t $\#nodes$~\cite{harel2002complexity}, but $\#nodes$ is exponential to $\#variables$ in the system
 
     $\Longrightarrow$ exhaustive search is not acceptable when dealing with a large model
     \item <6-> A pertinent modeling framework is necessary to describe system dynamics
 \end{itemize}
-
 \end{column}
 \end{columns}
-    
-
-    
 \end{frame}
 \end{document}

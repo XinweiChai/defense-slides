@@ -58,11 +58,14 @@
     \only<7->{&=r'(d_0)\land r'(c_1)\\}
     \only<8->{&=r'(d_0)\land r'(d_1)\\}
     \only<9->{&=r'(d_1)\\}
-    \only<10->{&=r'(b_1)=r'(d_0)=1}
+    \only<10->{&=r'(b_1)=r'(d_0)=\mathbf{True}}
 \end{align*}
 \end{column}
 \begin{column}{0.5\textwidth}
-    \only<15>{$r'(a_i)$ is \highlight{not equivalent} to the reachability of $a_1$ because the state space is not fully explored}
+    \only<10->{$r'(d_0)=\mathbf{True}$ because $d_0$ is at initial state}
+    
+    \vspace{0.2cm}
+    \only<15->{$r'(a_i)$ is \highlight{not equivalent} to the reachability of $a_1$ because the state space is not fully explored}
     
 \end{column}
 \end{columns}

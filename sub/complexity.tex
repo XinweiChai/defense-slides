@@ -39,15 +39,13 @@
 \usepackage{cancel}
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
 \begin{document}
-\begin{frame}{Complexity of Cut/Completion Set}
-    \begin{itemize}
+\begin{frame}{Recap of Cut/Completion Set}
+    \begin{itemize}[<+->]
+        \item Cut/completion set compute all the possible modifications
         \item The complexity comes mainly from the product of sets
-        \pause
         \item Consider $n$ sets containing $k$ elements
         $\underbrace{E_1=\overbrace{(e_{1,1},e_{1,2},\ldots,e_{1,k})}^\text{$k$ elements},E_2=(e_{2,1},e_{2,2},\ldots,e_{2,k}),\ldots,E_n=(e_{n,1},e_{n,2},\ldots,e_{n,k})}_\text{$n$ sets}$
-        \pause
-        \item The cardinality of the cartesian product $\prod_{i=1}^{n}{E_i}$ is $k^n$
-        \pause
+        \item The cardinality of the cartesian product $\prod_{i=1}^{n}{E_i}$ is $k^n$, exponential
         \item$\Longrightarrow$ Heuristics aiming at finding \highlight{one} solution instead of \highlight{all} the solutions
         \begin{itemize}
             \item Compute with the SLCG involving all the wanted states in \textit{a priori} knowledge

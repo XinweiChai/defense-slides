@@ -39,12 +39,12 @@
 \usepackage{cancel}
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
 \begin{document}
-\begin{frame}{Example}
+\begin{frame}{Solve the Counterexample Using ASPReach}
 \begin{columns}
-\begin{column}{0.45\textwidth}
+\begin{column}{0.44\textwidth}
     \input{figures/AN_limitation.tex}
 \end{column}
-\begin{column}{0.55\textwidth}
+\begin{column}{0.56\textwidth}
     \input{figures/LCG_limitation.tex}
 \end{column}
 \end{columns}
@@ -62,7 +62,7 @@ Additional rule &$\Rightarrow$& $a_1 \rhd b_1$ and $b_1 \rhd a_1$
 Contradiction in order, no solution
 }
 
-\only<2>{
+\only<2->{
 \begin{tabular}{lll}
 Order constraints in SLCG &$\Rightarrow$& $b_0\rhd a_1\rhd c_1$ , $c_0 \rhd b_1\rhd c_1$\\
 Additional rule &$\Rightarrow$& $a_1 \rhd b_1$
@@ -70,5 +70,8 @@ Additional rule &$\Rightarrow$& $a_1 \rhd b_1$
 
 \vspace{0.5cm}
 The only admissible order is $a_1\to b_1\to c_1$}
+
+\vspace{0.5cm}
+\onslide<3->{$\Longrightarrow$ Problematic structure solved, reachable if sequences found, unreachable if none found}
 \end{frame}
 \end{document}

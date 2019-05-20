@@ -54,10 +54,11 @@
 \item<+-> Transition:
 \begin{itemize}
     \item<+-> $\{b_1,c_1\}\to a_0\Rsh a_1$: $a$ can transit from state $0$ to state $1$ when joint state $\{b_1,c_1\}$ is present
-    \item<+-> Asynchronous Automata Network (AAN)~\cite{folschette2015}: at most one transition can be fired at each time point
 \end{itemize}
-
-
+\item<+-> Update scheme
+\begin{itemize}
+    \item<+-> Asynchronous Automata Network (AAN)~\cite{folschette2015}: at most one transition can be fired at each time point which conform to biological non-deterministic dynamics
+\end{itemize}
 %For transition $tr=A\to b_i$, $A$ (called head, noted $head(tr)$) is the set of required state(s), which allows to flip $b_{1-i}$ to $b_i$ (called body, noted $body(tr)$). In other words, transition $tr$ is said fireable iff $A\subseteq s$, where $s$ is the current global state. 
 \item<+-> To simplify further reachability analysis, we limit the AAN to Boolean values
 	

@@ -42,13 +42,13 @@
 \begin{frame}{Benchmarks: on Biological Examples}
 \begin{columns}
 \begin{column}{0.4\textwidth}
-\begin{itemize}
-\item Traditional model checkers: Mole, NuSMV $\to$ \highlight{memory-out}, not listed in the table
+\begin{itemize}[<+->]
+\item Traditional model checkers: Mole, NuSMV $\to$ \highlight{memory-out}, not listed in the benchmarks
 \item Pure static analyzer: Pint~\cite{folschette2015}
 \end{itemize}
 
 \vspace{0.3cm}
-\begin{itemize}
+\begin{itemize}[<+->]
 \item Small example: $\lambda$-phage, 4 components
 \item Big examples: TCR (T-Cell Receptor, 95 components)
 \item EGFR (Epidermal Growth Factor Receptor, 104 components)
@@ -57,20 +57,29 @@
 \begin{column}{0.6\textwidth}
 \small
     \centering
-    \input{tab_benchmark.tex}
+    \onslide<+->{\input{tab_benchmark.tex}}
 \end{column}
 \end{columns}
-
-
-
 \end{frame}
 
 \begin{frame}{Benchmarks: on Random Examples}
-\input{figures/curveSizeTest.tex}
-\input{figures/curveInconc.tex}
-\begin{flushright}
-$\rm{density}=\dfrac{\#\rm{transitions}}{\#\rm{automata}}$
-\end{flushright}
+\onslide<1->{\input{figures/curveSizeTest.tex}}
+\onslide<2->{\input{figures/curveInconc.tex}}
 
+\vspace{0.2cm}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\centering
+\onslide<1->{$$\rm{density}=\dfrac{\#\rm{transitions}}{\#\rm{automata}}$$
+
+Fixing $\rm{density}=3$}
+\end{column}
+\begin{column}{0.5\textwidth}
+\onslide<2->{
+\centering
+Fixing $\#\rm{automata}=20$
+}
+\end{column}
+\end{columns}
 \end{frame}
 \end{document}

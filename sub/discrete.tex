@@ -26,6 +26,7 @@
 \usepackage{siunitx}
 \usepackage{makecell}
 \usepackage{kbordermatrix}
+\usepackage{multirow}
 \usepackage{mathtools}
 \usepackage{calc}
 \usepackage{fp}
@@ -40,7 +41,7 @@
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
 \begin{document}
 \begin{frame}{Discrete Modeling~\cite{bernot2009}}
-\begin{columns}
+\begin{columns}[t, totalwidth=\textwidth]
 \begin{column}{0.5\textwidth}
 \onslide<+->{
 \centering
@@ -55,9 +56,10 @@
 \vspace{0.5cm}
 \textcolor<4->{black!20}{What are the possible values for $a$ and $b$?}
 \begin{itemize}
-\item<+-> \textcolor<4->{black!20}{Behaviors of elements in BRN can be approximated by sigmoid functions}
-\item<+-> \textcolor<4->{black!20}{Simplified by piecewise functions with threshold.
-When the concentration of $a$ is below the threshold, $a$ behaves as inhibition, otherwise activation}
+\item<+-> \textcolor<4->{black!20}{Behaviors of elements in BRN can be approximated by sigmoid functions~\cite{bernot2009}}
+\item<+-> \textcolor<4->{black!20}{Simplified to piecewise functions.
+When the concentration of an entity is below the regulation threshold, the regulation is activated, otherwise inactivated.\\
+The value of $a$ and $b$ is in $\{0,1\}$}
 \item<+-> A model containing dynamic information
 \end{itemize}
 \end{column}
@@ -70,13 +72,23 @@ When the concentration of $a$ is below the threshold, $a$ behaves as inhibition,
     A modeling framework representing state transitions and using $O(\#nodes)$ memory 
     
     \vspace{0.5cm}
-    \input{figures/BNtoAN.tex}
-    }
+    \begin{columns}
+    \begin{column}{0.6\linewidth}
+    \input{figures/BNtoAN.tex} 
+    \end{column}
+    \begin{column}{0.4\linewidth}
+        $\{b_1\}\to a_0$
+        
+        $\{a_1\}\to b_1$   
+    \end{column}
+    \end{columns}
     
     \vspace{0.2cm}
-    \only<5->{The global reachability is PSPACE-complete~\cite{harel2002complexity}}
+    }
     
-    \only<6->{$\Longrightarrow$The complexity of reachability of $a$ can be smaller?}
+    \only<5->{The global reachability of a system state $(a,b)=(1,1)$ is hard to compute}
+    
+    \only<6->{$\Longrightarrow$ The complexity of the reachability of the value of one variable $a=1$ can be smaller?}
     
 \end{column}
 \end{columns}
