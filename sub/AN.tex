@@ -42,30 +42,30 @@
 \begin{frame}{Automata Network (AN)}
 	\input{sub/figures/ANexample_onepic.tex}
 	
-	\begin{itemize}
-\item<+-> $\Sigma=\{a,b,c,d,e\}$ set of automata \onslide<10->{\textcolor{red}{with every automaton having a Boolean state}}
-\item<+-> States of automata: 
+\begin{itemize}[<+->]
+	\item $\Sigma=\{a,b,c,d,e\}$ set of automata \onslide<10->{\textcolor{red}{with every automaton having a Boolean state}}
+	\item States of automata: 
 \begin{itemize}
-    \item<+-> Local state: $a_0$: automaton $a$ is at state $0$
-    \item<+-> Global state: $\langle a_0,b_0,c_0,d_0,e_0 \rangle$, the state of the whole system
-    \item<+-> Joint state: $\{a_0,b_0\}$ a part of the system state 
+    \item Local state: $a_0$: automaton $a$ is at state $0$
+    \item Global state: $\langle a_0,b_0,c_0,d_0,e_0 \rangle$, the state of the whole system
+    \item Joint state: $\{a_0,b_0\}$ a part of the system state 
 \end{itemize}
  
-\item<+-> Transition:
+\item Transition:
 \begin{itemize}
-    \item<+-> $\{b_1,c_1\}\to a_0\Rsh a_1$: $a$ can transit from state $0$ to state $1$ when joint state $\{b_1,c_1\}$ is present
+    \item $\{b_1,c_1\}\to a_0\Rsh a_1$: $a$ can transit from state $0$ to state $1$ when joint state $\{b_1,c_1\}$ is present
 \end{itemize}
-\item<+-> Update scheme
+\item Update scheme
 \begin{itemize}
-    \item<+-> Asynchronous Automata Network (AAN)~\cite{folschette2015}: at most one transition can be fired at each time point which conform to biological non-deterministic dynamics
+    \item Asynchronous Automata Network (AAN)~\cite{folschette2015}: at most one transition can be fired at each time point which conform to biological non-deterministic dynamics
 \end{itemize}
 %For transition $tr=A\to b_i$, $A$ (called head, noted $head(tr)$) is the set of required state(s), which allows to flip $b_{1-i}$ to $b_i$ (called body, noted $body(tr)$). In other words, transition $tr$ is said fireable iff $A\subseteq s$, where $s$ is the current global state. 
-\item<+-> To simplify further reachability analysis, we limit the AAN to Boolean values
+\item To simplify further reachability analysis, we limit the AAN to Boolean values
 	
 	$\to$ Asynchronous Binary Automata Network (ABAN)
     
     The notation of transitions is simplified to $\{b_1,c_1\}\to a_1$
-\item<+-> To study reachability problem $\to$ Simplified Local Causality Graph (SLCG) based on Local Causality Graph (LCG)~\cite{pauleve2012}
+\item To study reachability problem $\to$ Simplified Local Causality Graph (SLCG) based on Local Causality Graph (LCG)~\cite{pauleve2012}
 \end{itemize}
 	
 \end{frame}

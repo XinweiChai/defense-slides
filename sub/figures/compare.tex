@@ -18,13 +18,13 @@
 	}
     \onslide<+->{\node[ellipse, fill=purple!20, below left = 0.6cm of reach] (full) {Exhaustive search};
     \draw[->,thick] (reach) -- (full);}
-    \onslide<+->{\node[ellipse, fill=purple!20, below = 0.6cm of full, text width = 3cm] (propfull) {Explore the whole state space $\to$ exponential \frownie{}};
+    \onslide<+->{\node[ellipse, fill=purple!20, below = 0.6cm of full, text width = 3cm] (propfull) {Explore the whole state space $\to$ exponential {\large\frownie{}}};
     \draw[->,thick] (full) -- (propfull);}
     \onslide<+->{\node[ellipse, fill=purple!20, below right = 0.6cm of reach] (part) {Partial search};
     \draw[->,thick] (reach) -- (part);}
-    \onslide<+->{\node[ellipse, fill=purple!20, below = 0.6cm of part, text width = 3cm] (proppart) {Explore a part of the state space $\to$ computable \smiley{}};
+    \onslide<+->{\node[ellipse, fill=purple!20, below = 0.6cm of part, text width = 3cm] (proppart) {Explore a part of the state space $\to$ computable {\large\smiley{}}};
     \draw[->,thick] (part) -- (proppart);}
-    \onslide<+->{\node[ellipse, fill=purple!20, below = 0.6cm of proppart, text width = 3cm] (incomp) {Incomplete search \frownie{}};
+    \onslide<+->{\node[ellipse, fill=purple!20, below = 0.6cm of proppart, text width = 3cm] (incomp) {Incomplete search {\large\frownie{}}};
     \draw[->,thick] (proppart) -- (incomp);}
     \onslide<+->{\node[draw, dashed, color = blue!50, below = 0.6cm of propfull, text width = 3cm] (heu) {Maybe some heuristics in non searched area?};
     \draw[->,dashed, thick, color=purple!30] (incomp) -- (heu);

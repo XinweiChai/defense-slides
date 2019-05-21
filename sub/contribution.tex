@@ -42,23 +42,24 @@
 \setbeamertemplate{itemize/enumerate body begin}{\large}
 \setbeamertemplate{itemize/enumerate subbody begin}{\normalsize}
 \begin{frame}{Overview of My Contribution}
-\begin{itemize}
-    \item<+-> Model checkers
+\begin{itemize}[<+->]
+    \item Model checkers
     \begin{itemize}
-        \item<+-> Verify if the model meets a given specification
-        \item<+-> OBDD-based (Ordered Binary Decision Diagram) model checkers~\cite{brayton1996vis,cimatti2000nusmv} check over $10^{120}$ states but still not enough
-        \item<+-> Static analyzers~\cite{pauleve2012} and bounded model checkers are computationally acceptable but have limits on completeness
-        \item<+-> \highlight{$\to$ High-performance reachability analyzers with both advantages}
+        \item Verify if the model meets a given specification
+        \item OBDD-based (Ordered Binary Decision Diagram) model checkers~\cite{brayton1996vis,cimatti2000nusmv} are able to check over $10^{120}$ states but still not enough
+        \item Static analyzers~\cite{pauleve2012} and bounded model checkers are computationally acceptable but have limits on completeness
+        \item \highlight{$\to$ High-performance reachability analyzers with both advantages}
     \end{itemize}
-    \item<+-> Model learning tools
+    \item Model learning tools
     \begin{itemize}
-        \item<+-> Tools for learning static systems~\cite{mochida2018statistical}
-        \item<+-> LFIT (Learning From Interpretation Transition)~\cite{ribeiro2018learning}, not tolerant to noise
-        \item<+-> \highlight{$\to$ A fuzzy tool learning system dynamics, tolerant to noise}  
+    	\item Construct models from data
+        \item Tools for learning static systems~\cite{mochida2018statistical}
+        \item LFIT (Learning From Interpretation Transition)~\cite{ribeiro2018learning}, not tolerant to noise
+        \item \highlight{$\to$ A fuzzy tool learning system dynamics, tolerant to noise}  
     \end{itemize}
-    \item<+-> \highlight{$\to$ Model inference}
+    \item \highlight{$\to$ Model inference}
     \begin{itemize}
-        \item<+-> Model learning + model revising, aiming at learning a model consistent with \textit{a priori} knowledge, so that the model behaves closer to real system dynamics
+        \item Model learning + model revising, aiming at learning a model consistent with \textit{a priori} knowledge, so that the model behaves closer to real system dynamics
     \end{itemize}
 \end{itemize}
 

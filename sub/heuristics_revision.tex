@@ -45,21 +45,21 @@
 \input{figures/AN_revision.tex}
 \end{column}
 \begin{column}{0.4\textwidth}
-    $\alpha=\langle a_0,b_0,c_0,d_0\rangle$, $\omega=a_1$
+    \onslide<+->{$\alpha=\langle a_0,b_0,c_0,d_0\rangle$, $\omega=a_1$
     
 	$U_K=\{(\alpha,b_1),(\alpha,d_1)\}$
 	
-	$R_K=\{(\alpha,a_1)\}$
+	$R_K=\{(\alpha,a_1)\}$}
 \end{column}
 \end{columns}
 
         \vspace{0.3cm}
         \centering
-        \input{figures/revision.tex}
+        \onslide<+->{\input{figures/revision.tex}}
         
         \vspace{0.3cm}
      \begin{itemize}[<+->]
-        \item $L=\{\{(\alpha,a_1),(\alpha,b_1),(\alpha,d_1)\},\{(\alpha,b_1)\},\{(\alpha,d_1)\}\}$
+        \item $L=\{(\alpha,a_1):\{(\alpha,b_1),(\alpha,d_1)\},\ (\alpha,b_1):\varnothing,\ (\alpha,d_1):\varnothing\}$
         \item Start from $\{(\alpha,b_1)\}$ and $\{(\alpha,d_1)\}$, choose $\{(\alpha,b_1)\}$ as $\{(\alpha,d_1)\}$ is satisfied
         \item $\{c_0\}\to b_1$ can be specialized to $\{c_0,a_1\}\to b_1$ to make $b_1$ unreachable
         \item $\{d_1,c_0\}\to a_1$ can only be generalized to $\{c_0\}\to a_1 $ as $(\alpha,d_1)\in U_K$
