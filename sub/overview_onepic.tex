@@ -46,6 +46,9 @@
         \draw [->,color=blue] (partObs) -- node [above,midway] (learning) {Learning} (brn);
         \node [color=blue,right = of realSys,label=above:{Biological \textit{a priori} knowledge}] (bioNet) {\includegraphics[scale=0.2]{biologicalNetwork.jpg}};
         \draw [dashed,->] (realSys) -- (bioNet);
+        \transp{realSys}
+        \transp{partObs}
+        \transp{bioNet}
         \node [color=blue,right = of bioNet,label=above:{Reachability properties}] (reach) {\includegraphics[scale=0.7]{reachability.pdf}};
         \draw [dashed, ->] (bioNet) -- (reach);
         \draw [->,color=red] (brn) edge[bend left] node [below right,near start] (modelCheck) {Model Checking} (reach);

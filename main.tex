@@ -56,7 +56,7 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
 }
 \date[May 24, 2019]{May 24, 2019}
 \begin{document}
-\begin{frame}[plain]
+\begin{frame}[plain,noframenumbering]
   \titlepage
 \end{frame}
 
@@ -88,6 +88,8 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
 \section{Model Inference}
 \subsection{Overview}
 %\input{problematic_model_inference.tex}
+\againframe<11>{prob}
+
 \input{overview_onepic.tex}
 \input{learning_and_revising.tex}
 
@@ -105,11 +107,18 @@ Le Laboratoire des Sciences du Numérique de Nantes\\
 \section{Conclusion}
 \input{conclusion.tex}
 
+\begin{frame}[plain,noframenumbering]
+  \titlepage
+\end{frame}
+
+\setbeamertemplate{footline}{}
 \section{References}
-\begin{frame}[allowframebreaks]{Bibliography}
+\begin{frame}[noframenumbering,allowframebreaks]{Bibliography}
 \footnotesize
+\addtocounter{framenumber}{-1}
     \bibliographystyle{alpha}
     \bibliography{bib}
 \end{frame}
 \input{self_regulation.tex}
+\input{current_pint_test.tex}
 \end{document}

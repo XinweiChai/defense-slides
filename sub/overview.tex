@@ -37,7 +37,7 @@
     \tikzstyle{line} = [draw, -latex']
 \newcommand<>{\transp}[1]{\fill [draw=none, fill=white, fill opacity=0.7] (#1.north west) -- (#1.north east) -- (#1.south east) -- (#1.south west) -- (#1.north west) -- cycle;}
 \begin{document}
-\begin{frame}{Problematics}
+\begin{frame}[label=prob]{Problematics}
     \begin{tikzpicture}[line,>=stealth]
         \onslide<+->{\node [label=above:{Real system dynamics}] (realSys) { \includegraphics[scale=0.5]{realSystem.pdf}};
         }
@@ -55,16 +55,18 @@
         \draw [dashed,->] (realSys) -- (bioNet);
         }
         
-        \onslide<+->{\node [color=blue,right = of bioNet,label=above:{Reachability properties}] (reach) {\includegraphics[scale=0.7]{reachability.pdf}};
+        \onslide<+->{
+        \transp{realSys}
+        \transp{partObs}
+        \transp{bioNet}
+        \node [color=blue,right = of bioNet,label=above:{Reachability properties}] (reach) {\includegraphics[scale=0.7]{reachability.pdf}};
         \draw [dashed, ->] (bioNet) -- (reach);
         }
         \onslide<+->{\draw [->,color=red] (brn) edge[bend left] node [below right,near start] (modelCheck) {Model Checking} (reach);}
         
         \onslide<+->{\draw [->,color=blue] (reach) edge[bend left] node [below right,midway] (revising) {Revising} (brn);}
         \onslide<+->{
-        \transp{realSys}
-        \transp{partObs}
-        \transp{bioNet}
+
         \node[draw,ellipse,thick,color=yellow,fit=(modelCheck) (revising),label=below right:\textbf{My work}] (work){};
         }
         \onslide<+->{

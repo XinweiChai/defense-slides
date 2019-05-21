@@ -39,32 +39,17 @@
 \usepackage{cancel}
 \newcommand{\highlight}[1]{\textcolor{blue!50}{\textbf{#1}}}
 \begin{document}
-\begin{frame}{Summary of Model Inference}    
-\begin{itemize}
-\item Aim: use time-series data + reachability properties to infer the real system
-\pause
-\item Inference = Learning + Revising
-\pause
-\begin{tabular}{c|c|c}
-     &CRAC & M2RIT \\
-     \hline
-    Learning phase & Correlation Coefficients & \makecell{Learning from Interpretation\\ Transitions (LFIT)}
-    \pause\\
-     \hline
-     Revising phase & \makecell{Cut set +\\ completion set} & \makecell{Heuristic revision+\\time-series data}
-     \pause\\
-     \hline
-     Data type &Continuous & Discrete
-     \pause\\
-     \hline
-     \makecell{Tolerance to\\ noise}&Yes&No
-\end{tabular}
-\pause
-\item Test result: we obtain models reproducing original time-series data and satisfying given reachability properties, but not identical to real system
-\pause
-\begin{itemize}
-    \item By picking only reachability as revision criteria, inferred models are bisimilar to original systems in the sense of reachability
-\end{itemize}
-\end{itemize}
-\end{frame}
+\begin{frame}[noframenumbering]{Test on Pint up to Date}
+    \begin{itemize}[<+(-1)->]
+        \item The last release of Pint is version 2018-11-30
+        \item It returns inconclusive instances in the counterexample given in the presentation and also in $\lambda$-phage model
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    \input{figures/LCG_limitation.tex}
+    
+    \pause
+    \vspace{0.5cm}
+    \input{figures/lambda_phage.tex}    
+\end{frame}	
 \end{document}
