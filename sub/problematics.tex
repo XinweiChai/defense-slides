@@ -47,7 +47,7 @@
         \onslide<+->{\node [below = of realSys,label=below:{Time series data}] (partObs) {\includegraphics[scale=0.1]{tsd.png}};
         \draw [dashed,->] (realSys) -- (partObs);
         }
-        \onslide<+->{\node [right = 1.5cm of partObs,label=below:{Biological regulatory network}](brn){\includegraphics[scale=0.15]{brn.png}};
+        \onslide<+->{\node [right = 1.5cm of partObs,label=below:{Biological network}](brn){\includegraphics[scale=0.15]{brn.png}};
         \draw [->,color=blue] (partObs) -- node [above,midway] (learning) {Learning} (brn);
         }
         \onslide<+->{\draw [->,thick,color=blue!50] (brn) to node [below left,midway] {\textbf{Reproducible?}} (realSys);}
