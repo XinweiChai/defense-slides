@@ -1,11 +1,11 @@
 \begin{tikzpicture}[scale=0.7]
 \scriptsize
-    \only<2-3>{\begin{axis}[samples=100,legend pos=north west,legend style={draw=none},xmin=-3,xmax=3,ymin=-0.1,ymax=1.1]
-        \only<2>{\addplot[mark=none,color=red,domain= -3:3] {1/(1+exp(-2*x))};}
+    \only<2-3|handout:0>{\begin{axis}[samples=100,legend pos=north west,legend style={draw=none},xmin=-3,xmax=3,ymin=-0.1,ymax=1.1]
+        \only<2|handout:0>{\addplot[mark=none,color=red,domain= -3:3] {1/(1+exp(-2*x))};}
         \only<3->{\addplot[mark=none,color=red,domain=-3:0] {0};}
         \only<3->{\addplot[mark=none,color=red,domain=0:3] {1};}
         \only<3->{\addplot[fill=white,only marks,mark=*] coordinates{(0,0)(0,1)};}
-        \only<2>{\addlegendentry{\normalsize{$f(x)=\frac{1}{1+e^{-x}}$}}}
+        \only<2|handout:0>{\addlegendentry{\normalsize{$f(x)=\frac{1}{1+e^{-x}}$}}}
         \only<3->{\addlegendentry{{\normalsize $f(x)$}$ =\begin{cases}0,&{\mbox{if }}x<0\\x,&{\mbox{if }}x= 1\end{cases}$}}
     \end{axis}
     }

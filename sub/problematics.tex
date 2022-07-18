@@ -1,43 +1,4 @@
-\documentclass[8pt]{beamer}
-\usepackage[english]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usetheme{Warsaw}
-\useoutertheme{infolines} 
-\setbeamertemplate{items}[ball]
-\usepackage{algorithm}
-\usepackage{fancybox}
-\usepackage{hyperref}
-\usepackage{tikz}
-\usetikzlibrary{automata,calc,er}
-\usetikzlibrary{mindmap,scopes,arrows,arrows.meta,shapes,chains,positioning,fit,backgrounds,decorations,intersections,petri,decorations.pathmorphing}
-\usepackage{pgf}
-\usepackage{pgfplots}
-\pgfplotsset{compat=1.13}
-\usetikzlibrary{pgfplots.fillbetween}
-\pgfdeclarelayer{ft}
-\pgfdeclarelayer{bg}
-\pgfsetlayers{bg,main,ft}
-\usepackage{graphics}
-\usepackage{amssymb}
-\usepackage{adjustbox}
-\usepackage{wasysym}
-\usepackage{siunitx}
-\usepackage{makecell}
-\usepackage{kbordermatrix}
-\usepackage{mathtools}
-\usepackage{calc}
-\usepackage{fp}
-\usepackage{docmute}
-\usepackage{graphicx}
-\graphicspath{{figures/}}
-\tikzstyle{block} = [rectangle, draw, fill=blue!20, 
-    text width=6em, text centered, rounded corners, minimum height=4em]
-    \tikzstyle{line} = [draw, -latex']
-\newcommand<>{\transp}[1]{\fill [draw=none, fill=white, fill opacity=0.7] (#1.north west) -- (#1.north east) -- (#1.south east) -- (#1.south west) -- (#1.north west) -- cycle;}
-\begin{document}
-\begin{frame}<1-11>[label=prob]{Problematics}
+\begin{frame}<all:1-11>[label=prob]{Problematics}
     \begin{tikzpicture}[line,>=stealth]
         \onslide<+->{\node [label=above:{Real system dynamics}] (realSys) { \includegraphics[scale=0.5]{realSystem.pdf}};
         }
@@ -68,14 +29,14 @@
         \node[draw,ellipse,thick,color=yellow,fit=(modelCheck) (revising),label=below right:\textbf{My work}] (work){};
         \node[draw,ellipse,thick,color=yellow,fit=(learning)] (work21){};
         }
-        \onslide<12>{
+        \onslide<all:12>{
         \node[draw,ellipse,thick,color=yellow,fit=(modelCheck)] (work1){};
         }
-        \onslide<13>{
+        \onslide<all:13>{
         \node[draw,ellipse,thick,color=yellow,fit=(learning)] (work21){};
         \node[draw,ellipse,thick,color=yellow,fit=(revising)] (work22){};
         }
-        \onslide<+->{
+        \onslide<all:+->{
             \draw[->,color=blue] (current bounding box.south east)
             ++(-6em, 0em) -- ++(2em, 0)
             node[right] {Inference};
@@ -85,4 +46,3 @@
         }
     \end{tikzpicture}
 \end{frame}
-\end{document}
